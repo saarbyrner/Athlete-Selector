@@ -210,7 +210,7 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
 
                   {/* Position subheader for position grouping */}
                   {sortBy === 'position' && (
-                    <Box sx={{ px: 2, py: 1 }}>
+                    <Box sx={{ px: 2, py: 0 }}>
                       <Typography
                         variant="body2"
                         sx={{

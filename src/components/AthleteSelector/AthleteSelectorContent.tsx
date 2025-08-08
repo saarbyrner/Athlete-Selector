@@ -130,13 +130,14 @@ export const AthleteSelectorContent: React.FC<AthleteSelectorContentProps> = ({
       {/* Header */}
       <Box
         sx={{
-          p: isCompact ? 2 : 3,
+          py: 1,
+          px: isCompact ? 2 : 3,
           borderBottom: '1px solid',
           borderColor: 'divider',
           flexShrink: 0,
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 0 }}>
           {showBackButton && (
             <IconButton
               onClick={onBack}
@@ -232,7 +233,8 @@ export const AthleteSelectorContent: React.FC<AthleteSelectorContentProps> = ({
       {/* Footer */}
       <Box
         sx={{
-          p: isCompact ? 2 : 3,
+          py: 1,
+          px: isCompact ? 2 : 3,
           borderTop: '1px solid',
           borderColor: 'divider',
           flexShrink: 0,

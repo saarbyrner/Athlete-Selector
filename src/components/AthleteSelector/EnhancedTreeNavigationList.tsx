@@ -372,7 +372,7 @@ export const EnhancedTreeNavigationList: React.FC<EnhancedTreeNavigationListProp
                       disabled={!isClickable}
                       sx={{
                         px: 2,
-                        py: 1.5,
+                        py: 1,
                         '&:hover': {
                           backgroundColor: node.name === 'U23' && navigationPath.length === 0 ? 'action.selected' : 'action.hover',
                         },

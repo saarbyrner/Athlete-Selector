@@ -9,6 +9,7 @@ import {
   useTheme,
   useMediaQuery,
   Chip,
+  Stack,
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -127,48 +128,39 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
       {/* Header */}
       <Box
         sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          px: 3,
-          py: 2,
+          py: 1,
+          px: isCompact ? 2 : 3,
           borderBottom: '1px solid',
           borderColor: 'divider',
           flexShrink: 0,
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 0 }}>
           {showBackButton && onBack && (
             <IconButton
               onClick={onBack}
-              size="small"
+              size={isCompact ? 'small' : 'medium'}
               sx={{ mr: 1 }}
             >
               <ArrowBackIcon />
             </IconButton>
           )}
-          <Typography variant="h6" color="text.primary">
+          <Typography
+            variant={isCompact ? 'h6' : 'h5'}
+            fontWeight="semibold"
+            sx={{ flexGrow: 1 }}
+          >
             {title}
           </Typography>
+          {onClose && (
+            <IconButton onClick={onClose} size={isCompact ? 'small' : 'medium'}>
+              <CloseIcon />
+            </IconButton>
+          )}
         </Box>
-        {onClose && (
-          <IconButton onClick={onClose} size="small">
-            <CloseIcon />
-          </IconButton>
-        )}
-      </Box>
 
-      <Box
-        sx={{
-          px: 3,
-          py: 2,
-          borderBottom: '1px solid',
-          borderColor: 'divider',
-          flexShrink: 0,
-        }}
-      >
         {/* Controls - Single Row */}
-        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', mb: 1 }}>
+        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', mb: 0 }}>
           {/* Squad Selector */}
           <Box sx={{ minWidth: 140, flexShrink: 0 }}>
             <ExpandableSquadSelector
@@ -208,21 +200,18 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
         </Box>
 
         {/* Selected Athletes Chip - Separate Row */}
-        {selectedAthletes.length > 0 && (
-          <Box>
-            <Chip
-              label={`${selectedAthletes.length} selected`}
-              color="primary"
-              variant="outlined"
-              size="small"
-              onDelete={() => onSelectionChange([])}
-              sx={{
-                fontFamily: '"Open Sans", sans-serif',
-                fontSize: '0.75rem',
-              }}
-            />
-          </Box>
-        )}
+        <Stack spacing={1}>
+          {selectedAthletes.length > 0 && (
+            <Box>
+              <Chip
+                label={`${selectedAthletes.length} selected`}
+                color="primary"
+                size="small"
+                onDelete={() => onSelectionChange([])}
+              />
+            </Box>
+          )}
+        </Stack>
       </Box>
 
       {/* Content - Simple Tree Navigation */}
@@ -238,7 +227,8 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
       {/* Footer */}
       <Box
         sx={{
-          p: isCompact ? 2 : 3,
+          py: 1,
+          px: isCompact ? 2 : 3,
           borderTop: '1px solid',
           borderColor: 'divider',
           flexShrink: 0,

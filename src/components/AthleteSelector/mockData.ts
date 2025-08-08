@@ -1,6 +1,7 @@
 import { Athlete } from './types';
 
-export const mockAthletes: Athlete[] = [
+// Base list preserved so existing IDs (used in stories) still work
+const baseAthletes: Athlete[] = [
   // U23 Athletes (not in current squads filter)
   {
     id: 'adams-john',
@@ -189,24 +190,6 @@ export const mockAthletes: Athlete[] = [
     avatar: 'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face',
   },
 
-  // U15 Athletes
-  {
-    id: 'taylor-liam',
-    name: 'Taylor, Liam',
-    position: 'Goalkeeper',
-    ageGroup: 'U15',
-    status: 'available',
-    avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&h=150&fit=crop&crop=face',
-  },
-  {
-    id: 'walker-mason',
-    name: 'Walker, Mason',
-    position: 'Defender',
-    ageGroup: 'U15',
-    status: 'available',
-    avatar: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=150&h=150&fit=crop&crop=face',
-  },
-
   // U14 Athletes
   {
     id: 'young-oliver',
@@ -225,3 +208,62 @@ export const mockAthletes: Athlete[] = [
     avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face',
   },
 ];
+
+// Helper: create additional players per squad until target size is reached
+const POSITIONS = ['Goalkeeper', 'Defender', 'Midfielder', 'Winger', 'Striker', 'Centre forward'] as const;
+const STATUSES: Athlete['status'][] = ['available', 'unavailable', 'injured'];
+const AVATARS = [
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+  'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face',
+  'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
+  'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face',
+];
+
+function placeholderAvatar(text: string) {
+  return `https://via.placeholder.com/150?text=${encodeURIComponent(text)}`;
+}
+
+function ensureSquadSize(all: Athlete[], ageGroup: string, target: number, seed = 1): Athlete[] {
+  const output = [...all];
+  const current = output.filter(a => a.ageGroup === ageGroup);
+  let i = 0;
+  while (output.filter(a => a.ageGroup === ageGroup).length < target) {
+    const index = seed + i;
+    const position = POSITIONS[index % POSITIONS.length];
+    const status = STATUSES[index % STATUSES.length];
+    const last = ['Smith', 'Brown', 'Johnson', 'Taylor', 'Miller', 'Wilson'][index % 6];
+    const first = ['Alex', 'Jamie', 'Jordan', 'Casey', 'Drew', 'Riley'][index % 6];
+    const name = `${last}, ${first}`;
+
+    const avatarChoice = index % 5 === 0
+      ? undefined
+      : index % 2 === 0
+        ? AVATARS[index % AVATARS.length]
+        : placeholderAvatar(ageGroup);
+
+    output.push({
+      id: `gen-${ageGroup}-${index}`,
+      name,
+      position,
+      ageGroup,
+      status,
+      avatar: avatarChoice,
+    });
+    i += 1;
+  }
+  return output;
+}
+
+// Build final list: guarantee ~25 per current squads (U21, U19, U17)
+let built: Athlete[] = [...baseAthletes];
+
+built = ensureSquadSize(built, 'U21', 25);
+built = ensureSquadSize(built, 'U19', 25, 100);
+built = ensureSquadSize(built, 'U17', 25, 200);
+
+// Optionally add a few extras for depth in other squads (keeps previous data as-is)
+built = ensureSquadSize(built, 'U23', Math.max(12, built.filter(a => a.ageGroup === 'U23').length));
+
+export const mockAthletes: Athlete[] = built;

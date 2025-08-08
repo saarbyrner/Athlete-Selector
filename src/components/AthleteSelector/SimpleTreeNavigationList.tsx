@@ -144,7 +144,7 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
                 onClick={() => handleSquadSelect(squad)}
                 sx={{
                   px: 2,
-                  py: 1.5,
+                  py: 1,
                   '&:hover': {
                     backgroundColor: isHighlighted ? 'action.selected' : 'action.hover',
                   },

@@ -172,7 +172,7 @@ export const TreeNavigationList: React.FC<TreeNavigationListProps> = ({
                 onClick={() => handleSquadSelect(squad)}
                 sx={{
                   px: 2,
-                  py: 1.5,
+                  py: 1,
                   '&:hover': {
                     backgroundColor: isHighlighted ? 'action.selected' : 'action.hover',
                   },

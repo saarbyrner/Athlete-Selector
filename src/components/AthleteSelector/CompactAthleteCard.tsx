@@ -39,7 +39,7 @@ export const CompactAthleteCard: React.FC<CompactAthleteCardProps> = ({
         alignItems: 'center',
         py: 1,
         px: 2,
-        minHeight: 52,
+        minHeight: 48,
         backgroundColor: isSelected ? 'action.selected' : 'transparent',
         '&:hover': {
           backgroundColor: isSelected ? 'action.selected' : 'action.hover',
@@ -65,7 +65,7 @@ export const CompactAthleteCard: React.FC<CompactAthleteCardProps> = ({
       />
 
       {/* Avatar or Group Icon */}
-      <Box sx={{ mr: 1.5, position: 'relative' }}>
+      <Box sx={{ mr: 1, position: 'relative' }}>
         <Avatar
           src={isAggregate ? undefined : athlete.avatar}
           alt={athlete.name}
@@ -95,8 +95,8 @@ export const CompactAthleteCard: React.FC<CompactAthleteCardProps> = ({
             fontSize: '1rem',
             fontWeight: 400,
             color: 'text.primary',
-            lineHeight: 1.5,
-            mb: 0.25,
+            lineHeight: 1.3,
+            mb: 0,
           }}
         >
           {athlete.name}
@@ -108,7 +108,7 @@ export const CompactAthleteCard: React.FC<CompactAthleteCardProps> = ({
             fontSize: '0.875rem',
             fontWeight: 400,
             color: 'text.secondary',
-            lineHeight: 1.66,
+            lineHeight: 1.3,
           }}
         >
           {athlete.position}

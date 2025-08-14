@@ -8,7 +8,6 @@ import {
   Typography,
   IconButton,
   Paper,
-  useTheme,
 } from '@mui/material';
 import {
   ChevronRight as ChevronRightIcon,
@@ -37,7 +36,6 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
   onSelectionChange,
   sortBy,
 }) => {
-  const theme = useTheme();
   const [selectedSquad, setSelectedSquad] = useState<Squad | null>(null);
 
   // Group athletes by squad/age group - ONLY ONE LEVEL

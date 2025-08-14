@@ -227,7 +227,6 @@ function placeholderAvatar(text: string) {
 
 function ensureSquadSize(all: Athlete[], ageGroup: string, target: number, seed = 1): Athlete[] {
   const output = [...all];
-  const current = output.filter(a => a.ageGroup === ageGroup);
   let i = 0;
   while (output.filter(a => a.ageGroup === ageGroup).length < target) {
     const index = seed + i;

@@ -19,7 +19,7 @@ import {
   CompactAthleteCard,
 } from '../components/AthleteSelector';
 import { mockAthletes } from '../components/AthleteSelector/mockData';
-import { Athlete } from '../components/AthleteSelector/types';
+// import { Athlete } from '../components/AthleteSelector/types';
 
 // Create a custom theme matching the MUI design system
 const theme = createTheme({

@@ -4,7 +4,6 @@ import {
   Menu,
   MenuItem,
   ListItemText,
-  useTheme,
 } from '@mui/material';
 import { Sort as SortIcon } from '@mui/icons-material';
 
@@ -25,7 +24,6 @@ export const SortMenu: React.FC<SortMenuProps> = ({
   currentSort,
   onSortChange,
 }) => {
-  const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 

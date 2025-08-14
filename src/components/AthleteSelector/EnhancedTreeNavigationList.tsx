@@ -12,7 +12,6 @@ import {
   Link,
   Chip,
   Button,
-  useTheme,
 } from '@mui/material';
 import {
   ChevronRight as ChevronRightIcon,
@@ -54,7 +53,6 @@ export const EnhancedTreeNavigationList: React.FC<EnhancedTreeNavigationListProp
   onSelectionChange,
   searchTerm = '',
 }) => {
-  const theme = useTheme();
   const [navigationPath, setNavigationPath] = useState<NavigationLevel[]>([]);
 
   // Build comprehensive tree structure
@@ -129,8 +127,6 @@ export const EnhancedTreeNavigationList: React.FC<EnhancedTreeNavigationListProp
       return treeStructure; // Root level - show squads
     }
 
-    const currentPath = navigationPath[navigationPath.length - 1];
-    
     // Navigate through the tree to find current level
     let currentNodes = treeStructure;
     for (const pathItem of navigationPath) {
@@ -148,8 +144,6 @@ export const EnhancedTreeNavigationList: React.FC<EnhancedTreeNavigationListProp
 
   const getCurrentAthletes = (): Athlete[] => {
     if (navigationPath.length === 0) return [];
-    
-    const currentPath = navigationPath[navigationPath.length - 1];
     
     // Navigate through the tree to find athletes
     let currentNode: TreeNode | undefined;
@@ -346,7 +340,7 @@ export const EnhancedTreeNavigationList: React.FC<EnhancedTreeNavigationListProp
                 key={athlete.id}
                 athlete={athlete}
                 isSelected={selectedAthletes.includes(athlete.id)}
-                onToggle={onSelectionChange}
+                onToggle={(id) => onSelectionChange(id, !selectedAthletes.includes(id))}
               />
             ))}
           </Box>

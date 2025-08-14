@@ -8,14 +8,13 @@ import {
   Typography,
   IconButton,
   Paper,
-  useTheme,
 } from '@mui/material';
 import {
   ChevronRight as ChevronRightIcon,
   ArrowBack as ArrowBackIcon,
 } from '@mui/icons-material';
 import { CompactAthleteCard } from './CompactAthleteCard';
-import { SortMenu, SortOption } from './SortMenu';
+
 import { Athlete } from './types';
 
 interface Squad {
@@ -28,16 +27,13 @@ interface TreeNavigationListProps {
   athletes: Athlete[];
   selectedAthletes: string[];
   onSelectionChange: (athleteId: string, selected: boolean) => void;
-  sortBy: SortOption;
 }
 
 export const TreeNavigationList: React.FC<TreeNavigationListProps> = ({
   athletes,
   selectedAthletes,
   onSelectionChange,
-  sortBy,
 }) => {
-  const theme = useTheme();
   const [selectedSquad, setSelectedSquad] = useState<Squad | null>(null);
 
   // Group athletes by squad/age group
@@ -145,7 +141,7 @@ export const TreeNavigationList: React.FC<TreeNavigationListProps> = ({
               key={athlete.id}
               athlete={athlete}
               isSelected={selectedAthletes.includes(athlete.id)}
-              onToggle={onSelectionChange}
+              onToggle={(id) => onSelectionChange(id, !selectedAthletes.includes(id))}
             />
           ))}
         </Box>
@@ -157,7 +153,7 @@ export const TreeNavigationList: React.FC<TreeNavigationListProps> = ({
   return (
     <Paper elevation={0} sx={{ width: '100%' }}>
       <List sx={{ py: 0 }}>
-        {squads.map((squad, index) => {
+        {squads.map((squad) => {
           const isHighlighted = squad.name === 'U23'; // Highlight U23s as shown in Figma
           
           return (

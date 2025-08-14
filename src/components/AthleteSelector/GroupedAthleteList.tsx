@@ -51,7 +51,7 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
   };
 
   const handleAccordionChange = (groupId: string) => (
-    event: React.SyntheticEvent,
+    _event: React.SyntheticEvent,
     isExpanded: boolean
   ) => {
     setExpandedGroups(prev => 
@@ -113,9 +113,9 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
     <Box sx={{ width: '100%' }}>
       {athleteGroups.map((group, index) => {
         const isExpanded = expandedGroups.includes(group.id);
-        const groupSelectedCount = group.athletes.filter(athlete =>
-          selectedAthletes.includes(athlete.id)
-        ).length;
+        // const groupSelectedCount = group.athletes.filter(athlete =>
+        //   selectedAthletes.includes(athlete.id)
+        // ).length;
 
         return (
           <Box key={group.id}>

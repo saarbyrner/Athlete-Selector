@@ -21,6 +21,10 @@ export interface Position {
   athletes: Athlete[];
 }
 
+// Shared view types
+export type GroupBy = 'squad' | 'status' | 'position';
+export type SortOrder = 'asc' | 'desc';
+
 export interface FilterOptions {
   searchTerm: string;
   selectedAgeGroups: string[];

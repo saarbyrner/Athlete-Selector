@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Box,
   Accordion,
@@ -10,14 +10,15 @@ import {
 } from '@mui/material';
 import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { CompactAthleteCard } from './CompactAthleteCard';
-import { Athlete } from './types';
-import { SortOption } from './SortMenu';
+import { Athlete, GroupBy, SortOrder } from './types';
 
 interface GroupedAthleteListProps {
   athletes: Athlete[];
   selectedAthletes: string[];
   onSelectionChange: (athleteId: string, selected: boolean) => void;
-  sortBy: SortOption;
+  groupBy: GroupBy;
+  order: SortOrder;
+  showOnlySelected?: boolean;
 }
 
 interface AthleteGroup {
@@ -31,7 +32,9 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
   athletes,
   selectedAthletes,
   onSelectionChange,
-  sortBy,
+  groupBy,
+  order,
+  showOnlySelected = false,
 }) => {
   const [expandedGroups, setExpandedGroups] = useState<string[]>(['Forward']); // Default expanded
 
@@ -61,53 +64,56 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
     );
   };
 
-  // Group athletes based on sort option
-  const groupAthletes = (athletes: Athlete[]): AthleteGroup[] => {
-    const groups: { [key: string]: Athlete[] } = {};
+  // Compute display list with optional selected-only filter
+  const displayAthletes = useMemo(() => {
+    return showOnlySelected
+      ? athletes.filter(a => selectedAthletes.includes(a.id))
+      : athletes;
+  }, [athletes, selectedAthletes, showOnlySelected]);
 
-    athletes.forEach(athlete => {
-      let groupKey: string;
-      
-      switch (sortBy) {
-        case 'position':
-          groupKey = athlete.position;
-          break;
-        case 'status':
-          groupKey = athlete.status;
-          break;
-        case 'squad':
-        default:
-          groupKey = athlete.ageGroup;
-          break;
-      }
-
-      if (!groups[groupKey]) {
-        groups[groupKey] = [];
-      }
-      groups[groupKey].push(athlete);
+  // Group athletes based on groupBy
+  const athleteGroups = useMemo(() => {
+    const groups: Record<string, Athlete[]> = {};
+    displayAthletes.forEach((athlete) => {
+      const key = groupBy === 'position' ? athlete.position : groupBy === 'status' ? athlete.status : athlete.ageGroup;
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(athlete);
     });
 
-    return Object.entries(groups).map(([key, groupAthletes]) => {
-      // Create aggregate athlete for position groups
-      const aggregateAthlete: Athlete | undefined = sortBy === 'position' ? {
+    // Sort within groups by name according to order
+    const sortedGroups: AthleteGroup[] = Object.entries(groups).map(([key, groupAthletes]) => {
+      const within = [...groupAthletes].sort((a, b) => a.name.localeCompare(b.name));
+      if (order === 'desc') within.reverse();
+
+      const aggregateAthlete: Athlete | undefined = groupBy === 'position' ? {
         id: `${key}-aggregate`,
         name: key,
         position: 'Aggregate',
-        ageGroup: groupAthletes[0]?.ageGroup || 'U23',
-        status: 'available' as const,
+        ageGroup: within[0]?.ageGroup || 'U23',
+        status: 'available',
         avatar: '',
       } : undefined;
 
       return {
         id: key,
         name: key,
-        athletes: groupAthletes,
+        athletes: within,
         aggregateAthlete,
       };
     });
-  };
 
-  const athleteGroups = groupAthletes(athletes);
+    // Keep group headers in a natural order: for squads by age (U23,U21..), otherwise A→Z
+    const byAge = (name: string) => {
+      const m = name.match(/U(\d+)/);
+      return m ? parseInt(m[1], 10) : 0;
+    };
+    sortedGroups.sort((a, b) => {
+      if (groupBy === 'squad') return byAge(b.name) - byAge(a.name);
+      return a.name.localeCompare(b.name);
+    });
+
+    return sortedGroups;
+  }, [displayAthletes, groupBy, order]);
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -209,7 +215,7 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
                   )}
 
                   {/* Position subheader for position grouping */}
-                  {sortBy === 'position' && (
+                  {groupBy === 'position' && (
                     <Box sx={{ px: 2, py: 0 }}>
                       <Typography
                         variant="body2"

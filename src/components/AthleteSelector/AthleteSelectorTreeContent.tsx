@@ -18,8 +18,8 @@ import {
 } from '@mui/icons-material';
 import { ExpandableSquadSelector } from './ExpandableSquadSelector';
 import { SimpleTreeNavigationList } from './SimpleTreeNavigationList';
-import { SortMenu, SortOption } from './SortMenu';
-import { AthleteSelectorContentProps, FilterOptions } from './types';
+import { SortMenu } from './SortMenu';
+import { AthleteSelectorContentProps, FilterOptions, GroupBy, SortOrder } from './types';
 import {
   filterAthletes,
   sortAthletes,
@@ -51,12 +51,19 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
     sortOrder: 'asc',
   });
 
-  const [sortBy, setSortBy] = useState<SortOption>('position');
+  const [groupBy, setGroupBy] = useState<GroupBy>('position');
+  const [order, setOrder] = useState<SortOrder>('asc');
+  const [menuSelection, setMenuSelection] = useState<string>('current');
 
   const filteredAthletes = useMemo(() => {
     const filtered = filterAthletes(athletes, filters);
     return sortAthletes(filtered, filters.sortBy, filters.sortOrder);
   }, [athletes, filters]);
+  const viewAthletes = useMemo(() => {
+    return menuSelection === 'selected'
+      ? filteredAthletes.filter(a => selectedAthletes.includes(a.id))
+      : filteredAthletes;
+  }, [filteredAthletes, selectedAthletes, menuSelection]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilters(prev => ({ ...prev, searchTerm: event.target.value }));
@@ -64,24 +71,23 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
 
   const handleSquadChange = (squadId: string) => {
     // Map the new squad selector options to our existing filter logic
-    let filterValue = squadId;
+    let filterValue = 'all';
+    setMenuSelection(squadId);
     switch (squadId) {
-      case 'selected':
-        // Show only selected athletes - we'll handle this differently
-        filterValue = 'all';
-        break;
       case 'current':
         filterValue = 'current';
+        setGroupBy('squad');
         break;
-      case 'labels':
-      case 'groups':
       case 'status':
+        setGroupBy('status');
+        break;
       case 'position-groups':
-      case 'historical':
-        filterValue = 'all'; // For now, these show all athletes
+      case 'selected':
+        setGroupBy('position');
         break;
       default:
-        filterValue = 'all';
+        // keep current grouping
+        break;
     }
     setFilters(prev => ({ ...prev, selectedSquad: filterValue }));
   };
@@ -93,9 +99,7 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
     onSelectionChange(newSelection);
   };
 
-  const handleSortChange = (sort: SortOption) => {
-    setSortBy(sort);
-  };
+  const handleOrderChange = (next: SortOrder) => setOrder(next);
 
   if (loading) {
     return (
@@ -164,7 +168,7 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
           {/* Squad Selector */}
           <Box sx={{ minWidth: 140, flexShrink: 0 }}>
             <ExpandableSquadSelector
-              selectedSquad={filters.selectedSquad === 'current' ? 'current' : 'all'}
+              selectedSquad={menuSelection}
               onSquadChange={handleSquadChange}
               selectedCount={selectedAthletes.length}
               compact={true}
@@ -193,10 +197,7 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
           />
 
           {/* Sort Menu */}
-          <SortMenu
-            currentSort={sortBy}
-            onSortChange={handleSortChange}
-          />
+          <SortMenu order={order} onChange={handleOrderChange} />
         </Box>
 
         {/* Selected Athletes Chip - Separate Row */}
@@ -217,10 +218,11 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
       {/* Content - Simple Tree Navigation */}
       <Box sx={{ flexGrow: 1, overflow: 'auto' }}>
         <SimpleTreeNavigationList
-          athletes={filteredAthletes}
+          athletes={viewAthletes}
           selectedAthletes={selectedAthletes}
           onSelectionChange={handleAthleteSelection}
-          sortBy={sortBy}
+          sortBy={groupBy}
+          order={order}
         />
       </Box>
 

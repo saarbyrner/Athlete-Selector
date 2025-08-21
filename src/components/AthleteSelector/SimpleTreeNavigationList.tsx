@@ -14,8 +14,7 @@ import {
   ArrowBack as ArrowBackIcon,
 } from '@mui/icons-material';
 import { GroupedAthleteList } from './GroupedAthleteList';
-import { SortOption } from './SortMenu';
-import { Athlete } from './types';
+import { Athlete, SortOrder } from './types';
 
 interface Squad {
   id: string;
@@ -27,7 +26,8 @@ interface SimpleTreeNavigationListProps {
   athletes: Athlete[];
   selectedAthletes: string[];
   onSelectionChange: (athleteId: string, selected: boolean) => void;
-  sortBy: SortOption;
+  sortBy: 'squad' | 'status' | 'position';
+  order?: SortOrder;
 }
 
 export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> = ({
@@ -35,6 +35,7 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
   selectedAthletes,
   onSelectionChange,
   sortBy,
+  order = 'asc',
 }) => {
   const [selectedSquad, setSelectedSquad] = useState<Squad | null>(null);
 
@@ -116,7 +117,8 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
             athletes={selectedSquad.athletes}
             selectedAthletes={selectedAthletes}
             onSelectionChange={onSelectionChange}
-            sortBy={sortBy}
+            groupBy={sortBy}
+            order={order}
           />
         </Box>
       </Box>

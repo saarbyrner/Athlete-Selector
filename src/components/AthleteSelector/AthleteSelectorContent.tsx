@@ -18,8 +18,8 @@ import {
 } from '@mui/icons-material';
 import { ExpandableSquadSelector } from './ExpandableSquadSelector';
 import { GroupedAthleteList } from './GroupedAthleteList';
-import { SortMenu, SortOption } from './SortMenu';
-import { AthleteSelectorContentProps, FilterOptions } from './types';
+import { SortMenu } from './SortMenu';
+import { AthleteSelectorContentProps, FilterOptions, GroupBy, SortOrder } from './types';
 import {
   filterAthletes,
   sortAthletes,
@@ -50,8 +50,11 @@ export const AthleteSelectorContent: React.FC<AthleteSelectorContentProps> = ({
     sortBy: 'name',
     sortOrder: 'asc',
   });
-
-  const [sortBy, setSortBy] = useState<SortOption>('position');
+  // How to group the list; default to position per design
+  const [groupBy, setGroupBy] = useState<GroupBy>('position');
+  const [order, setOrder] = useState<SortOrder>('asc');
+  const [showOnlySelected, setShowOnlySelected] = useState(false);
+  const [menuSelection, setMenuSelection] = useState<string>('current');
 
   const filteredAthletes = useMemo(() => {
     const filtered = filterAthletes(athletes, filters);
@@ -65,26 +68,48 @@ export const AthleteSelectorContent: React.FC<AthleteSelectorContentProps> = ({
   };
 
   const handleSquadChange = (squadId: string) => {
-    // Map the new squad selector options to our existing filter logic
-    let filterValue = squadId;
-    switch (squadId) {
+    // Per issue: dropdown determines list and how they are grouped
+    // - selected: show only selected and group by position
+    // - current: current squads list, group by squad by default
+    // - status: show all, group by status
+    // - position-groups: show all, group by position
+    // - labels/groups/historical: currently behave like 'all' until domain data exists
+    let filterValue: string = 'all';
+    let nextGroupBy: GroupBy = groupBy;
+
+    setMenuSelection(squadId);
+  switch (squadId) {
       case 'selected':
-        // Show only selected athletes - we'll handle this differently
-        filterValue = 'all';
+    filterValue = 'all';
+    nextGroupBy = 'position';
+    setShowOnlySelected(true);
         break;
       case 'current':
         filterValue = 'current';
+    nextGroupBy = 'squad';
+    setShowOnlySelected(false);
+        break;
+      case 'status':
+        filterValue = 'all';
+    nextGroupBy = 'status';
+    setShowOnlySelected(false);
+        break;
+      case 'position-groups':
+        filterValue = 'all';
+    nextGroupBy = 'position';
+    setShowOnlySelected(false);
         break;
       case 'labels':
       case 'groups':
-      case 'status':
-      case 'position-groups':
       case 'historical':
-        filterValue = 'all'; // For now, these show all athletes
-        break;
       default:
         filterValue = 'all';
+        // keep existing groupBy
+    setShowOnlySelected(false);
+        break;
     }
+
+    setGroupBy(nextGroupBy);
     setFilters(prev => ({ ...prev, selectedSquad: filterValue }));
   };
 
@@ -95,8 +120,8 @@ export const AthleteSelectorContent: React.FC<AthleteSelectorContentProps> = ({
     onSelectionChange(newSelection);
   };
 
-  const handleSortChange = (sort: SortOption) => {
-    setSortBy(sort);
+  const handleOrderChange = (next: SortOrder) => {
+    setOrder(next);
   };
 
 
@@ -165,11 +190,11 @@ export const AthleteSelectorContent: React.FC<AthleteSelectorContentProps> = ({
         </Box>
 
         {/* Controls - Single Row */}
-        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+  <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
           {/* Squad Selector */}
           <Box sx={{ minWidth: 140, flexShrink: 0 }}>
             <ExpandableSquadSelector
-              selectedSquad={filters.selectedSquad === 'current' ? 'current' : 'all'}
+              selectedSquad={menuSelection}
               onSquadChange={handleSquadChange}
               selectedCount={selectedAthletes.length}
               compact={true}
@@ -198,10 +223,7 @@ export const AthleteSelectorContent: React.FC<AthleteSelectorContentProps> = ({
           />
 
           {/* Sort Menu */}
-          <SortMenu
-            currentSort={sortBy}
-            onSortChange={handleSortChange}
-          />
+          <SortMenu order={order} onChange={handleOrderChange} />
         </Box>
 
         {/* Selected Athletes Chip - Separate Row */}
@@ -226,7 +248,9 @@ export const AthleteSelectorContent: React.FC<AthleteSelectorContentProps> = ({
           athletes={filteredAthletes}
           selectedAthletes={selectedAthletes}
           onSelectionChange={handleAthleteSelection}
-          sortBy={sortBy}
+          groupBy={groupBy}
+          order={order}
+          showOnlySelected={showOnlySelected}
         />
       </Box>
 

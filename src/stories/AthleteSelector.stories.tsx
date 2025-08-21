@@ -746,7 +746,8 @@ export const GroupedAthleteListDemo: Story = {
   render: () => (
     <StatefulWrapper>
       {({ selectedAthletes, onSelectionChange }) => {
-        const [sortBy, setSortBy] = useState<'squad' | 'status' | 'position'>('position');
+  const [sortBy, setSortBy] = useState<'squad' | 'status' | 'position'>('position');
+  const [order, setOrder] = useState<'asc' | 'desc'>('asc');
         
         return (
           <Box sx={{ maxWidth: 500, mx: 'auto', p: 3 }}>
@@ -766,10 +767,7 @@ export const GroupedAthleteListDemo: Story = {
             }}>
               <Box sx={{ p: 2, borderBottom: 1, borderColor: 'divider', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Typography variant="subtitle1">Sort by: {sortBy}</Typography>
-                <SortMenu
-                  currentSort={sortBy}
-                  onSortChange={setSortBy}
-                />
+                <SortMenu order={order} onChange={setOrder} />
               </Box>
               
               <Box sx={{ overflow: 'auto', maxHeight: 500 }}>
@@ -782,7 +780,8 @@ export const GroupedAthleteListDemo: Story = {
                       : selectedAthletes.filter(id => id !== athleteId);
                     onSelectionChange(newSelection);
                   }}
-                  sortBy={sortBy}
+                  groupBy={sortBy}
+                  order={order}
                 />
               </Box>
             </Box>

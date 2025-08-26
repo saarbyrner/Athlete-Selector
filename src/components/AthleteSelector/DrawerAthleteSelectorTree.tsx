@@ -41,6 +41,7 @@ export const DrawerAthleteSelectorTree: React.FC<DrawerAthleteSelectorTreeProps>
       }}
       ModalProps={{
         keepMounted: true, // Better open performance on mobile
+        hideBackdrop: true,
       }}
     >
       <AthleteSelectorTreeContent

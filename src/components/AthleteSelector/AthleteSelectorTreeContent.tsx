@@ -17,13 +17,15 @@ import {
   ArrowBack as ArrowBackIcon,
 } from '@mui/icons-material';
 import { ExpandableSquadSelector } from './ExpandableSquadSelector';
+import { GroupedAthleteList } from './GroupedAthleteList';
 import { SimpleTreeNavigationList } from './SimpleTreeNavigationList';
 import { SortMenu } from './SortMenu';
-import { AthleteSelectorContentProps, FilterOptions, GroupBy, SortOrder } from './types';
+import { AthleteSelectorContentProps, FilterOptions, SortOrder } from './types';
 import {
   filterAthletes,
   sortAthletes,
 } from './utils';
+import { CompactAthleteCard } from './CompactAthleteCard';
 
 export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> = ({
   athletes,
@@ -51,9 +53,8 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
     sortOrder: 'asc',
   });
 
-  const [groupBy, setGroupBy] = useState<GroupBy>('position');
   const [order, setOrder] = useState<SortOrder>('asc');
-  const [menuSelection, setMenuSelection] = useState<string>('current');
+  const [menuSelection, setMenuSelection] = useState<string>('squads');
 
   const filteredAthletes = useMemo(() => {
     const filtered = filterAthletes(athletes, filters);
@@ -70,23 +71,28 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
   };
 
   const handleSquadChange = (squadId: string) => {
-    // Map the new squad selector options to our existing filter logic
+    // Updated dropdown options:
+    // - selected: show only selected and group by position
+    // - squads: current squads list, group by squad by default
+    // - free-agents: show empty listing for now
+    // - historical: flat list of historical athletes, group by position
     let filterValue = 'all';
     setMenuSelection(squadId);
     switch (squadId) {
-      case 'current':
-        filterValue = 'current';
-        setGroupBy('squad');
-        break;
-      case 'status':
-        setGroupBy('status');
-        break;
-      case 'position-groups':
       case 'selected':
-        setGroupBy('position');
+        filterValue = 'all';
+        break;
+      case 'squads':
+        filterValue = 'current';
+        break;
+      case 'free-agents':
+        filterValue = 'free-agents';
+        break;
+      case 'historical':
+        filterValue = 'historical';
         break;
       default:
-        // keep current grouping
+        filterValue = 'all';
         break;
     }
     setFilters(prev => ({ ...prev, selectedSquad: filterValue }));
@@ -96,6 +102,18 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
     const newSelection = selected
       ? [...selectedAthletes, athleteId]
       : selectedAthletes.filter(id => id !== athleteId);
+    onSelectionChange(newSelection);
+  };
+
+  const handleBatchSelection = (athleteIds: string[], selected: boolean) => {
+    let newSelection: string[];
+    if (selected) {
+      // Add all athlete IDs that aren't already selected
+      newSelection = [...selectedAthletes, ...athleteIds.filter(id => !selectedAthletes.includes(id))];
+    } else {
+      // Remove all athlete IDs that are currently selected
+      newSelection = selectedAthletes.filter(id => !athleteIds.includes(id));
+    }
     onSelectionChange(newSelection);
   };
 
@@ -163,8 +181,9 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
           )}
         </Box>
 
-        {/* Controls - Single Row */}
-        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', mb: 0 }}>
+        <Stack spacing={0.5}>
+          {/* Controls - Single Row */}
+          <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', mb: 0 }}>
           {/* Squad Selector */}
           <Box sx={{ minWidth: 140, flexShrink: 0 }}>
             <ExpandableSquadSelector
@@ -199,9 +218,6 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
           {/* Sort Menu */}
           <SortMenu order={order} onChange={handleOrderChange} />
         </Box>
-
-        {/* Selected Athletes Chip - Separate Row */}
-        <Stack spacing={1}>
           {selectedAthletes.length > 0 && (
             <Box>
               <Chip
@@ -217,13 +233,60 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
 
       {/* Content - Simple Tree Navigation */}
       <Box sx={{ flexGrow: 1, overflow: 'auto' }}>
-        <SimpleTreeNavigationList
-          athletes={viewAthletes}
-          selectedAthletes={selectedAthletes}
-          onSelectionChange={handleAthleteSelection}
-          sortBy={groupBy}
-          order={order}
-        />
+        {menuSelection === 'historical' ? (
+          <GroupedAthleteList
+            athletes={viewAthletes}
+            selectedAthletes={selectedAthletes}
+            onSelectionChange={handleAthleteSelection}
+            onBatchSelectionChange={handleBatchSelection}
+            groupBy="position"
+            order={order}
+            showOnlySelected={false}
+          />
+        ) : menuSelection === 'free-agents' ? (
+          filters.searchTerm.trim() === '' ? (
+            <Box sx={{ p: 3, textAlign: 'center' }}>
+              <Typography variant="body2" color="text.secondary">
+                Use search to find free agents
+              </Typography>
+            </Box>
+          ) : (
+            <>
+              {(() => {
+                const trimmed = filters.searchTerm.trim();
+                const capitalized = trimmed
+                  .split(' ')
+                  .filter(Boolean)
+                  .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+                  .join(' ');
+                const mock = {
+                  id: `free-agent-${trimmed.toLowerCase()}`,
+                  name: capitalized || 'Free Agent',
+                  position: 'Forward',
+                  ageGroup: 'FA',
+                  status: 'available' as const,
+                  avatar: undefined,
+                };
+                const isSelected = selectedAthletes.includes(mock.id);
+                return (
+                  <CompactAthleteCard
+                    athlete={mock}
+                    isSelected={isSelected}
+                    onToggle={(id) => handleAthleteSelection(id, !isSelected)}
+                  />
+                );
+              })()}
+            </>
+          )
+        ) : (
+          <SimpleTreeNavigationList
+            athletes={viewAthletes}
+            selectedAthletes={selectedAthletes}
+            onSelectionChange={handleAthleteSelection}
+            onBatchSelectionChange={handleBatchSelection}
+            order={order}
+          />
+        )}
       </Box>
 
       {/* Footer */}

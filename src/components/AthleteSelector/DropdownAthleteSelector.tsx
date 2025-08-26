@@ -104,7 +104,9 @@ export const DropdownAthleteSelector: React.FC<DropdownAthleteSelectorProps> = (
           '& .MuiPopover-paper': {
             mt: 1,
             maxWidth: isMobile ? '95vw' : maxWidth,
-            maxHeight: isMobile ? '80vh' : maxHeight,
+            // Set a static height to avoid jumpiness
+            height: isMobile ? '75vh' : maxHeight,
+            minHeight: isMobile ? '75vh' : maxHeight,
             minWidth: isMobile ? '90vw' : 350,
             borderRadius: 2,
             boxShadow: theme.shadows[8],

@@ -9,6 +9,7 @@ import {
   Collapse,
   useTheme,
   useMediaQuery,
+  Divider,
 } from '@mui/material';
 import {
   ArrowDropUp as ArrowDropUpIcon,
@@ -21,6 +22,7 @@ interface SquadOption {
   label: string;
   count?: number;
   hasSubmenu?: boolean;
+  isSpecial?: boolean; // For special styling like Selected option
 }
 
 interface ExpandableSquadSelectorProps {
@@ -31,13 +33,10 @@ interface ExpandableSquadSelectorProps {
 }
 
 const squadOptions: SquadOption[] = [
-  { id: 'selected', label: 'Selected', count: 1 },
-  { id: 'current', label: 'Current squads' },
-  { id: 'labels', label: 'Labels' },
-  { id: 'groups', label: 'Groups' },
-  { id: 'status', label: 'Status' },
-  { id: 'position-groups', label: 'Position groups' },
-  { id: 'historical', label: 'Historical squads', hasSubmenu: true },
+  { id: 'selected', label: 'Selected', count: 1, isSpecial: true },
+  { id: 'squads', label: 'Squads' },
+  { id: 'free-agents', label: 'Free Agents' },
+  { id: 'historical', label: 'Historical Athletes' },
 ];
 
 export const ExpandableSquadSelector: React.FC<ExpandableSquadSelectorProps> = ({
@@ -56,14 +55,12 @@ export const ExpandableSquadSelector: React.FC<ExpandableSquadSelectorProps> = (
 
   const handleOptionSelect = (optionId: string) => {
     onSquadChange(optionId);
-    if (!isMobile) {
-      setIsExpanded(false);
-    }
+    setIsExpanded(false);
   };
 
   const getSelectedLabel = () => {
     const option = squadOptions.find(opt => opt.id === selectedSquad);
-    return option?.label || 'Current squads';
+    return option?.label || 'Squads';
   };
 
   const getDisplayLabel = (option: SquadOption) => {
@@ -112,7 +109,8 @@ export const ExpandableSquadSelector: React.FC<ExpandableSquadSelectorProps> = (
             position: 'absolute',
             top: '100%',
             left: 0,
-            right: 0,
+            minWidth: '100%',
+            width: 'max-content',
             zIndex: theme.zIndex.modal,
             maxHeight: isMobile ? '70vh' : '400px',
             overflowY: 'auto',
@@ -125,6 +123,7 @@ export const ExpandableSquadSelector: React.FC<ExpandableSquadSelectorProps> = (
           <MenuList
             sx={{
               py: 1,
+              minWidth: '200px',
               '& .MuiMenuItem-root': {
                 fontFamily: '"Open Sans", sans-serif',
                 fontSize: '1rem',
@@ -132,57 +131,81 @@ export const ExpandableSquadSelector: React.FC<ExpandableSquadSelectorProps> = (
                 px: 2,
                 py: 1.5,
                 minHeight: 'auto',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
               },
             }}
           >
-            {squadOptions.map((option) => (
-              <MenuItem
-                key={option.id}
-                selected={selectedSquad === option.id}
-                onClick={() => handleOptionSelect(option.id)}
-                sx={{
-                  backgroundColor: selectedSquad === option.id 
-                    ? 'action.selected' 
-                    : 'transparent',
-                  '&:hover': {
+            {squadOptions.map((option, index) => (
+              <React.Fragment key={option.id}>
+                <MenuItem
+                  selected={selectedSquad === option.id}
+                  onClick={() => handleOptionSelect(option.id)}
+                  sx={{
                     backgroundColor: selectedSquad === option.id 
                       ? 'action.selected' 
-                      : 'action.hover',
-                  },
-                  '&.Mui-selected': {
-                    backgroundColor: 'action.selected',
+                      : 'transparent',
                     '&:hover': {
-                      backgroundColor: 'action.selected',
+                      backgroundColor: selectedSquad === option.id 
+                        ? 'action.selected' 
+                        : 'action.hover',
                     },
-                  },
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontFamily: '"Open Sans", sans-serif',
-                    fontSize: '1rem',
-                    fontWeight: 400,
-                    color: 'text.primary',
-                    flexGrow: 1,
+                    '&.Mui-selected': {
+                      backgroundColor: 'action.selected',
+                      '&:hover': {
+                        backgroundColor: 'action.selected',
+                      },
+                    },
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    // Special styling for Selected option
+                    ...(option.isSpecial && {
+                      fontWeight: 600,
+                      color: 'primary.main',
+                      '&.Mui-selected': {
+                        backgroundColor: 'primary.light',
+                        color: 'primary.contrastText',
+                        '&:hover': {
+                          backgroundColor: 'primary.light',
+                        },
+                      },
+                    }),
                   }}
                 >
-                  {getDisplayLabel(option)}
-                </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontFamily: '"Open Sans", sans-serif',
+                      fontSize: '1rem',
+                      fontWeight: option.isSpecial ? 600 : 400,
+                      color: option.isSpecial ? 'primary.main' : 'text.primary',
+                      flexGrow: 1,
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {getDisplayLabel(option)}
+                  </Typography>
+                  
+                  {option.hasSubmenu && (
+                    <ChevronRightIcon 
+                      fontSize="small" 
+                      sx={{ 
+                        color: 'text.secondary',
+                        ml: 1,
+                      }} 
+                    />
+                  )}
+                </MenuItem>
                 
-                {option.hasSubmenu && (
-                  <ChevronRightIcon 
-                    fontSize="small" 
-                    sx={{ 
-                      color: 'text.secondary',
-                      ml: 1,
-                    }} 
-                  />
+                {/* Add divider after Selected option for better UX */}
+                {option.isSpecial && index < squadOptions.length - 1 && (
+                  <Divider sx={{ my: 0.5 }} />
                 )}
-              </MenuItem>
+              </React.Fragment>
             ))}
           </MenuList>
         </Paper>

@@ -780,6 +780,15 @@ export const GroupedAthleteListDemo: Story = {
                       : selectedAthletes.filter(id => id !== athleteId);
                     onSelectionChange(newSelection);
                   }}
+                  onBatchSelectionChange={(ids, selected) => {
+                    let newSelection: string[];
+                    if (selected) {
+                      newSelection = [...selectedAthletes, ...ids.filter(id => !selectedAthletes.includes(id))];
+                    } else {
+                      newSelection = selectedAthletes.filter(id => !ids.includes(id));
+                    }
+                    onSelectionChange(newSelection);
+                  }}
                   groupBy={sortBy}
                   order={order}
                 />
@@ -793,7 +802,7 @@ export const GroupedAthleteListDemo: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Grouped athlete list component that organizes athletes by position, squad, or status. Features compact spacing optimized for large lists (up to 300 athletes) and includes "Select all" functionality for each group.',
+        story: 'Grouped athlete list component that organizes athletes by position, squad, or status. Features compact spacing optimized for large lists (up to 300 athletes), shows selected counts per group, and includes "Select all/Deselect all" for each group.',
       },
     },
   },

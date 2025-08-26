@@ -40,7 +40,7 @@ export const groupAthletesByPosition = (athletes: Athlete[]): Position[] => {
 
 export const filterAthletes = (athletes: Athlete[], filters: FilterOptions): Athlete[] => {
   return athletes.filter(athlete => {
-    // Squad filter - this is the main filter that was missing functionality
+    // Squad filter - this is the main filter that determines which athletes to show
     if (filters.selectedSquad) {
       switch (filters.selectedSquad) {
         case 'current':
@@ -49,10 +49,12 @@ export const filterAthletes = (athletes: Athlete[], filters: FilterOptions): Ath
             return false;
           }
           break;
-        case 'youth':
-          // Show only youth squads (U17 and below)
-          const ageNum = parseInt(athlete.ageGroup.replace('U', ''));
-          if (ageNum > 17) {
+        case 'free-agents':
+          // Show empty listing for now - return no athletes
+          return false;
+        case 'historical':
+          // Show historical athletes (not in current squads)
+          if (['U21', 'U19', 'U17'].includes(athlete.ageGroup)) {
             return false;
           }
           break;

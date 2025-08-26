@@ -1,7 +1,7 @@
-import ge, { useState as G, useMemo as Ve, useRef as Yr } from "react";
-import { useTheme as L, useMediaQuery as U, Box as b, Button as ne, Collapse as Nr, Paper as ve, MenuList as Hr, MenuItem as Ke, Typography as A, Checkbox as Je, Avatar as Xe, Chip as ie, Accordion as Vr, AccordionSummary as Kr, AccordionDetails as Jr, Divider as Xr, IconButton as H, Menu as Qr, ListItemText as Qe, TextField as Ze, InputAdornment as er, Stack as rr, Drawer as nr, Badge as Zr, Popover as tr, Card as en, CardContent as rn, List as nn, ListItem as tn, ListItemButton as on } from "@mui/material";
-import { ArrowDropUp as an, ArrowDropDown as or, ChevronRight as ar, Group as sn, ExpandMore as ln, Sort as cn, ArrowBack as be, Close as sr, Search as ir, People as un } from "@mui/icons-material";
-var me = { exports: {} }, ee = {};
+import fe, { useState as q, useMemo as se, useRef as qr } from "react";
+import { useTheme as J, useMediaQuery as K, Box as b, Button as te, Collapse as Yr, Paper as Ce, MenuList as Hr, MenuItem as Nr, Typography as z, Divider as Xe, Checkbox as Ze, Avatar as Qe, Chip as pe, Accordion as Vr, AccordionSummary as Jr, AccordionDetails as Kr, Tooltip as Xr, IconButton as ne, Stack as er, TextField as rr, InputAdornment as nr, Drawer as tr, Badge as Zr, Popover as or, Card as Qr, CardContent as en, List as rn, ListItem as nn, ListItemButton as tn, ListItemText as on } from "@mui/material";
+import { ArrowDropUp as an, ArrowDropDown as ar, ChevronRight as ir, Group as sn, ExpandMore as ln, SortByAlpha as cn, ArrowBack as ke, Close as sr, Search as lr, People as un } from "@mui/icons-material";
+var we = { exports: {} }, ae = {};
 /**
  * @license React
  * react-jsx-runtime.production.min.js
@@ -11,21 +11,21 @@ var me = { exports: {} }, ee = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var qe;
+var Ve;
 function dn() {
-  if (qe) return ee;
-  qe = 1;
-  var a = ge, s = Symbol.for("react.element"), i = Symbol.for("react.fragment"), t = Object.prototype.hasOwnProperty, h = a.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, g = { key: !0, ref: !0, __self: !0, __source: !0 };
-  function c(S, f, j) {
-    var l, u = {}, d = null, x = null;
-    j !== void 0 && (d = "" + j), f.key !== void 0 && (d = "" + f.key), f.ref !== void 0 && (x = f.ref);
-    for (l in f) t.call(f, l) && !g.hasOwnProperty(l) && (u[l] = f[l]);
-    if (S && S.defaultProps) for (l in f = S.defaultProps, f) u[l] === void 0 && (u[l] = f[l]);
-    return { $$typeof: s, type: S, key: d, ref: x, props: u, _owner: h.current };
+  if (Ve) return ae;
+  Ve = 1;
+  var o = fe, t = Symbol.for("react.element"), s = Symbol.for("react.fragment"), a = Object.prototype.hasOwnProperty, f = o.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, x = { key: !0, ref: !0, __self: !0, __source: !0 };
+  function u(C, g, _) {
+    var p, h = {}, c = null, m = null;
+    _ !== void 0 && (c = "" + _), g.key !== void 0 && (c = "" + g.key), g.ref !== void 0 && (m = g.ref);
+    for (p in g) a.call(g, p) && !x.hasOwnProperty(p) && (h[p] = g[p]);
+    if (C && C.defaultProps) for (p in g = C.defaultProps, g) h[p] === void 0 && (h[p] = g[p]);
+    return { $$typeof: t, type: C, key: c, ref: m, props: h, _owner: f.current };
   }
-  return ee.Fragment = i, ee.jsx = c, ee.jsxs = c, ee;
+  return ae.Fragment = s, ae.jsx = u, ae.jsxs = u, ae;
 }
-var re = {};
+var ie = {};
 /**
  * @license React
  * react-jsx-runtime.development.js
@@ -35,91 +35,91 @@ var re = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var Ye;
+var Je;
 function fn() {
-  return Ye || (Ye = 1, process.env.NODE_ENV !== "production" && function() {
-    var a = ge, s = Symbol.for("react.element"), i = Symbol.for("react.portal"), t = Symbol.for("react.fragment"), h = Symbol.for("react.strict_mode"), g = Symbol.for("react.profiler"), c = Symbol.for("react.provider"), S = Symbol.for("react.context"), f = Symbol.for("react.forward_ref"), j = Symbol.for("react.suspense"), l = Symbol.for("react.suspense_list"), u = Symbol.for("react.memo"), d = Symbol.for("react.lazy"), x = Symbol.for("react.offscreen"), m = Symbol.iterator, D = "@@iterator";
-    function F(e) {
+  return Je || (Je = 1, process.env.NODE_ENV !== "production" && function() {
+    var o = fe, t = Symbol.for("react.element"), s = Symbol.for("react.portal"), a = Symbol.for("react.fragment"), f = Symbol.for("react.strict_mode"), x = Symbol.for("react.profiler"), u = Symbol.for("react.provider"), C = Symbol.for("react.context"), g = Symbol.for("react.forward_ref"), _ = Symbol.for("react.suspense"), p = Symbol.for("react.suspense_list"), h = Symbol.for("react.memo"), c = Symbol.for("react.lazy"), m = Symbol.for("react.offscreen"), k = Symbol.iterator, l = "@@iterator";
+    function T(e) {
       if (e === null || typeof e != "object")
         return null;
-      var n = m && e[m] || e[D];
+      var n = k && e[k] || e[l];
       return typeof n == "function" ? n : null;
     }
-    var I = a.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    function E(e) {
+    var P = o.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    function v(e) {
       {
-        for (var n = arguments.length, o = new Array(n > 1 ? n - 1 : 0), p = 1; p < n; p++)
-          o[p - 1] = arguments[p];
-        z("error", e, o);
+        for (var n = arguments.length, i = new Array(n > 1 ? n - 1 : 0), d = 1; d < n; d++)
+          i[d - 1] = arguments[d];
+        D("error", e, i);
       }
     }
-    function z(e, n, o) {
+    function D(e, n, i) {
       {
-        var p = I.ReactDebugCurrentFrame, C = p.getStackAddendum();
-        C !== "" && (n += "%s", o = o.concat([C]));
-        var w = o.map(function(y) {
-          return String(y);
+        var d = P.ReactDebugCurrentFrame, w = d.getStackAddendum();
+        w !== "" && (n += "%s", i = i.concat([w]));
+        var R = i.map(function(S) {
+          return String(S);
         });
-        w.unshift("Warning: " + n), Function.prototype.apply.call(console[e], console, w);
+        R.unshift("Warning: " + n), Function.prototype.apply.call(console[e], console, R);
       }
     }
-    var V = !1, K = !1, J = !1, k = !1, R = !1, W;
-    W = Symbol.for("react.module.reference");
-    function X(e) {
-      return !!(typeof e == "string" || typeof e == "function" || e === t || e === g || R || e === h || e === j || e === l || k || e === x || V || K || J || typeof e == "object" && e !== null && (e.$$typeof === d || e.$$typeof === u || e.$$typeof === c || e.$$typeof === S || e.$$typeof === f || // This needs to include all possible module reference object
+    var j = !1, E = !1, H = !1, X = !1, N = !1, V;
+    V = Symbol.for("react.module.reference");
+    function Z(e) {
+      return !!(typeof e == "string" || typeof e == "function" || e === a || e === x || N || e === f || e === _ || e === p || X || e === m || j || E || H || typeof e == "object" && e !== null && (e.$$typeof === c || e.$$typeof === h || e.$$typeof === u || e.$$typeof === C || e.$$typeof === g || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
-      e.$$typeof === W || e.getModuleId !== void 0));
+      e.$$typeof === V || e.getModuleId !== void 0));
     }
-    function gr(e, n, o) {
-      var p = e.displayName;
-      if (p)
-        return p;
-      var C = n.displayName || n.name || "";
-      return C !== "" ? o + "(" + C + ")" : o;
+    function F(e, n, i) {
+      var d = e.displayName;
+      if (d)
+        return d;
+      var w = n.displayName || n.name || "";
+      return w !== "" ? i + "(" + w + ")" : i;
     }
-    function ye(e) {
+    function G(e) {
       return e.displayName || "Context";
     }
-    function $(e) {
+    function W(e) {
       if (e == null)
         return null;
-      if (typeof e.tag == "number" && E("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof e == "function")
+      if (typeof e.tag == "number" && v("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof e == "function")
         return e.displayName || e.name || null;
       if (typeof e == "string")
         return e;
       switch (e) {
-        case t:
+        case a:
           return "Fragment";
-        case i:
+        case s:
           return "Portal";
-        case g:
+        case x:
           return "Profiler";
-        case h:
+        case f:
           return "StrictMode";
-        case j:
+        case _:
           return "Suspense";
-        case l:
+        case p:
           return "SuspenseList";
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
-          case S:
+          case C:
             var n = e;
-            return ye(n) + ".Consumer";
-          case c:
-            var o = e;
-            return ye(o._context) + ".Provider";
-          case f:
-            return gr(e, e.render, "ForwardRef");
+            return G(n) + ".Consumer";
           case u:
-            var p = e.displayName || null;
-            return p !== null ? p : $(e.type) || "Memo";
-          case d: {
-            var C = e, w = C._payload, y = C._init;
+            var i = e;
+            return G(i._context) + ".Provider";
+          case g:
+            return F(e, e.render, "ForwardRef");
+          case h:
+            var d = e.displayName || null;
+            return d !== null ? d : W(e.type) || "Memo";
+          case c: {
+            var w = e, R = w._payload, S = w._init;
             try {
-              return $(y(w));
+              return W(S(R));
             } catch {
               return null;
             }
@@ -127,18 +127,18 @@ function fn() {
         }
       return null;
     }
-    var B = Object.assign, Q = 0, je, Se, Ce, we, ke, Ee, Re;
-    function _e() {
+    var O = Object.assign, M = 0, L, Y, Oe, Re, _e, Te, Pe;
+    function De() {
     }
-    _e.__reactDisabledLog = !0;
-    function vr() {
+    De.__reactDisabledLog = !0;
+    function gr() {
       {
-        if (Q === 0) {
-          je = console.log, Se = console.info, Ce = console.warn, we = console.error, ke = console.group, Ee = console.groupCollapsed, Re = console.groupEnd;
+        if (M === 0) {
+          L = console.log, Y = console.info, Oe = console.warn, Re = console.error, _e = console.group, Te = console.groupCollapsed, Pe = console.groupEnd;
           var e = {
             configurable: !0,
             enumerable: !0,
-            value: _e,
+            value: De,
             writable: !0
           };
           Object.defineProperties(console, {
@@ -151,332 +151,332 @@ function fn() {
             groupEnd: e
           });
         }
-        Q++;
+        M++;
       }
     }
-    function br() {
+    function vr() {
       {
-        if (Q--, Q === 0) {
+        if (M--, M === 0) {
           var e = {
             configurable: !0,
             enumerable: !0,
             writable: !0
           };
           Object.defineProperties(console, {
-            log: B({}, e, {
-              value: je
+            log: O({}, e, {
+              value: L
             }),
-            info: B({}, e, {
-              value: Se
+            info: O({}, e, {
+              value: Y
             }),
-            warn: B({}, e, {
-              value: Ce
+            warn: O({}, e, {
+              value: Oe
             }),
-            error: B({}, e, {
-              value: we
-            }),
-            group: B({}, e, {
-              value: ke
-            }),
-            groupCollapsed: B({}, e, {
-              value: Ee
-            }),
-            groupEnd: B({}, e, {
+            error: O({}, e, {
               value: Re
+            }),
+            group: O({}, e, {
+              value: _e
+            }),
+            groupCollapsed: O({}, e, {
+              value: Te
+            }),
+            groupEnd: O({}, e, {
+              value: Pe
             })
           });
         }
-        Q < 0 && E("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
+        M < 0 && v("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
       }
     }
-    var le = I.ReactCurrentDispatcher, ce;
-    function te(e, n, o) {
+    var he = P.ReactCurrentDispatcher, xe;
+    function le(e, n, i) {
       {
-        if (ce === void 0)
+        if (xe === void 0)
           try {
             throw Error();
-          } catch (C) {
-            var p = C.stack.trim().match(/\n( *(at )?)/);
-            ce = p && p[1] || "";
+          } catch (w) {
+            var d = w.stack.trim().match(/\n( *(at )?)/);
+            xe = d && d[1] || "";
           }
         return `
-` + ce + e;
+` + xe + e;
       }
     }
-    var ue = !1, oe;
+    var me = !1, ce;
     {
-      var yr = typeof WeakMap == "function" ? WeakMap : Map;
-      oe = new yr();
+      var br = typeof WeakMap == "function" ? WeakMap : Map;
+      ce = new br();
     }
-    function Oe(e, n) {
-      if (!e || ue)
+    function Ae(e, n) {
+      if (!e || me)
         return "";
       {
-        var o = oe.get(e);
-        if (o !== void 0)
-          return o;
+        var i = ce.get(e);
+        if (i !== void 0)
+          return i;
       }
-      var p;
-      ue = !0;
-      var C = Error.prepareStackTrace;
+      var d;
+      me = !0;
+      var w = Error.prepareStackTrace;
       Error.prepareStackTrace = void 0;
-      var w;
-      w = le.current, le.current = null, vr();
+      var R;
+      R = he.current, he.current = null, gr();
       try {
         if (n) {
-          var y = function() {
+          var S = function() {
             throw Error();
           };
-          if (Object.defineProperty(y.prototype, "props", {
+          if (Object.defineProperty(S.prototype, "props", {
             set: function() {
               throw Error();
             }
           }), typeof Reflect == "object" && Reflect.construct) {
             try {
-              Reflect.construct(y, []);
-            } catch (P) {
-              p = P;
+              Reflect.construct(S, []);
+            } catch ($) {
+              d = $;
             }
-            Reflect.construct(e, [], y);
+            Reflect.construct(e, [], S);
           } else {
             try {
-              y.call();
-            } catch (P) {
-              p = P;
+              S.call();
+            } catch ($) {
+              d = $;
             }
-            e.call(y.prototype);
+            e.call(S.prototype);
           }
         } else {
           try {
             throw Error();
-          } catch (P) {
-            p = P;
+          } catch ($) {
+            d = $;
           }
           e();
         }
-      } catch (P) {
-        if (P && p && typeof P.stack == "string") {
-          for (var v = P.stack.split(`
-`), T = p.stack.split(`
-`), _ = v.length - 1, O = T.length - 1; _ >= 1 && O >= 0 && v[_] !== T[O]; )
-            O--;
-          for (; _ >= 1 && O >= 0; _--, O--)
-            if (v[_] !== T[O]) {
-              if (_ !== 1 || O !== 1)
+      } catch ($) {
+        if ($ && d && typeof $.stack == "string") {
+          for (var y = $.stack.split(`
+`), U = d.stack.split(`
+`), A = y.length - 1, I = U.length - 1; A >= 1 && I >= 0 && y[A] !== U[I]; )
+            I--;
+          for (; A >= 1 && I >= 0; A--, I--)
+            if (y[A] !== U[I]) {
+              if (A !== 1 || I !== 1)
                 do
-                  if (_--, O--, O < 0 || v[_] !== T[O]) {
-                    var M = `
-` + v[_].replace(" at new ", " at ");
-                    return e.displayName && M.includes("<anonymous>") && (M = M.replace("<anonymous>", e.displayName)), typeof e == "function" && oe.set(e, M), M;
+                  if (A--, I--, I < 0 || y[A] !== U[I]) {
+                    var B = `
+` + y[A].replace(" at new ", " at ");
+                    return e.displayName && B.includes("<anonymous>") && (B = B.replace("<anonymous>", e.displayName)), typeof e == "function" && ce.set(e, B), B;
                   }
-                while (_ >= 1 && O >= 0);
+                while (A >= 1 && I >= 0);
               break;
             }
         }
       } finally {
-        ue = !1, le.current = w, br(), Error.prepareStackTrace = C;
+        me = !1, he.current = R, vr(), Error.prepareStackTrace = w;
       }
-      var N = e ? e.displayName || e.name : "", q = N ? te(N) : "";
-      return typeof e == "function" && oe.set(e, q), q;
+      var re = e ? e.displayName || e.name : "", Q = re ? le(re) : "";
+      return typeof e == "function" && ce.set(e, Q), Q;
     }
-    function jr(e, n, o) {
-      return Oe(e, !1);
+    function yr(e, n, i) {
+      return Ae(e, !1);
     }
-    function Sr(e) {
+    function jr(e) {
       var n = e.prototype;
       return !!(n && n.isReactComponent);
     }
-    function ae(e, n, o) {
+    function ue(e, n, i) {
       if (e == null)
         return "";
       if (typeof e == "function")
-        return Oe(e, Sr(e));
+        return Ae(e, jr(e));
       if (typeof e == "string")
-        return te(e);
+        return le(e);
       switch (e) {
-        case j:
-          return te("Suspense");
-        case l:
-          return te("SuspenseList");
+        case _:
+          return le("Suspense");
+        case p:
+          return le("SuspenseList");
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
-          case f:
-            return jr(e.render);
-          case u:
-            return ae(e.type, n, o);
-          case d: {
-            var p = e, C = p._payload, w = p._init;
+          case g:
+            return yr(e.render);
+          case h:
+            return ue(e.type, n, i);
+          case c: {
+            var d = e, w = d._payload, R = d._init;
             try {
-              return ae(w(C), n, o);
+              return ue(R(w), n, i);
             } catch {
             }
           }
         }
       return "";
     }
-    var Z = Object.prototype.hasOwnProperty, Te = {}, Pe = I.ReactDebugCurrentFrame;
-    function se(e) {
+    var oe = Object.prototype.hasOwnProperty, Fe = {}, Ie = P.ReactDebugCurrentFrame;
+    function de(e) {
       if (e) {
-        var n = e._owner, o = ae(e.type, e._source, n ? n.type : null);
-        Pe.setExtraStackFrame(o);
+        var n = e._owner, i = ue(e.type, e._source, n ? n.type : null);
+        Ie.setExtraStackFrame(i);
       } else
-        Pe.setExtraStackFrame(null);
+        Ie.setExtraStackFrame(null);
     }
-    function Cr(e, n, o, p, C) {
+    function Sr(e, n, i, d, w) {
       {
-        var w = Function.call.bind(Z);
-        for (var y in e)
-          if (w(e, y)) {
-            var v = void 0;
+        var R = Function.call.bind(oe);
+        for (var S in e)
+          if (R(e, S)) {
+            var y = void 0;
             try {
-              if (typeof e[y] != "function") {
-                var T = Error((p || "React class") + ": " + o + " type `" + y + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof e[y] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
-                throw T.name = "Invariant Violation", T;
+              if (typeof e[S] != "function") {
+                var U = Error((d || "React class") + ": " + i + " type `" + S + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof e[S] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                throw U.name = "Invariant Violation", U;
               }
-              v = e[y](n, y, p, o, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
-            } catch (_) {
-              v = _;
+              y = e[S](n, S, d, i, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+            } catch (A) {
+              y = A;
             }
-            v && !(v instanceof Error) && (se(C), E("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", p || "React class", o, y, typeof v), se(null)), v instanceof Error && !(v.message in Te) && (Te[v.message] = !0, se(C), E("Failed %s type: %s", o, v.message), se(null));
+            y && !(y instanceof Error) && (de(w), v("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", d || "React class", i, S, typeof y), de(null)), y instanceof Error && !(y.message in Fe) && (Fe[y.message] = !0, de(w), v("Failed %s type: %s", i, y.message), de(null));
           }
       }
     }
     var wr = Array.isArray;
-    function de(e) {
+    function ge(e) {
       return wr(e);
     }
-    function kr(e) {
+    function Cr(e) {
       {
-        var n = typeof Symbol == "function" && Symbol.toStringTag, o = n && e[Symbol.toStringTag] || e.constructor.name || "Object";
-        return o;
+        var n = typeof Symbol == "function" && Symbol.toStringTag, i = n && e[Symbol.toStringTag] || e.constructor.name || "Object";
+        return i;
       }
     }
-    function Er(e) {
+    function kr(e) {
       try {
-        return Ae(e), !1;
+        return We(e), !1;
       } catch {
         return !0;
       }
     }
-    function Ae(e) {
+    function We(e) {
       return "" + e;
     }
-    function De(e) {
-      if (Er(e))
-        return E("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", kr(e)), Ae(e);
+    function Me(e) {
+      if (kr(e))
+        return v("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", Cr(e)), We(e);
     }
-    var Fe = I.ReactCurrentOwner, Rr = {
+    var Ge = P.ReactCurrentOwner, Er = {
       key: !0,
       ref: !0,
       __self: !0,
       __source: !0
-    }, Ie, Me;
-    function _r(e) {
-      if (Z.call(e, "ref")) {
+    }, ze, Le;
+    function Or(e) {
+      if (oe.call(e, "ref")) {
         var n = Object.getOwnPropertyDescriptor(e, "ref").get;
         if (n && n.isReactWarning)
           return !1;
       }
       return e.ref !== void 0;
     }
-    function Or(e) {
-      if (Z.call(e, "key")) {
+    function Rr(e) {
+      if (oe.call(e, "key")) {
         var n = Object.getOwnPropertyDescriptor(e, "key").get;
         if (n && n.isReactWarning)
           return !1;
       }
       return e.key !== void 0;
     }
+    function _r(e, n) {
+      typeof e.ref == "string" && Ge.current;
+    }
     function Tr(e, n) {
-      typeof e.ref == "string" && Fe.current;
+      {
+        var i = function() {
+          ze || (ze = !0, v("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", n));
+        };
+        i.isReactWarning = !0, Object.defineProperty(e, "key", {
+          get: i,
+          configurable: !0
+        });
+      }
     }
     function Pr(e, n) {
       {
-        var o = function() {
-          Ie || (Ie = !0, E("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", n));
+        var i = function() {
+          Le || (Le = !0, v("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", n));
         };
-        o.isReactWarning = !0, Object.defineProperty(e, "key", {
-          get: o,
+        i.isReactWarning = !0, Object.defineProperty(e, "ref", {
+          get: i,
           configurable: !0
         });
       }
     }
-    function Ar(e, n) {
-      {
-        var o = function() {
-          Me || (Me = !0, E("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", n));
-        };
-        o.isReactWarning = !0, Object.defineProperty(e, "ref", {
-          get: o,
-          configurable: !0
-        });
-      }
-    }
-    var Dr = function(e, n, o, p, C, w, y) {
-      var v = {
+    var Dr = function(e, n, i, d, w, R, S) {
+      var y = {
         // This tag allows us to uniquely identify this as a React Element
-        $$typeof: s,
+        $$typeof: t,
         // Built-in properties that belong on the element
         type: e,
         key: n,
-        ref: o,
-        props: y,
+        ref: i,
+        props: S,
         // Record the component responsible for creating this element.
-        _owner: w
+        _owner: R
       };
-      return v._store = {}, Object.defineProperty(v._store, "validated", {
+      return y._store = {}, Object.defineProperty(y._store, "validated", {
         configurable: !1,
         enumerable: !1,
         writable: !0,
         value: !1
-      }), Object.defineProperty(v, "_self", {
+      }), Object.defineProperty(y, "_self", {
         configurable: !1,
         enumerable: !1,
         writable: !1,
-        value: p
-      }), Object.defineProperty(v, "_source", {
+        value: d
+      }), Object.defineProperty(y, "_source", {
         configurable: !1,
         enumerable: !1,
         writable: !1,
-        value: C
-      }), Object.freeze && (Object.freeze(v.props), Object.freeze(v)), v;
+        value: w
+      }), Object.freeze && (Object.freeze(y.props), Object.freeze(y)), y;
     };
-    function Fr(e, n, o, p, C) {
+    function Ar(e, n, i, d, w) {
       {
-        var w, y = {}, v = null, T = null;
-        o !== void 0 && (De(o), v = "" + o), Or(n) && (De(n.key), v = "" + n.key), _r(n) && (T = n.ref, Tr(n, C));
-        for (w in n)
-          Z.call(n, w) && !Rr.hasOwnProperty(w) && (y[w] = n[w]);
+        var R, S = {}, y = null, U = null;
+        i !== void 0 && (Me(i), y = "" + i), Rr(n) && (Me(n.key), y = "" + n.key), Or(n) && (U = n.ref, _r(n, w));
+        for (R in n)
+          oe.call(n, R) && !Er.hasOwnProperty(R) && (S[R] = n[R]);
         if (e && e.defaultProps) {
-          var _ = e.defaultProps;
-          for (w in _)
-            y[w] === void 0 && (y[w] = _[w]);
+          var A = e.defaultProps;
+          for (R in A)
+            S[R] === void 0 && (S[R] = A[R]);
         }
-        if (v || T) {
-          var O = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
-          v && Pr(y, O), T && Ar(y, O);
+        if (y || U) {
+          var I = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
+          y && Tr(S, I), U && Pr(S, I);
         }
-        return Dr(e, v, T, C, p, Fe.current, y);
+        return Dr(e, y, U, w, d, Ge.current, S);
       }
     }
-    var fe = I.ReactCurrentOwner, We = I.ReactDebugCurrentFrame;
-    function Y(e) {
+    var ve = P.ReactCurrentOwner, Ue = P.ReactDebugCurrentFrame;
+    function ee(e) {
       if (e) {
-        var n = e._owner, o = ae(e.type, e._source, n ? n.type : null);
-        We.setExtraStackFrame(o);
+        var n = e._owner, i = ue(e.type, e._source, n ? n.type : null);
+        Ue.setExtraStackFrame(i);
       } else
-        We.setExtraStackFrame(null);
+        Ue.setExtraStackFrame(null);
     }
-    var pe;
-    pe = !1;
-    function he(e) {
-      return typeof e == "object" && e !== null && e.$$typeof === s;
+    var be;
+    be = !1;
+    function ye(e) {
+      return typeof e == "object" && e !== null && e.$$typeof === t;
     }
-    function ze() {
+    function $e() {
       {
-        if (fe.current) {
-          var e = $(fe.current.type);
+        if (ve.current) {
+          var e = W(ve.current.type);
           if (e)
             return `
 
@@ -485,51 +485,51 @@ Check the render method of \`` + e + "`.";
         return "";
       }
     }
-    function Ir(e) {
+    function Fr(e) {
       return "";
     }
-    var Ge = {};
-    function Mr(e) {
+    var Be = {};
+    function Ir(e) {
       {
-        var n = ze();
+        var n = $e();
         if (!n) {
-          var o = typeof e == "string" ? e : e.displayName || e.name;
-          o && (n = `
+          var i = typeof e == "string" ? e : e.displayName || e.name;
+          i && (n = `
 
-Check the top-level render call using <` + o + ">.");
+Check the top-level render call using <` + i + ">.");
         }
         return n;
       }
     }
-    function Le(e, n) {
+    function qe(e, n) {
       {
         if (!e._store || e._store.validated || e.key != null)
           return;
         e._store.validated = !0;
-        var o = Mr(n);
-        if (Ge[o])
+        var i = Ir(n);
+        if (Be[i])
           return;
-        Ge[o] = !0;
-        var p = "";
-        e && e._owner && e._owner !== fe.current && (p = " It was passed a child from " + $(e._owner.type) + "."), Y(e), E('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', o, p), Y(null);
+        Be[i] = !0;
+        var d = "";
+        e && e._owner && e._owner !== ve.current && (d = " It was passed a child from " + W(e._owner.type) + "."), ee(e), v('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', i, d), ee(null);
       }
     }
-    function $e(e, n) {
+    function Ye(e, n) {
       {
         if (typeof e != "object")
           return;
-        if (de(e))
-          for (var o = 0; o < e.length; o++) {
-            var p = e[o];
-            he(p) && Le(p, n);
+        if (ge(e))
+          for (var i = 0; i < e.length; i++) {
+            var d = e[i];
+            ye(d) && qe(d, n);
           }
-        else if (he(e))
+        else if (ye(e))
           e._store && (e._store.validated = !0);
         else if (e) {
-          var C = F(e);
-          if (typeof C == "function" && C !== e.entries)
-            for (var w = C.call(e), y; !(y = w.next()).done; )
-              he(y.value) && Le(y.value, n);
+          var w = T(e);
+          if (typeof w == "function" && w !== e.entries)
+            for (var R = w.call(e), S; !(S = R.next()).done; )
+              ye(S.value) && qe(S.value, n);
         }
       }
     }
@@ -538,135 +538,132 @@ Check the top-level render call using <` + o + ">.");
         var n = e.type;
         if (n == null || typeof n == "string")
           return;
-        var o;
+        var i;
         if (typeof n == "function")
-          o = n.propTypes;
-        else if (typeof n == "object" && (n.$$typeof === f || // Note: Memo only checks outer props here.
+          i = n.propTypes;
+        else if (typeof n == "object" && (n.$$typeof === g || // Note: Memo only checks outer props here.
         // Inner props are checked in the reconciler.
-        n.$$typeof === u))
-          o = n.propTypes;
+        n.$$typeof === h))
+          i = n.propTypes;
         else
           return;
-        if (o) {
-          var p = $(n);
-          Cr(o, e.props, "prop", p, e);
-        } else if (n.PropTypes !== void 0 && !pe) {
-          pe = !0;
-          var C = $(n);
-          E("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", C || "Unknown");
+        if (i) {
+          var d = W(n);
+          Sr(i, e.props, "prop", d, e);
+        } else if (n.PropTypes !== void 0 && !be) {
+          be = !0;
+          var w = W(n);
+          v("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", w || "Unknown");
         }
-        typeof n.getDefaultProps == "function" && !n.getDefaultProps.isReactClassApproved && E("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
+        typeof n.getDefaultProps == "function" && !n.getDefaultProps.isReactClassApproved && v("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
       }
     }
-    function zr(e) {
+    function Mr(e) {
       {
-        for (var n = Object.keys(e.props), o = 0; o < n.length; o++) {
-          var p = n[o];
-          if (p !== "children" && p !== "key") {
-            Y(e), E("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", p), Y(null);
+        for (var n = Object.keys(e.props), i = 0; i < n.length; i++) {
+          var d = n[i];
+          if (d !== "children" && d !== "key") {
+            ee(e), v("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", d), ee(null);
             break;
           }
         }
-        e.ref !== null && (Y(e), E("Invalid attribute `ref` supplied to `React.Fragment`."), Y(null));
+        e.ref !== null && (ee(e), v("Invalid attribute `ref` supplied to `React.Fragment`."), ee(null));
       }
     }
-    var Ue = {};
-    function Be(e, n, o, p, C, w) {
+    var He = {};
+    function Ne(e, n, i, d, w, R) {
       {
-        var y = X(e);
-        if (!y) {
-          var v = "";
-          (e === void 0 || typeof e == "object" && e !== null && Object.keys(e).length === 0) && (v += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
-          var T = Ir();
-          T ? v += T : v += ze();
-          var _;
-          e === null ? _ = "null" : de(e) ? _ = "array" : e !== void 0 && e.$$typeof === s ? (_ = "<" + ($(e.type) || "Unknown") + " />", v = " Did you accidentally export a JSX literal instead of a component?") : _ = typeof e, E("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", _, v);
+        var S = Z(e);
+        if (!S) {
+          var y = "";
+          (e === void 0 || typeof e == "object" && e !== null && Object.keys(e).length === 0) && (y += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
+          var U = Fr();
+          U ? y += U : y += $e();
+          var A;
+          e === null ? A = "null" : ge(e) ? A = "array" : e !== void 0 && e.$$typeof === t ? (A = "<" + (W(e.type) || "Unknown") + " />", y = " Did you accidentally export a JSX literal instead of a component?") : A = typeof e, v("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", A, y);
         }
-        var O = Fr(e, n, o, C, w);
-        if (O == null)
-          return O;
-        if (y) {
-          var M = n.children;
-          if (M !== void 0)
-            if (p)
-              if (de(M)) {
-                for (var N = 0; N < M.length; N++)
-                  $e(M[N], e);
-                Object.freeze && Object.freeze(M);
+        var I = Ar(e, n, i, w, R);
+        if (I == null)
+          return I;
+        if (S) {
+          var B = n.children;
+          if (B !== void 0)
+            if (d)
+              if (ge(B)) {
+                for (var re = 0; re < B.length; re++)
+                  Ye(B[re], e);
+                Object.freeze && Object.freeze(B);
               } else
-                E("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
+                v("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
             else
-              $e(M, e);
+              Ye(B, e);
         }
-        if (Z.call(n, "key")) {
-          var q = $(e), P = Object.keys(n).filter(function(qr) {
-            return qr !== "key";
-          }), xe = P.length > 0 ? "{key: someKey, " + P.join(": ..., ") + ": ...}" : "{key: someKey}";
-          if (!Ue[q + xe]) {
-            var Br = P.length > 0 ? "{" + P.join(": ..., ") + ": ...}" : "{}";
-            E(`A props object containing a "key" prop is being spread into JSX:
+        if (oe.call(n, "key")) {
+          var Q = W(e), $ = Object.keys(n).filter(function(Br) {
+            return Br !== "key";
+          }), je = $.length > 0 ? "{key: someKey, " + $.join(": ..., ") + ": ...}" : "{key: someKey}";
+          if (!He[Q + je]) {
+            var $r = $.length > 0 ? "{" + $.join(": ..., ") + ": ...}" : "{}";
+            v(`A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
-  <%s key={someKey} {...props} />`, xe, q, Br, q), Ue[q + xe] = !0;
+  <%s key={someKey} {...props} />`, je, Q, $r, Q), He[Q + je] = !0;
           }
         }
-        return e === t ? zr(O) : Wr(O), O;
+        return e === a ? Mr(I) : Wr(I), I;
       }
     }
-    function Gr(e, n, o) {
-      return Be(e, n, o, !0);
+    function Gr(e, n, i) {
+      return Ne(e, n, i, !0);
     }
-    function Lr(e, n, o) {
-      return Be(e, n, o, !1);
+    function zr(e, n, i) {
+      return Ne(e, n, i, !1);
     }
-    var $r = Lr, Ur = Gr;
-    re.Fragment = t, re.jsx = $r, re.jsxs = Ur;
-  }()), re;
+    var Lr = zr, Ur = Gr;
+    ie.Fragment = a, ie.jsx = Lr, ie.jsxs = Ur;
+  }()), ie;
 }
-process.env.NODE_ENV === "production" ? me.exports = dn() : me.exports = fn();
-var r = me.exports;
-const Ne = [
-  { id: "selected", label: "Selected", count: 1 },
-  { id: "current", label: "Current squads" },
-  { id: "labels", label: "Labels" },
-  { id: "groups", label: "Groups" },
-  { id: "status", label: "Status" },
-  { id: "position-groups", label: "Position groups" },
-  { id: "historical", label: "Historical squads", hasSubmenu: !0 }
-], lr = ({
-  selectedSquad: a,
-  onSquadChange: s,
-  selectedCount: i = 0,
-  compact: t = !1
+process.env.NODE_ENV === "production" ? we.exports = dn() : we.exports = fn();
+var r = we.exports;
+const Se = [
+  { id: "selected", label: "Selected", count: 1, isSpecial: !0 },
+  { id: "squads", label: "Squads" },
+  { id: "free-agents", label: "Free Agents" },
+  { id: "historical", label: "Historical Athletes" }
+], cr = ({
+  selectedSquad: o,
+  onSquadChange: t,
+  selectedCount: s = 0,
+  compact: a = !1
 }) => {
-  const h = L(), g = U(h.breakpoints.down("sm")), [c, S] = G(!1), f = () => {
-    S(!c);
-  }, j = (d) => {
-    s(d), g || S(!1);
-  }, l = () => {
-    const d = Ne.find((x) => x.id === a);
-    return (d == null ? void 0 : d.label) || "Current squads";
-  }, u = (d) => d.id === "selected" && i > 0 ? `${d.label} (${i})` : d.label;
+  const f = J(), x = K(f.breakpoints.down("sm")), [u, C] = q(!1), g = () => {
+    C(!u);
+  }, _ = (c) => {
+    t(c), x || C(!1);
+  }, p = () => {
+    const c = Se.find((m) => m.id === o);
+    return (c == null ? void 0 : c.label) || "Squads";
+  }, h = (c) => c.id === "selected" && s > 0 ? `${c.label} (${s})` : c.label;
   return /* @__PURE__ */ r.jsxs(b, { sx: { position: "relative", width: "100%" }, children: [
     /* @__PURE__ */ r.jsx(
-      ne,
+      te,
       {
-        onClick: f,
+        onClick: g,
         variant: "text",
-        endIcon: c ? /* @__PURE__ */ r.jsx(an, {}) : /* @__PURE__ */ r.jsx(or, {}),
+        endIcon: u ? /* @__PURE__ */ r.jsx(an, {}) : /* @__PURE__ */ r.jsx(ar, {}),
         sx: {
           width: "100%",
           justifyContent: "space-between",
           textTransform: "none",
           fontFamily: '"Open Sans", sans-serif',
-          fontSize: t ? "0.875rem" : "1rem",
+          fontSize: a ? "0.875rem" : "1rem",
           fontWeight: 400,
           color: "text.primary",
-          px: t ? 1.5 : 2,
-          py: t ? 1 : 1.5,
-          minHeight: t ? 36 : 44,
+          px: a ? 1.5 : 2,
+          py: a ? 1 : 1.5,
+          minHeight: a ? 36 : 44,
           border: "1px solid",
           borderColor: "divider",
           borderRadius: 1,
@@ -676,20 +673,21 @@ const Ne = [
             borderColor: "primary.main"
           }
         },
-        children: l()
+        children: p()
       }
     ),
-    /* @__PURE__ */ r.jsx(Nr, { in: c, timeout: "auto", unmountOnExit: !0, children: /* @__PURE__ */ r.jsx(
-      ve,
+    /* @__PURE__ */ r.jsx(Yr, { in: u, timeout: "auto", unmountOnExit: !0, children: /* @__PURE__ */ r.jsx(
+      Ce,
       {
         elevation: 8,
         sx: {
           position: "absolute",
           top: "100%",
           left: 0,
-          right: 0,
-          zIndex: h.zIndex.modal,
-          maxHeight: g ? "70vh" : "400px",
+          minWidth: "100%",
+          width: "max-content",
+          zIndex: f.zIndex.modal,
+          maxHeight: x ? "70vh" : "400px",
           overflowY: "auto",
           mt: 0.5,
           border: "1px solid",
@@ -701,124 +699,147 @@ const Ne = [
           {
             sx: {
               py: 1,
+              minWidth: "200px",
               "& .MuiMenuItem-root": {
                 fontFamily: '"Open Sans", sans-serif',
                 fontSize: "1rem",
                 fontWeight: 400,
                 px: 2,
                 py: 1.5,
-                minHeight: "auto"
+                minHeight: "auto",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis"
               }
             },
-            children: Ne.map((d) => /* @__PURE__ */ r.jsxs(
-              Ke,
-              {
-                selected: a === d.id,
-                onClick: () => j(d.id),
-                sx: {
-                  backgroundColor: a === d.id ? "action.selected" : "transparent",
-                  "&:hover": {
-                    backgroundColor: a === d.id ? "action.selected" : "action.hover"
-                  },
-                  "&.Mui-selected": {
-                    backgroundColor: "action.selected",
+            children: Se.map((c, m) => /* @__PURE__ */ r.jsxs(fe.Fragment, { children: [
+              /* @__PURE__ */ r.jsxs(
+                Nr,
+                {
+                  selected: o === c.id,
+                  onClick: () => _(c.id),
+                  sx: {
+                    backgroundColor: o === c.id ? "action.selected" : "transparent",
                     "&:hover": {
-                      backgroundColor: "action.selected"
-                    }
-                  },
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center"
-                },
-                children: [
-                  /* @__PURE__ */ r.jsx(
-                    A,
-                    {
-                      variant: "body1",
-                      sx: {
-                        fontFamily: '"Open Sans", sans-serif',
-                        fontSize: "1rem",
-                        fontWeight: 400,
-                        color: "text.primary",
-                        flexGrow: 1
-                      },
-                      children: u(d)
-                    }
-                  ),
-                  d.hasSubmenu && /* @__PURE__ */ r.jsx(
-                    ar,
-                    {
-                      fontSize: "small",
-                      sx: {
-                        color: "text.secondary",
-                        ml: 1
+                      backgroundColor: o === c.id ? "action.selected" : "action.hover"
+                    },
+                    "&.Mui-selected": {
+                      backgroundColor: "action.selected",
+                      "&:hover": {
+                        backgroundColor: "action.selected"
+                      }
+                    },
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    // Special styling for Selected option
+                    ...c.isSpecial && {
+                      fontWeight: 600,
+                      color: "primary.main",
+                      "&.Mui-selected": {
+                        backgroundColor: "primary.light",
+                        color: "primary.contrastText",
+                        "&:hover": {
+                          backgroundColor: "primary.light"
+                        }
                       }
                     }
-                  )
-                ]
-              },
-              d.id
-            ))
+                  },
+                  children: [
+                    /* @__PURE__ */ r.jsx(
+                      z,
+                      {
+                        variant: "body1",
+                        sx: {
+                          fontFamily: '"Open Sans", sans-serif',
+                          fontSize: "1rem",
+                          fontWeight: c.isSpecial ? 600 : 400,
+                          color: c.isSpecial ? "primary.main" : "text.primary",
+                          flexGrow: 1,
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap"
+                        },
+                        children: h(c)
+                      }
+                    ),
+                    c.hasSubmenu && /* @__PURE__ */ r.jsx(
+                      ir,
+                      {
+                        fontSize: "small",
+                        sx: {
+                          color: "text.secondary",
+                          ml: 1
+                        }
+                      }
+                    )
+                  ]
+                }
+              ),
+              c.isSpecial && m < Se.length - 1 && /* @__PURE__ */ r.jsx(Xe, { sx: { my: 0.5 } })
+            ] }, c.id))
           }
         )
       }
     ) })
   ] });
-}, vn = (a) => {
-  const s = a.reduce((i, t) => (i[t.ageGroup] || (i[t.ageGroup] = {
-    id: t.ageGroup,
-    name: t.ageGroup,
+}, gn = (o) => {
+  const t = o.reduce((s, a) => (s[a.ageGroup] || (s[a.ageGroup] = {
+    id: a.ageGroup,
+    name: a.ageGroup,
     athletes: [],
     isExpanded: !1
-  }), i[t.ageGroup].athletes.push(t), i), {});
-  return Object.values(s).sort((i, t) => {
-    const h = parseInt(i.name.replace("U", ""));
-    return parseInt(t.name.replace("U", "")) - h;
+  }), s[a.ageGroup].athletes.push(a), s), {});
+  return Object.values(t).sort((s, a) => {
+    const f = parseInt(s.name.replace("U", ""));
+    return parseInt(a.name.replace("U", "")) - f;
   });
-}, bn = (a) => {
-  const s = a.reduce((i, t) => (i[t.position] || (i[t.position] = {
-    id: t.position,
-    name: t.position,
+}, vn = (o) => {
+  const t = o.reduce((s, a) => (s[a.position] || (s[a.position] = {
+    id: a.position,
+    name: a.position,
     athletes: []
-  }), i[t.position].athletes.push(t), i), {});
-  return Object.values(s).sort((i, t) => i.name.localeCompare(t.name));
-}, cr = (a, s) => a.filter((i) => {
-  if (s.selectedSquad)
-    switch (s.selectedSquad) {
+  }), s[a.position].athletes.push(a), s), {});
+  return Object.values(t).sort((s, a) => s.name.localeCompare(a.name));
+}, ur = (o, t) => o.filter((s) => {
+  if (t.selectedSquad)
+    switch (t.selectedSquad) {
       case "current":
-        if (!["U21", "U19", "U17"].includes(i.ageGroup))
+        if (!["U21", "U19", "U17"].includes(s.ageGroup))
           return !1;
         break;
-      case "youth":
-        if (parseInt(i.ageGroup.replace("U", "")) > 17)
+      case "free-agents":
+        return !1;
+      case "historical":
+        if (["U21", "U19", "U17"].includes(s.ageGroup))
           return !1;
         break;
     }
-  if (s.searchTerm) {
-    const t = s.searchTerm.toLowerCase();
-    if (!i.name.toLowerCase().includes(t) && !i.position.toLowerCase().includes(t) && !i.ageGroup.toLowerCase().includes(t))
+  if (t.searchTerm) {
+    const a = t.searchTerm.toLowerCase();
+    if (!s.name.toLowerCase().includes(a) && !s.position.toLowerCase().includes(a) && !s.ageGroup.toLowerCase().includes(a))
       return !1;
   }
-  return !(s.selectedAgeGroups.length > 0 && !s.selectedAgeGroups.includes(i.ageGroup) || s.selectedPositions.length > 0 && !s.selectedPositions.includes(i.position));
-}), ur = (a, s, i) => [...a].sort((t, h) => {
-  let g = 0;
-  switch (s) {
+  return !(t.selectedAgeGroups.length > 0 && !t.selectedAgeGroups.includes(s.ageGroup) || t.selectedPositions.length > 0 && !t.selectedPositions.includes(s.position));
+}), dr = (o, t, s) => [...o].sort((a, f) => {
+  let x = 0;
+  switch (t) {
     case "name":
-      g = t.name.localeCompare(h.name);
+      x = a.name.localeCompare(f.name);
       break;
     case "position":
-      g = t.position.localeCompare(h.position);
+      x = a.position.localeCompare(f.position);
       break;
     case "ageGroup":
-      const c = parseInt(t.ageGroup.replace("U", ""));
-      g = parseInt(h.ageGroup.replace("U", "")) - c;
+      const u = parseInt(a.ageGroup.replace("U", ""));
+      x = parseInt(f.ageGroup.replace("U", "")) - u;
       break;
     default:
-      g = 0;
+      x = 0;
   }
-  return i === "desc" ? -g : g;
-}), dr = (a) => {
-  switch (a) {
+  return s === "desc" ? -x : x;
+}), fr = (o) => {
+  switch (o) {
     case "available":
       return "success";
     case "unavailable":
@@ -828,8 +849,8 @@ const Ne = [
     default:
       return "default";
   }
-}, fr = (a) => {
-  switch (a) {
+}, pr = (o) => {
+  switch (o) {
     case "available":
       return "Available";
     case "unavailable":
@@ -839,15 +860,15 @@ const Ne = [
     default:
       return "Unknown";
   }
-}, He = ({
-  athlete: a,
-  isSelected: s,
-  onToggle: i,
-  showGroupIcon: t = !1
+}, Ke = ({
+  athlete: o,
+  isSelected: t,
+  onToggle: s,
+  showGroupIcon: a = !1
 }) => {
-  const h = L(), g = () => {
-    i(a.id);
-  }, c = a.name.includes("Aggregate") || t;
+  const f = J(), x = () => {
+    s(o.id);
+  }, u = o.name.includes("Aggregate") || a;
   return /* @__PURE__ */ r.jsxs(
     b,
     {
@@ -857,20 +878,20 @@ const Ne = [
         py: 1,
         px: 2,
         minHeight: 48,
-        backgroundColor: s ? "action.selected" : "transparent",
+        backgroundColor: t ? "action.selected" : "transparent",
         "&:hover": {
-          backgroundColor: s ? "action.selected" : "action.hover"
+          backgroundColor: t ? "action.selected" : "action.hover"
         },
-        transition: h.transitions.create("background-color", {
-          duration: h.transitions.duration.short
+        transition: f.transitions.create("background-color", {
+          duration: f.transitions.duration.short
         })
       },
       children: [
         /* @__PURE__ */ r.jsx(
-          Je,
+          Ze,
           {
-            checked: s,
-            onChange: g,
+            checked: t,
+            onChange: x,
             size: "small",
             sx: {
               color: "primary.main",
@@ -883,16 +904,16 @@ const Ne = [
           }
         ),
         /* @__PURE__ */ r.jsx(b, { sx: { mr: 1, position: "relative" }, children: /* @__PURE__ */ r.jsx(
-          Xe,
+          Qe,
           {
-            src: c ? void 0 : a.avatar,
-            alt: a.name,
+            src: u ? void 0 : o.avatar,
+            alt: o.name,
             sx: {
               width: 34,
               height: 34,
-              bgcolor: c ? "grey.300" : void 0
+              bgcolor: u ? "grey.300" : void 0
             },
-            children: c && /* @__PURE__ */ r.jsx(
+            children: u && /* @__PURE__ */ r.jsx(
               sn,
               {
                 sx: {
@@ -905,7 +926,7 @@ const Ne = [
         ) }),
         /* @__PURE__ */ r.jsxs(b, { sx: { flexGrow: 1, minWidth: 0 }, children: [
           /* @__PURE__ */ r.jsx(
-            A,
+            z,
             {
               variant: "body1",
               sx: {
@@ -916,11 +937,11 @@ const Ne = [
                 lineHeight: 1.3,
                 mb: 0
               },
-              children: a.name
+              children: o.name
             }
           ),
           /* @__PURE__ */ r.jsx(
-            A,
+            z,
             {
               variant: "body2",
               sx: {
@@ -930,15 +951,15 @@ const Ne = [
                 color: "text.secondary",
                 lineHeight: 1.3
               },
-              children: a.position
+              children: o.position
             }
           )
         ] }),
-        !c && /* @__PURE__ */ r.jsx(
-          ie,
+        !u && /* @__PURE__ */ r.jsx(
+          pe,
           {
-            label: fr(a.status),
-            color: dr(a.status),
+            label: pr(o.status),
+            color: fr(o.status),
             size: "small",
             variant: "filled",
             sx: {
@@ -957,69 +978,90 @@ const Ne = [
       ]
     }
   );
-}, pr = ({
-  athletes: a,
-  selectedAthletes: s,
-  onSelectionChange: i,
-  sortBy: t
+}, Ee = ({
+  athletes: o,
+  selectedAthletes: t,
+  onSelectionChange: s,
+  onBatchSelectionChange: a,
+  groupBy: f,
+  order: x,
+  showOnlySelected: u = !1
 }) => {
-  const [h, g] = G(["Forward"]), c = (u) => {
-    const d = s.includes(u);
-    i(u, !d);
-  }, S = (u) => {
-    const d = u.every(
-      (x) => s.includes(x.id)
-    );
-    u.forEach((x) => {
-      i(x.id, !d);
+  const [C, g] = q(["Goalkeeper", "Defender", "Midfielder", "Forward"]), _ = (l) => {
+    const T = t.includes(l);
+    s(l, !T);
+  }, p = (l) => {
+    const T = l.every(
+      (D) => t.includes(D.id)
+    ), P = l.map((D) => D.id), v = !T;
+    a ? a(P, v) : P.forEach((D) => {
+      s(D, v);
     });
-  }, f = (u) => (d, x) => {
+  }, h = (l) => (T, P) => {
     g(
-      (m) => x ? [...m, u] : m.filter((D) => D !== u)
+      (v) => P ? [...v, l] : v.filter((D) => D !== l)
     );
-  }, l = ((u) => {
-    const d = {};
-    return u.forEach((x) => {
-      let m;
-      switch (t) {
-        case "position":
-          m = x.position;
-          break;
-        case "status":
-          m = x.status;
-          break;
-        case "squad":
-        default:
-          m = x.ageGroup;
-          break;
-      }
-      d[m] || (d[m] = []), d[m].push(x);
-    }), Object.entries(d).map(([x, m]) => {
-      var F;
-      const D = t === "position" ? {
-        id: `${x}-aggregate`,
-        name: x,
+  }, c = se(() => u ? o.filter((l) => t.includes(l.id)) : o, [o, t, u]), m = (l) => {
+    switch (l.toLowerCase().trim()) {
+      case "goalkeeper":
+        return "Goalkeeper";
+      case "defender":
+        return "Defender";
+      case "midfielder":
+      case "winger":
+        return "Midfielder";
+      case "striker":
+      case "centre forward":
+      case "center forward":
+        return "Forward";
+      default:
+        return l;
+    }
+  }, k = se(() => {
+    const l = {};
+    c.forEach((j) => {
+      let E;
+      f === "position" ? E = m(j.position) : f === "status" ? E = j.status : E = j.ageGroup, l[E] || (l[E] = []), l[E].push(j);
+    });
+    const T = Object.entries(l).map(([j, E]) => {
+      var N;
+      const H = [...E].sort((V, Z) => V.name.localeCompare(Z.name));
+      x === "desc" && H.reverse();
+      const X = f === "position" ? {
+        id: `${j}-aggregate`,
+        name: j,
         position: "Aggregate",
-        ageGroup: ((F = m[0]) == null ? void 0 : F.ageGroup) || "U23",
+        ageGroup: ((N = H[0]) == null ? void 0 : N.ageGroup) || "U23",
         status: "available",
         avatar: ""
       } : void 0;
       return {
-        id: x,
-        name: x,
-        athletes: m,
-        aggregateAthlete: D
+        id: j,
+        name: j,
+        athletes: H,
+        aggregateAthlete: X
       };
-    });
-  })(a);
-  return /* @__PURE__ */ r.jsx(b, { sx: { width: "100%" }, children: l.map((u, d) => {
-    const x = h.includes(u.id);
+    }), P = (j) => {
+      const E = j.match(/U(\d+)/);
+      return E ? parseInt(E[1], 10) : 0;
+    }, v = ["Goalkeeper", "Defender", "Midfielder", "Forward"], D = (j) => {
+      const E = v.indexOf(j);
+      return E >= 0 ? E : 999;
+    };
+    return T.sort((j, E) => f === "squad" ? P(E.name) - P(j.name) : f === "position" ? D(j.name) - D(E.name) : j.name.localeCompare(E.name)), T;
+  }, [c, f, x]);
+  return /* @__PURE__ */ r.jsx(b, { sx: { width: "100%" }, children: k.map((l, T) => {
+    const P = C.includes(l.id), v = l.athletes.filter(
+      (j) => t.includes(j.id)
+    ).length, D = l.athletes.every(
+      (j) => t.includes(j.id)
+    );
     return /* @__PURE__ */ r.jsxs(b, { children: [
       /* @__PURE__ */ r.jsxs(
         Vr,
         {
-          expanded: x,
-          onChange: f(u.id),
+          expanded: P,
+          onChange: h(l.id),
           elevation: 0,
           sx: {
             "&:before": {
@@ -1039,13 +1081,13 @@ const Ne = [
           },
           children: [
             /* @__PURE__ */ r.jsx(
-              Kr,
+              Jr,
               {
                 expandIcon: /* @__PURE__ */ r.jsx(ln, {}),
                 sx: {
                   flexDirection: "row-reverse",
                   "& .MuiAccordionSummary-expandIconWrapper": {
-                    transform: x ? "rotate(180deg)" : "rotate(0deg)",
+                    transform: P ? "rotate(180deg)" : "rotate(0deg)",
                     transition: "transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
                     mr: 1
                   }
@@ -1060,8 +1102,8 @@ const Ne = [
                       width: "100%"
                     },
                     children: [
-                      /* @__PURE__ */ r.jsx(
-                        A,
+                      /* @__PURE__ */ r.jsxs(
+                        z,
                         {
                           variant: "body1",
                           sx: {
@@ -1070,15 +1112,30 @@ const Ne = [
                             fontWeight: 400,
                             color: "text.primary"
                           },
-                          children: u.name
+                          children: [
+                            l.name,
+                            v > 0 && /* @__PURE__ */ r.jsxs(
+                              z,
+                              {
+                                component: "span",
+                                variant: "body2",
+                                sx: { color: "text.secondary", ml: 0.5 },
+                                children: [
+                                  "(",
+                                  v,
+                                  ")"
+                                ]
+                              }
+                            )
+                          ]
                         }
                       ),
                       /* @__PURE__ */ r.jsx(
-                        ne,
+                        te,
                         {
                           size: "small",
-                          onClick: (m) => {
-                            m.stopPropagation(), S(u.athletes);
+                          onClick: (j) => {
+                            j.stopPropagation(), p(l.athletes);
                           },
                           sx: {
                             fontFamily: '"Open Sans", sans-serif',
@@ -1093,7 +1150,7 @@ const Ne = [
                               textDecoration: "underline"
                             }
                           },
-                          children: "Select all"
+                          children: D ? "Deselect all" : "Select all"
                         }
                       )
                     ]
@@ -1101,18 +1158,18 @@ const Ne = [
                 )
               }
             ),
-            /* @__PURE__ */ r.jsx(Jr, { children: /* @__PURE__ */ r.jsxs(b, { children: [
-              u.aggregateAthlete && /* @__PURE__ */ r.jsx(
-                He,
+            /* @__PURE__ */ r.jsx(Kr, { children: /* @__PURE__ */ r.jsxs(b, { children: [
+              l.aggregateAthlete && /* @__PURE__ */ r.jsx(
+                Ke,
                 {
-                  athlete: u.aggregateAthlete,
-                  isSelected: s.includes(u.aggregateAthlete.id),
-                  onToggle: c,
+                  athlete: l.aggregateAthlete,
+                  isSelected: t.includes(l.aggregateAthlete.id),
+                  onToggle: _,
                   showGroupIcon: !0
                 }
               ),
-              t === "position" && /* @__PURE__ */ r.jsx(b, { sx: { px: 2, py: 0 }, children: /* @__PURE__ */ r.jsx(
-                A,
+              f === "position" && /* @__PURE__ */ r.jsx(b, { sx: { px: 2, py: 0 }, children: /* @__PURE__ */ r.jsx(
+                z,
                 {
                   variant: "body2",
                   sx: {
@@ -1121,160 +1178,103 @@ const Ne = [
                     fontWeight: 600,
                     color: "text.primary"
                   },
-                  children: u.name
+                  children: l.name
                 }
               ) }),
-              u.athletes.map((m) => /* @__PURE__ */ r.jsx(
-                He,
+              l.athletes.map((j) => /* @__PURE__ */ r.jsx(
+                Ke,
                 {
-                  athlete: m,
-                  isSelected: s.includes(m.id),
-                  onToggle: c
+                  athlete: j,
+                  isSelected: t.includes(j.id),
+                  onToggle: _
                 },
-                m.id
+                j.id
               ))
             ] }) })
           ]
         }
       ),
-      d < l.length - 1 && /* @__PURE__ */ r.jsx(Xr, { sx: { mx: 2 } })
-    ] }, u.id);
+      T < k.length - 1 && /* @__PURE__ */ r.jsx(Xe, { sx: { mx: 2 } })
+    ] }, l.id);
   }) });
-}, pn = [
-  { value: "squad", label: "Squad" },
-  { value: "status", label: "Status" },
-  { value: "position", label: "Position group" }
-], hr = ({
-  currentSort: a,
-  onSortChange: s
-}) => {
-  const [i, t] = G(null), h = !!i, g = (f) => {
-    t(f.currentTarget);
-  }, c = () => {
-    t(null);
-  }, S = (f) => {
-    s(f), c();
-  };
-  return /* @__PURE__ */ r.jsxs(r.Fragment, { children: [
-    /* @__PURE__ */ r.jsx(
-      H,
-      {
-        size: "small",
-        onClick: g,
-        sx: {
-          color: "text.secondary",
-          "&:hover": {
-            backgroundColor: "action.hover"
-          }
-        },
-        children: /* @__PURE__ */ r.jsx(cn, { fontSize: "small" })
-      }
-    ),
-    /* @__PURE__ */ r.jsx(
-      Qr,
-      {
-        anchorEl: i,
-        open: h,
-        onClose: c,
-        anchorOrigin: {
-          vertical: "bottom",
-          horizontal: "right"
-        },
-        transformOrigin: {
-          vertical: "top",
-          horizontal: "right"
-        },
-        PaperProps: {
-          sx: {
-            minWidth: 160,
-            mt: 0.5,
-            "& .MuiMenuItem-root": {
-              fontFamily: '"Open Sans", sans-serif',
-              fontSize: "0.875rem",
-              py: 1
-            }
-          }
-        },
-        children: pn.map((f) => /* @__PURE__ */ r.jsx(
-          Ke,
-          {
-            selected: a === f.value,
-            onClick: () => S(f.value),
-            children: /* @__PURE__ */ r.jsx(
-              Qe,
-              {
-                primary: f.label,
-                sx: {
-                  "& .MuiTypography-root": {
-                    fontFamily: '"Open Sans", sans-serif',
-                    fontSize: "0.875rem"
-                  }
-                }
-              }
-            )
-          },
-          f.value
-        ))
-      }
-    )
-  ] });
+}, hr = ({ order: o, onChange: t }) => {
+  const s = o === "asc" ? "desc" : "asc", a = o === "asc" ? "Order A → Z" : "Order Z → A";
+  return /* @__PURE__ */ r.jsx(Xr, { title: a, arrow: !0, children: /* @__PURE__ */ r.jsx(
+    ne,
+    {
+      size: "small",
+      onClick: () => t(s),
+      sx: {
+        color: "text.secondary",
+        "&:hover": { backgroundColor: "action.hover" },
+        transform: o === "asc" ? "none" : "scaleX(-1)",
+        // mirror for Z→A hint
+        transition: "transform 120ms ease-in-out"
+      },
+      "aria-label": a,
+      children: /* @__PURE__ */ r.jsx(cn, { fontSize: "small" })
+    }
+  ) });
 }, xr = ({
-  athletes: a,
-  selectedAthletes: s = [],
-  onSelectionChange: i,
-  onClose: t,
-  onBack: h,
-  title: g = "Athletes",
-  showBackButton: c = !1,
-  maxHeight: S = 600,
-  compact: f = !1,
-  loading: j = !1,
-  error: l
+  athletes: o,
+  selectedAthletes: t = [],
+  onSelectionChange: s,
+  onClose: a,
+  onBack: f,
+  title: x = "Athletes",
+  showBackButton: u = !1,
+  maxHeight: C = 600,
+  compact: g = !1,
+  loading: _ = !1,
+  error: p
 }) => {
-  const u = L(), d = U(u.breakpoints.down("sm")), x = f || d, [m, D] = G({
+  const h = J(), c = K(h.breakpoints.down("sm")), m = g || c, [k, l] = q({
     searchTerm: "",
     selectedAgeGroups: [],
     selectedPositions: [],
     selectedSquad: "current",
     sortBy: "name",
     sortOrder: "asc"
-  }), [F, I] = G("position"), E = Ve(() => {
-    const k = cr(a, m);
-    return ur(k, m.sortBy, m.sortOrder);
-  }, [a, m]), z = (k) => {
-    D((R) => ({ ...R, searchTerm: k.target.value }));
-  }, V = (k) => {
-    let R = k;
-    switch (k) {
+  }), [T, P] = q("position"), [v, D] = q("asc"), [j, E] = q(!1), [H, X] = q("squads"), N = se(() => {
+    const O = ur(o, k);
+    return dr(O, k.sortBy, k.sortOrder);
+  }, [o, k]), V = (O) => {
+    l((M) => ({ ...M, searchTerm: O.target.value }));
+  }, Z = (O) => {
+    let M = "all", L = T;
+    switch (X(O), O) {
       case "selected":
-        R = "all";
+        M = "all", L = "position", E(!0);
         break;
-      case "current":
-        R = "current";
+      case "squads":
+        M = "current", L = "squad", E(!1);
         break;
-      case "labels":
-      case "groups":
-      case "status":
-      case "position-groups":
+      case "free-agents":
+        M = "free-agents", L = "position", E(!1);
+        break;
       case "historical":
-        R = "all";
+        M = "historical", L = "position", E(!1);
         break;
       default:
-        R = "all";
+        M = "all", L = "position", E(!1);
+        break;
     }
-    D((W) => ({ ...W, selectedSquad: R }));
-  }, K = (k, R) => {
-    const W = R ? [...s, k] : s.filter((X) => X !== k);
-    i(W);
-  }, J = (k) => {
-    I(k);
+    P(L), l((Y) => ({ ...Y, selectedSquad: M }));
+  }, F = (O, M) => {
+    const L = M ? [...t, O] : t.filter((Y) => Y !== O);
+    s(L);
+  }, G = (O, M) => {
+    let L;
+    M ? L = [...t, ...O.filter((Y) => !t.includes(Y))] : L = t.filter((Y) => !O.includes(Y)), s(L);
+  }, W = (O) => {
+    D(O);
   };
-  return j ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(A, { children: "Loading athletes..." }) }) : l ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(A, { color: "error", children: l }) }) : /* @__PURE__ */ r.jsxs(
+  return _ ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(z, { children: "Loading athletes..." }) }) : p ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(z, { color: "error", children: p }) }) : /* @__PURE__ */ r.jsxs(
     b,
     {
       sx: {
         height: "100%",
-        maxHeight: S,
+        maxHeight: C,
         display: "flex",
         flexDirection: "column",
         overflow: "hidden"
@@ -1285,95 +1285,94 @@ const Ne = [
           {
             sx: {
               py: 1,
-              px: x ? 2 : 3,
+              px: m ? 2 : 3,
               borderBottom: "1px solid",
               borderColor: "divider",
               flexShrink: 0
             },
             children: [
               /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", alignItems: "center", mb: 0 }, children: [
-                c && /* @__PURE__ */ r.jsx(
-                  H,
+                u && /* @__PURE__ */ r.jsx(
+                  ne,
                   {
-                    onClick: h,
+                    onClick: f,
                     sx: { mr: 1 },
-                    size: x ? "small" : "medium",
-                    children: /* @__PURE__ */ r.jsx(be, {})
+                    size: m ? "small" : "medium",
+                    children: /* @__PURE__ */ r.jsx(ke, {})
                   }
                 ),
                 /* @__PURE__ */ r.jsx(
-                  A,
+                  z,
                   {
-                    variant: x ? "h6" : "h5",
+                    variant: m ? "h6" : "h5",
                     fontWeight: "semibold",
                     sx: { flexGrow: 1 },
-                    children: g
+                    children: x
                   }
                 ),
-                t && /* @__PURE__ */ r.jsx(
-                  H,
+                a && /* @__PURE__ */ r.jsx(
+                  ne,
                   {
-                    onClick: t,
-                    size: x ? "small" : "medium",
+                    onClick: a,
+                    size: m ? "small" : "medium",
                     children: /* @__PURE__ */ r.jsx(sr, {})
                   }
                 )
               ] }),
-              /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", gap: 1, alignItems: "center" }, children: [
-                /* @__PURE__ */ r.jsx(b, { sx: { minWidth: 140, flexShrink: 0 }, children: /* @__PURE__ */ r.jsx(
-                  lr,
-                  {
-                    selectedSquad: m.selectedSquad === "current" ? "current" : "all",
-                    onSquadChange: V,
-                    selectedCount: s.length,
-                    compact: !0
-                  }
-                ) }),
-                /* @__PURE__ */ r.jsx(
-                  Ze,
-                  {
-                    placeholder: "Search",
-                    value: m.searchTerm,
-                    onChange: z,
-                    size: "small",
-                    sx: {
-                      flexGrow: 1,
-                      "& .MuiInputBase-root": {
-                        fontFamily: '"Open Sans", sans-serif'
-                      }
-                    },
-                    InputProps: {
-                      endAdornment: /* @__PURE__ */ r.jsx(er, { position: "end", children: /* @__PURE__ */ r.jsx(ir, { fontSize: "small" }) })
+              /* @__PURE__ */ r.jsxs(er, { spacing: 0.5, children: [
+                /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", gap: 1, alignItems: "center" }, children: [
+                  /* @__PURE__ */ r.jsx(b, { sx: { minWidth: 140, flexShrink: 0 }, children: /* @__PURE__ */ r.jsx(
+                    cr,
+                    {
+                      selectedSquad: H,
+                      onSquadChange: Z,
+                      selectedCount: t.length,
+                      compact: !0
                     }
-                  }
-                ),
-                /* @__PURE__ */ r.jsx(
-                  hr,
+                  ) }),
+                  /* @__PURE__ */ r.jsx(
+                    rr,
+                    {
+                      placeholder: "Search",
+                      value: k.searchTerm,
+                      onChange: V,
+                      size: "small",
+                      sx: {
+                        flexGrow: 1,
+                        "& .MuiInputBase-root": {
+                          fontFamily: '"Open Sans", sans-serif'
+                        }
+                      },
+                      InputProps: {
+                        endAdornment: /* @__PURE__ */ r.jsx(nr, { position: "end", children: /* @__PURE__ */ r.jsx(lr, { fontSize: "small" }) })
+                      }
+                    }
+                  ),
+                  /* @__PURE__ */ r.jsx(hr, { order: v, onChange: W })
+                ] }),
+                t.length > 0 && /* @__PURE__ */ r.jsx(b, { children: /* @__PURE__ */ r.jsx(
+                  pe,
                   {
-                    currentSort: F,
-                    onSortChange: J
+                    label: `${t.length} selected`,
+                    color: "primary",
+                    size: "small",
+                    onDelete: () => s([])
                   }
-                )
-              ] }),
-              /* @__PURE__ */ r.jsx(rr, { spacing: 1, children: s.length > 0 && /* @__PURE__ */ r.jsx(b, { children: /* @__PURE__ */ r.jsx(
-                ie,
-                {
-                  label: `${s.length} selected`,
-                  color: "primary",
-                  size: "small",
-                  onDelete: () => i([])
-                }
-              ) }) })
+                ) })
+              ] })
             ]
           }
         ),
         /* @__PURE__ */ r.jsx(b, { sx: { flexGrow: 1, overflow: "auto" }, children: /* @__PURE__ */ r.jsx(
-          pr,
+          Ee,
           {
-            athletes: E,
-            selectedAthletes: s,
-            onSelectionChange: K,
-            sortBy: F
+            athletes: N,
+            selectedAthletes: t,
+            onSelectionChange: F,
+            onBatchSelectionChange: G,
+            groupBy: T,
+            order: v,
+            showOnlySelected: j
           }
         ) }),
         /* @__PURE__ */ r.jsx(
@@ -1381,18 +1380,18 @@ const Ne = [
           {
             sx: {
               py: 1,
-              px: x ? 2 : 3,
+              px: m ? 2 : 3,
               borderTop: "1px solid",
               borderColor: "divider",
               flexShrink: 0
             },
             children: /* @__PURE__ */ r.jsx(b, { sx: { display: "flex", justifyContent: "flex-end" }, children: /* @__PURE__ */ r.jsx(
-              ne,
+              te,
               {
                 variant: "contained",
                 color: "primary",
-                onClick: t,
-                disabled: s.length === 0,
+                onClick: a,
+                disabled: t.length === 0,
                 sx: {
                   fontFamily: '"Open Sans", sans-serif',
                   textTransform: "none"
@@ -1405,28 +1404,28 @@ const Ne = [
       ]
     }
   );
-}, yn = ({
-  open: a,
-  anchor: s = "right",
-  width: i = 460,
-  onClose: t,
-  ...h
+}, bn = ({
+  open: o,
+  anchor: t = "right",
+  width: s = 460,
+  onClose: a,
+  ...f
 }) => {
-  const g = L(), c = U(g.breakpoints.down("md")), S = c ? "100vw" : i, f = c ? "bottom" : s;
+  const x = J(), u = K(x.breakpoints.down("md")), C = u ? "100vw" : s, g = u ? "bottom" : t;
   return /* @__PURE__ */ r.jsx(
-    nr,
+    tr,
     {
-      open: a,
-      onClose: t,
-      anchor: f,
+      open: o,
+      onClose: a,
+      anchor: g,
       sx: {
         "& .MuiDrawer-paper": {
-          width: S,
+          width: C,
           maxWidth: "100vw",
-          height: c ? "90vh" : "100vh",
+          height: u ? "90vh" : "100vh",
           maxHeight: "100vh",
-          boxShadow: g.shadows[16],
-          borderRadius: c ? "16px 16px 0 0" : 0
+          boxShadow: x.shadows[16],
+          borderRadius: u ? "16px 16px 0 0" : 0
         }
       },
       ModalProps: {
@@ -1436,79 +1435,79 @@ const Ne = [
       children: /* @__PURE__ */ r.jsx(
         xr,
         {
-          ...h,
-          onClose: t,
-          compact: c,
+          ...f,
+          onClose: a,
+          compact: u,
           maxHeight: "100%"
         }
       )
     }
   );
-}, jn = ({
-  selectedAthletes: a = [],
-  buttonText: s = "Select Athletes",
-  buttonVariant: i = "outlined",
-  buttonColor: t = "primary",
-  showBadge: h = !0,
-  maxWidth: g = 400,
-  maxHeight: c = 500,
-  onSelectionChange: S,
-  ...f
+}, yn = ({
+  selectedAthletes: o = [],
+  buttonText: t = "Select Athletes",
+  buttonVariant: s = "outlined",
+  buttonColor: a = "primary",
+  showBadge: f = !0,
+  maxWidth: x = 400,
+  maxHeight: u = 500,
+  onSelectionChange: C,
+  ...g
 }) => {
-  const j = L(), l = U(j.breakpoints.down("sm")), [u, d] = G(null), x = Yr(null), m = !!u, D = (z) => {
-    d(z.currentTarget);
-  }, F = () => {
-    d(null);
-  }, I = (z) => {
-    S(z);
-  }, E = /* @__PURE__ */ r.jsx(
-    ne,
+  const _ = J(), p = K(_.breakpoints.down("sm")), [h, c] = q(null), m = qr(null), k = !!h, l = (D) => {
+    c(D.currentTarget);
+  }, T = () => {
+    c(null);
+  }, P = (D) => {
+    C(D);
+  }, v = /* @__PURE__ */ r.jsx(
+    te,
     {
-      ref: x,
-      variant: i,
-      color: t,
-      onClick: D,
-      endIcon: /* @__PURE__ */ r.jsx(or, {}),
+      ref: m,
+      variant: s,
+      color: a,
+      onClick: l,
+      endIcon: /* @__PURE__ */ r.jsx(ar, {}),
       startIcon: /* @__PURE__ */ r.jsx(un, {}),
       sx: {
         textTransform: "none",
-        minWidth: l ? "100%" : "auto"
+        minWidth: p ? "100%" : "auto"
       },
-      children: a.length > 0 ? `${a.length} ${a.length === 1 ? "athlete" : "athletes"} selected` : s
+      children: o.length > 0 ? `${o.length} ${o.length === 1 ? "athlete" : "athletes"} selected` : t
     }
   );
-  return /* @__PURE__ */ r.jsxs(b, { sx: { display: "inline-block", width: l ? "100%" : "auto" }, children: [
-    h && a.length > 0 ? /* @__PURE__ */ r.jsx(
+  return /* @__PURE__ */ r.jsxs(b, { sx: { display: "inline-block", width: p ? "100%" : "auto" }, children: [
+    f && o.length > 0 ? /* @__PURE__ */ r.jsx(
       Zr,
       {
-        badgeContent: a.length,
+        badgeContent: o.length,
         color: "primary",
         max: 99,
-        children: E
+        children: v
       }
-    ) : E,
+    ) : v,
     /* @__PURE__ */ r.jsx(
-      tr,
+      or,
       {
-        open: m,
-        anchorEl: u,
-        onClose: F,
+        open: k,
+        anchorEl: h,
+        onClose: T,
         anchorOrigin: {
           vertical: "bottom",
-          horizontal: l ? "center" : "left"
+          horizontal: p ? "center" : "left"
         },
         transformOrigin: {
           vertical: "top",
-          horizontal: l ? "center" : "left"
+          horizontal: p ? "center" : "left"
         },
         sx: {
           "& .MuiPopover-paper": {
             mt: 1,
-            maxWidth: l ? "95vw" : g,
-            maxHeight: l ? "80vh" : c,
-            minWidth: l ? "90vw" : 350,
+            maxWidth: p ? "95vw" : x,
+            maxHeight: p ? "80vh" : u,
+            minWidth: p ? "90vw" : 350,
             borderRadius: 2,
-            boxShadow: j.shadows[8]
+            boxShadow: _.shadows[8]
           }
         },
         slotProps: {
@@ -1516,63 +1515,63 @@ const Ne = [
             elevation: 8
           }
         },
-        children: /* @__PURE__ */ r.jsx(ve, { children: /* @__PURE__ */ r.jsx(
+        children: /* @__PURE__ */ r.jsx(Ce, { children: /* @__PURE__ */ r.jsx(
           xr,
           {
-            ...f,
-            selectedAthletes: a,
-            onSelectionChange: I,
-            onClose: F,
-            compact: l,
-            maxHeight: l ? "75vh" : c
+            ...g,
+            selectedAthletes: o,
+            onSelectionChange: P,
+            onClose: T,
+            compact: p,
+            maxHeight: p ? "75vh" : u
           }
         ) })
       }
     )
   ] });
-}, Sn = ({
-  athlete: a,
-  isSelected: s,
-  onSelectionChange: i,
-  compact: t = !1
+}, jn = ({
+  athlete: o,
+  isSelected: t,
+  onSelectionChange: s,
+  compact: a = !1
 }) => {
-  const h = L(), g = U(h.breakpoints.down("sm")), c = t || g, S = (f) => {
-    i(a.id, f.target.checked);
+  const f = J(), x = K(f.breakpoints.down("sm")), u = a || x, C = (g) => {
+    s(o.id, g.target.checked);
   };
   return /* @__PURE__ */ r.jsx(
-    en,
+    Qr,
     {
       variant: "outlined",
       sx: {
         mb: 1,
-        backgroundColor: s ? "action.selected" : "transparent",
+        backgroundColor: t ? "action.selected" : "transparent",
         "&:hover": {
           backgroundColor: "action.hover"
         },
-        transition: h.transitions.create("background-color", {
-          duration: h.transitions.duration.short
+        transition: f.transitions.create("background-color", {
+          duration: f.transitions.duration.short
         }),
         border: "1px solid",
         borderColor: "divider"
       },
       children: /* @__PURE__ */ r.jsxs(
-        rn,
+        en,
         {
           sx: {
             display: "flex",
             alignItems: "center",
             gap: 2,
-            py: c ? 1.5 : 2,
-            px: c ? 2 : 3,
-            "&:last-child": { pb: c ? 1.5 : 2 }
+            py: u ? 1.5 : 2,
+            px: u ? 2 : 3,
+            "&:last-child": { pb: u ? 1.5 : 2 }
           },
           children: [
             /* @__PURE__ */ r.jsx(
-              Je,
+              Ze,
               {
-                checked: s,
-                onChange: S,
-                size: c ? "small" : "medium",
+                checked: t,
+                onChange: C,
+                size: u ? "small" : "medium",
                 sx: {
                   color: "primary.main",
                   "&.Mui-checked": {
@@ -1582,24 +1581,24 @@ const Ne = [
               }
             ),
             /* @__PURE__ */ r.jsx(
-              Xe,
+              Qe,
               {
-                src: a.avatar,
-                alt: a.name,
+                src: o.avatar,
+                alt: o.name,
                 sx: {
-                  width: c ? 32 : 40,
-                  height: c ? 32 : 40,
+                  width: u ? 32 : 40,
+                  height: u ? 32 : 40,
                   border: "1px solid",
                   borderColor: "divider"
                 },
-                children: a.name.split(" ").map((f) => f[0]).join("").toUpperCase()
+                children: o.name.split(" ").map((g) => g[0]).join("").toUpperCase()
               }
             ),
             /* @__PURE__ */ r.jsxs(b, { sx: { flexGrow: 1, minWidth: 0 }, children: [
               /* @__PURE__ */ r.jsx(
-                A,
+                z,
                 {
-                  variant: c ? "body2" : "body1",
+                  variant: u ? "body2" : "body1",
                   fontWeight: "medium",
                   sx: {
                     color: "text.primary",
@@ -1608,32 +1607,32 @@ const Ne = [
                     textOverflow: "ellipsis",
                     whiteSpace: "nowrap"
                   },
-                  children: a.name
+                  children: o.name
                 }
               ),
               /* @__PURE__ */ r.jsx(
-                A,
+                z,
                 {
-                  variant: c ? "caption" : "body2",
+                  variant: u ? "caption" : "body2",
                   color: "text.secondary",
                   sx: {
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                     whiteSpace: "nowrap"
                   },
-                  children: a.position
+                  children: o.position
                 }
               )
             ] }),
             /* @__PURE__ */ r.jsx(
-              ie,
+              pe,
               {
-                label: fr(a.status),
-                color: dr(a.status),
-                size: c ? "small" : "medium",
+                label: pr(o.status),
+                color: fr(o.status),
+                size: u ? "small" : "medium",
                 variant: "filled",
                 sx: {
-                  minWidth: c ? 60 : 80,
+                  minWidth: u ? 60 : 80,
                   fontWeight: "medium",
                   fontFamily: '"Open Sans", sans-serif'
                 }
@@ -1644,34 +1643,42 @@ const Ne = [
       )
     }
   );
-}, hn = ({
-  athletes: a,
-  selectedAthletes: s,
-  onSelectionChange: i,
-  sortBy: t
+}, pn = ({
+  athletes: o,
+  selectedAthletes: t,
+  onSelectionChange: s,
+  onBatchSelectionChange: a,
+  order: f = "asc"
 }) => {
-  const [h, g] = G(null), c = ge.useMemo(() => {
-    const j = {};
-    return a.forEach((l) => {
-      const u = l.ageGroup;
-      j[u] || (j[u] = []), j[u].push(l);
-    }), Object.entries(j).map(([l, u]) => ({
-      id: l,
-      name: l,
-      athletes: u
-    })).sort((l, u) => {
-      const d = (x) => {
-        const m = x.match(/U(\d+)/);
-        return m ? parseInt(m[1]) : 0;
+  const [x, u] = q(null), C = fe.useMemo(() => {
+    const h = {};
+    return o.forEach((c) => {
+      const m = c.ageGroup;
+      h[m] || (h[m] = []), h[m].push(c);
+    }), Object.entries(h).map(([c, m]) => ({
+      id: c,
+      name: c,
+      athletes: m
+    })).sort((c, m) => {
+      const k = (l) => {
+        const T = l.match(/U(\d+)/);
+        return T ? parseInt(T[1]) : 0;
       };
-      return d(u.name) - d(l.name);
+      return k(m.name) - k(c.name);
     });
-  }, [a]), S = (j) => {
-    g(j);
-  }, f = () => {
-    g(null);
+  }, [o]), g = (h) => {
+    u(h);
+  }, _ = () => {
+    u(null);
+  }, p = (h) => {
+    const c = h.every(
+      (l) => t.includes(l.id)
+    ), m = h.map((l) => l.id), k = !c;
+    a ? a(m, k) : m.forEach((l) => {
+      s(l, k);
+    });
   };
-  return h ? /* @__PURE__ */ r.jsxs(b, { sx: { width: "100%" }, children: [
+  return x ? /* @__PURE__ */ r.jsxs(b, { sx: { width: "100%" }, children: [
     /* @__PURE__ */ r.jsxs(
       b,
       {
@@ -1686,16 +1693,16 @@ const Ne = [
         },
         children: [
           /* @__PURE__ */ r.jsx(
-            H,
+            ne,
             {
-              onClick: f,
+              onClick: _,
               size: "small",
               sx: { mr: 1 },
-              children: /* @__PURE__ */ r.jsx(be, { fontSize: "small" })
+              children: /* @__PURE__ */ r.jsx(ke, { fontSize: "small" })
             }
           ),
           /* @__PURE__ */ r.jsx(
-            A,
+            z,
             {
               variant: "h6",
               sx: {
@@ -1705,127 +1712,171 @@ const Ne = [
                 color: "text.primary",
                 flexGrow: 1
               },
-              children: h.name
+              children: x.name
             }
           )
         ]
       }
     ),
     /* @__PURE__ */ r.jsx(b, { sx: { overflow: "auto" }, children: /* @__PURE__ */ r.jsx(
-      pr,
+      Ee,
       {
-        athletes: h.athletes,
-        selectedAthletes: s,
-        onSelectionChange: i,
-        sortBy: t
+        athletes: x.athletes,
+        selectedAthletes: t,
+        onSelectionChange: s,
+        onBatchSelectionChange: a,
+        groupBy: "position",
+        order: f
       }
     ) })
-  ] }) : /* @__PURE__ */ r.jsx(ve, { elevation: 0, sx: { width: "100%" }, children: /* @__PURE__ */ r.jsx(nn, { sx: { py: 0 }, children: c.map((j) => {
-    const l = j.name === "U23";
+  ] }) : /* @__PURE__ */ r.jsx(Ce, { elevation: 0, sx: { width: "100%" }, children: /* @__PURE__ */ r.jsx(rn, { sx: { py: 0 }, children: C.map((h) => {
+    const c = h.name === "U23";
     return /* @__PURE__ */ r.jsx(
-      tn,
+      nn,
       {
         disablePadding: !0,
         sx: {
-          backgroundColor: l ? "action.selected" : "transparent"
+          backgroundColor: c ? "action.selected" : "transparent"
         },
-        children: /* @__PURE__ */ r.jsxs(
-          on,
+        children: /* @__PURE__ */ r.jsx(
+          tn,
           {
-            onClick: () => S(j),
+            onClick: () => g(h),
             sx: {
               px: 2,
               py: 1,
               "&:hover": {
-                backgroundColor: l ? "action.selected" : "action.hover"
+                backgroundColor: c ? "action.selected" : "action.hover"
               }
             },
-            children: [
-              /* @__PURE__ */ r.jsx(
-                Qe,
-                {
-                  primary: j.name,
-                  primaryTypographyProps: {
-                    fontFamily: '"Open Sans", sans-serif',
-                    fontSize: "1rem",
-                    fontWeight: 400,
-                    color: "text.primary"
-                  }
-                }
-              ),
-              /* @__PURE__ */ r.jsx(
-                ar,
-                {
-                  fontSize: "small",
-                  sx: { color: "text.secondary" }
-                }
-              )
-            ]
+            children: /* @__PURE__ */ r.jsx(
+              on,
+              {
+                primary: /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", alignItems: "center", gap: 1 }, children: [
+                  /* @__PURE__ */ r.jsxs(
+                    z,
+                    {
+                      sx: {
+                        fontFamily: '"Open Sans", sans-serif',
+                        fontSize: "1rem",
+                        fontWeight: 400,
+                        color: "text.primary"
+                      },
+                      children: [
+                        h.name,
+                        (() => {
+                          const m = h.athletes.filter((k) => t.includes(k.id)).length;
+                          return m > 0 ? /* @__PURE__ */ r.jsxs(z, { component: "span", variant: "body2", sx: { color: "text.secondary", ml: 0.5 }, children: [
+                            "(",
+                            m,
+                            ")"
+                          ] }) : null;
+                        })()
+                      ]
+                    }
+                  ),
+                  (() => {
+                    const k = h.athletes.filter((l) => t.includes(l.id)).length === h.athletes.length && h.athletes.length > 0;
+                    return /* @__PURE__ */ r.jsx(
+                      te,
+                      {
+                        size: "small",
+                        onClick: (l) => {
+                          l.stopPropagation(), p(h.athletes);
+                        },
+                        sx: {
+                          fontFamily: '"Open Sans", sans-serif',
+                          fontSize: "0.8125rem",
+                          fontWeight: 400,
+                          color: "text.primary",
+                          textTransform: "none",
+                          minWidth: "auto",
+                          p: 0,
+                          "&:hover": {
+                            backgroundColor: "transparent",
+                            textDecoration: "underline"
+                          }
+                        },
+                        children: k ? "Deselect all" : "Select all"
+                      }
+                    );
+                  })(),
+                  /* @__PURE__ */ r.jsx(
+                    ir,
+                    {
+                      fontSize: "small",
+                      sx: { color: "text.secondary" }
+                    }
+                  )
+                ] })
+              }
+            )
           }
         )
       },
-      j.id
+      h.id
     );
   }) }) });
 }, mr = ({
-  athletes: a,
-  selectedAthletes: s = [],
-  onSelectionChange: i,
-  onClose: t,
-  onBack: h,
-  title: g = "Athletes",
-  showBackButton: c = !1,
-  maxHeight: S = 600,
-  compact: f = !1,
-  loading: j = !1,
-  error: l
+  athletes: o,
+  selectedAthletes: t = [],
+  onSelectionChange: s,
+  onClose: a,
+  onBack: f,
+  title: x = "Athletes",
+  showBackButton: u = !1,
+  maxHeight: C = 600,
+  compact: g = !1,
+  loading: _ = !1,
+  error: p
 }) => {
-  const u = L(), d = U(u.breakpoints.down("sm")), x = f || d, [m, D] = G({
+  const h = J(), c = K(h.breakpoints.down("sm")), m = g || c, [k, l] = q({
     searchTerm: "",
     selectedAgeGroups: [],
     selectedPositions: [],
     selectedSquad: "current",
     sortBy: "name",
     sortOrder: "asc"
-  }), [F, I] = G("position"), E = Ve(() => {
-    const k = cr(a, m);
-    return ur(k, m.sortBy, m.sortOrder);
-  }, [a, m]), z = (k) => {
-    D((R) => ({ ...R, searchTerm: k.target.value }));
-  }, V = (k) => {
-    let R = k;
-    switch (k) {
+  }), [T, P] = q("asc"), [v, D] = q("squads"), j = se(() => {
+    const F = ur(o, k);
+    return dr(F, k.sortBy, k.sortOrder);
+  }, [o, k]), E = se(() => v === "selected" ? j.filter((F) => t.includes(F.id)) : j, [j, t, v]), H = (F) => {
+    l((G) => ({ ...G, searchTerm: F.target.value }));
+  }, X = (F) => {
+    let G = "all";
+    switch (D(F), F) {
       case "selected":
-        R = "all";
+        G = "all";
         break;
-      case "current":
-        R = "current";
+      case "squads":
+        G = "current";
         break;
-      case "labels":
-      case "groups":
-      case "status":
-      case "position-groups":
+      case "free-agents":
+        G = "free-agents";
+        break;
       case "historical":
-        R = "all";
+        G = "historical";
         break;
       default:
-        R = "all";
+        G = "all";
+        break;
     }
-    D((W) => ({ ...W, selectedSquad: R }));
-  }, K = (k, R) => {
-    const W = R ? [...s, k] : s.filter((X) => X !== k);
-    i(W);
-  }, J = (k) => {
-    I(k);
-  };
-  return j ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(A, { children: "Loading athletes..." }) }) : l ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(A, { color: "error", children: l }) }) : /* @__PURE__ */ r.jsxs(
+    l((W) => ({ ...W, selectedSquad: G }));
+  }, N = (F, G) => {
+    const W = G ? [...t, F] : t.filter((O) => O !== F);
+    s(W);
+  }, V = (F, G) => {
+    let W;
+    G ? W = [...t, ...F.filter((O) => !t.includes(O))] : W = t.filter((O) => !F.includes(O)), s(W);
+  }, Z = (F) => P(F);
+  return _ ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(z, { children: "Loading athletes..." }) }) : p ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(z, { color: "error", children: p }) }) : /* @__PURE__ */ r.jsxs(
     b,
     {
       sx: {
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        maxHeight: `${S}px`,
+        maxHeight: `${C}px`,
         bgcolor: "background.paper",
         borderRadius: 1,
         overflow: "hidden"
@@ -1836,88 +1887,96 @@ const Ne = [
           {
             sx: {
               py: 1,
-              px: x ? 2 : 3,
+              px: m ? 2 : 3,
               borderBottom: "1px solid",
               borderColor: "divider",
               flexShrink: 0
             },
             children: [
               /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", alignItems: "center", mb: 0 }, children: [
-                c && h && /* @__PURE__ */ r.jsx(
-                  H,
+                u && f && /* @__PURE__ */ r.jsx(
+                  ne,
                   {
-                    onClick: h,
-                    size: x ? "small" : "medium",
+                    onClick: f,
+                    size: m ? "small" : "medium",
                     sx: { mr: 1 },
-                    children: /* @__PURE__ */ r.jsx(be, {})
+                    children: /* @__PURE__ */ r.jsx(ke, {})
                   }
                 ),
                 /* @__PURE__ */ r.jsx(
-                  A,
+                  z,
                   {
-                    variant: x ? "h6" : "h5",
+                    variant: m ? "h6" : "h5",
                     fontWeight: "semibold",
                     sx: { flexGrow: 1 },
-                    children: g
+                    children: x
                   }
                 ),
-                t && /* @__PURE__ */ r.jsx(H, { onClick: t, size: x ? "small" : "medium", children: /* @__PURE__ */ r.jsx(sr, {}) })
+                a && /* @__PURE__ */ r.jsx(ne, { onClick: a, size: m ? "small" : "medium", children: /* @__PURE__ */ r.jsx(sr, {}) })
               ] }),
-              /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", gap: 1, alignItems: "center", mb: 0 }, children: [
-                /* @__PURE__ */ r.jsx(b, { sx: { minWidth: 140, flexShrink: 0 }, children: /* @__PURE__ */ r.jsx(
-                  lr,
-                  {
-                    selectedSquad: m.selectedSquad === "current" ? "current" : "all",
-                    onSquadChange: V,
-                    selectedCount: s.length,
-                    compact: !0
-                  }
-                ) }),
-                /* @__PURE__ */ r.jsx(
-                  Ze,
-                  {
-                    placeholder: "Search",
-                    value: m.searchTerm,
-                    onChange: z,
-                    size: "small",
-                    sx: {
-                      flexGrow: 1,
-                      "& .MuiInputBase-root": {
-                        fontFamily: '"Open Sans", sans-serif'
-                      }
-                    },
-                    InputProps: {
-                      endAdornment: /* @__PURE__ */ r.jsx(er, { position: "end", children: /* @__PURE__ */ r.jsx(ir, { fontSize: "small" }) })
+              /* @__PURE__ */ r.jsxs(er, { spacing: 0.5, children: [
+                /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", gap: 1, alignItems: "center", mb: 0 }, children: [
+                  /* @__PURE__ */ r.jsx(b, { sx: { minWidth: 140, flexShrink: 0 }, children: /* @__PURE__ */ r.jsx(
+                    cr,
+                    {
+                      selectedSquad: v,
+                      onSquadChange: X,
+                      selectedCount: t.length,
+                      compact: !0
                     }
-                  }
-                ),
-                /* @__PURE__ */ r.jsx(
-                  hr,
+                  ) }),
+                  /* @__PURE__ */ r.jsx(
+                    rr,
+                    {
+                      placeholder: "Search",
+                      value: k.searchTerm,
+                      onChange: H,
+                      size: "small",
+                      sx: {
+                        flexGrow: 1,
+                        "& .MuiInputBase-root": {
+                          fontFamily: '"Open Sans", sans-serif'
+                        }
+                      },
+                      InputProps: {
+                        endAdornment: /* @__PURE__ */ r.jsx(nr, { position: "end", children: /* @__PURE__ */ r.jsx(lr, { fontSize: "small" }) })
+                      }
+                    }
+                  ),
+                  /* @__PURE__ */ r.jsx(hr, { order: T, onChange: Z })
+                ] }),
+                t.length > 0 && /* @__PURE__ */ r.jsx(b, { children: /* @__PURE__ */ r.jsx(
+                  pe,
                   {
-                    currentSort: F,
-                    onSortChange: J
+                    label: `${t.length} selected`,
+                    color: "primary",
+                    size: "small",
+                    onDelete: () => s([])
                   }
-                )
-              ] }),
-              /* @__PURE__ */ r.jsx(rr, { spacing: 1, children: s.length > 0 && /* @__PURE__ */ r.jsx(b, { children: /* @__PURE__ */ r.jsx(
-                ie,
-                {
-                  label: `${s.length} selected`,
-                  color: "primary",
-                  size: "small",
-                  onDelete: () => i([])
-                }
-              ) }) })
+                ) })
+              ] })
             ]
           }
         ),
-        /* @__PURE__ */ r.jsx(b, { sx: { flexGrow: 1, overflow: "auto" }, children: /* @__PURE__ */ r.jsx(
-          hn,
+        /* @__PURE__ */ r.jsx(b, { sx: { flexGrow: 1, overflow: "auto" }, children: v === "historical" ? /* @__PURE__ */ r.jsx(
+          Ee,
           {
             athletes: E,
-            selectedAthletes: s,
-            onSelectionChange: K,
-            sortBy: F
+            selectedAthletes: t,
+            onSelectionChange: N,
+            onBatchSelectionChange: V,
+            groupBy: "position",
+            order: T,
+            showOnlySelected: !1
+          }
+        ) : /* @__PURE__ */ r.jsx(
+          pn,
+          {
+            athletes: E,
+            selectedAthletes: t,
+            onSelectionChange: N,
+            onBatchSelectionChange: V,
+            order: T
           }
         ) }),
         /* @__PURE__ */ r.jsx(
@@ -1925,18 +1984,18 @@ const Ne = [
           {
             sx: {
               py: 1,
-              px: x ? 2 : 3,
+              px: m ? 2 : 3,
               borderTop: "1px solid",
               borderColor: "divider",
               flexShrink: 0
             },
             children: /* @__PURE__ */ r.jsx(b, { sx: { display: "flex", justifyContent: "flex-end" }, children: /* @__PURE__ */ r.jsx(
-              ne,
+              te,
               {
                 variant: "contained",
                 color: "primary",
-                onClick: t,
-                disabled: s.length === 0,
+                onClick: a,
+                disabled: t.length === 0,
                 sx: {
                   fontFamily: '"Open Sans", sans-serif',
                   textTransform: "none"
@@ -1949,33 +2008,33 @@ const Ne = [
       ]
     }
   );
-}, Cn = ({
-  open: a,
-  onClose: s,
-  anchor: i = "right",
-  athletes: t,
-  selectedAthletes: h,
-  onSelectionChange: g,
-  title: c = "Select Athletes",
-  maxHeight: S,
-  ...f
+}, Sn = ({
+  open: o,
+  onClose: t,
+  anchor: s = "right",
+  athletes: a,
+  selectedAthletes: f,
+  onSelectionChange: x,
+  title: u = "Select Athletes",
+  maxHeight: C,
+  ...g
 }) => {
-  const j = L(), l = U(j.breakpoints.down("sm"));
+  const _ = J(), p = K(_.breakpoints.down("sm"));
   return /* @__PURE__ */ r.jsx(
-    nr,
+    tr,
     {
-      anchor: i,
-      open: a,
-      onClose: s,
+      anchor: s,
+      open: o,
+      onClose: t,
       variant: "temporary",
       sx: {
         "& .MuiDrawer-paper": {
-          width: l ? "100vw" : 500,
+          width: p ? "100vw" : 500,
           maxWidth: "100vw",
           height: "100vh",
           maxHeight: "100vh",
-          boxShadow: j.shadows[16],
-          borderRadius: l ? "16px 16px 0 0" : 0
+          boxShadow: _.shadows[16],
+          borderRadius: p ? "16px 16px 0 0" : 0
         }
       },
       ModalProps: {
@@ -1985,36 +2044,36 @@ const Ne = [
       children: /* @__PURE__ */ r.jsx(
         mr,
         {
-          athletes: t,
-          selectedAthletes: h,
-          onSelectionChange: g,
-          onClose: s,
-          title: c,
-          compact: l,
+          athletes: a,
+          selectedAthletes: f,
+          onSelectionChange: x,
+          onClose: t,
+          title: u,
+          compact: p,
           maxHeight: "100%",
-          ...f
+          ...g
         }
       )
     }
   );
 }, wn = ({
-  open: a,
-  onClose: s,
-  anchorEl: i,
-  athletes: t,
-  selectedAthletes: h,
-  onSelectionChange: g,
-  title: c = "Select Athletes",
-  maxHeight: S = 600,
-  ...f
+  open: o,
+  onClose: t,
+  anchorEl: s,
+  athletes: a,
+  selectedAthletes: f,
+  onSelectionChange: x,
+  title: u = "Select Athletes",
+  maxHeight: C = 600,
+  ...g
 }) => {
-  const j = L(), l = U(j.breakpoints.down("sm"));
+  const _ = J(), p = K(_.breakpoints.down("sm"));
   return /* @__PURE__ */ r.jsx(
-    tr,
+    or,
     {
-      open: a,
-      anchorEl: i,
-      onClose: s,
+      open: o,
+      anchorEl: s,
+      onClose: t,
       anchorOrigin: {
         vertical: "bottom",
         horizontal: "left"
@@ -2025,45 +2084,45 @@ const Ne = [
       },
       PaperProps: {
         sx: {
-          width: l ? "90vw" : 500,
+          width: p ? "90vw" : 500,
           maxWidth: "95vw",
-          maxHeight: l ? "80vh" : S,
+          maxHeight: p ? "80vh" : C,
           overflow: "hidden"
         }
       },
       children: /* @__PURE__ */ r.jsx(
         mr,
         {
-          athletes: t,
-          selectedAthletes: h,
-          onSelectionChange: g,
-          onClose: s,
-          title: c,
-          compact: l,
-          maxHeight: S,
-          ...f
+          athletes: a,
+          selectedAthletes: f,
+          onSelectionChange: x,
+          onClose: t,
+          title: u,
+          compact: p,
+          maxHeight: C,
+          ...g
         }
       )
     }
   );
 };
 export {
-  Sn as AthleteCard,
+  jn as AthleteCard,
   xr as AthleteSelectorContent,
   mr as AthleteSelectorTreeContent,
-  He as CompactAthleteCard,
-  yn as DrawerAthleteSelector,
-  Cn as DrawerAthleteSelectorTree,
-  jn as DropdownAthleteSelector,
+  Ke as CompactAthleteCard,
+  bn as DrawerAthleteSelector,
+  Sn as DrawerAthleteSelectorTree,
+  yn as DropdownAthleteSelector,
   wn as DropdownAthleteSelectorTree,
-  lr as ExpandableSquadSelector,
-  pr as GroupedAthleteList,
-  hn as SimpleTreeNavigationList,
+  cr as ExpandableSquadSelector,
+  Ee as GroupedAthleteList,
+  pn as SimpleTreeNavigationList,
   hr as SortMenu,
-  cr as filterAthletes,
-  dr as getStatusColor,
-  fr as getStatusLabel,
-  vn as groupAthletesByAgeGroup,
-  bn as groupAthletesByPosition,
-  ur as sortAthletes
+  ur as filterAthletes,
+  fr as getStatusColor,
+  pr as getStatusLabel,
+  gn as groupAthletesByAgeGroup,
+  vn as groupAthletesByPosition,
+  dr as sortAthletes
 };

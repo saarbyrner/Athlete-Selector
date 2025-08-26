@@ -13,7 +13,7 @@ import {
   ChevronRight as ChevronRightIcon,
   ArrowBack as ArrowBackIcon,
 } from '@mui/icons-material';
-import { CompactAthleteCard } from './CompactAthleteCard';
+import { GroupedAthleteList } from './GroupedAthleteList';
 
 import { Athlete } from './types';
 
@@ -27,12 +27,14 @@ interface TreeNavigationListProps {
   athletes: Athlete[];
   selectedAthletes: string[];
   onSelectionChange: (athleteId: string, selected: boolean) => void;
+  onBatchSelectionChange?: (athleteIds: string[], selected: boolean) => void;
 }
 
 export const TreeNavigationList: React.FC<TreeNavigationListProps> = ({
   athletes,
   selectedAthletes,
   onSelectionChange,
+  onBatchSelectionChange,
 }) => {
   const [selectedSquad, setSelectedSquad] = useState<Squad | null>(null);
 
@@ -136,14 +138,14 @@ export const TreeNavigationList: React.FC<TreeNavigationListProps> = ({
 
         {/* Athletes in selected squad */}
         <Box sx={{ overflow: 'auto' }}>
-          {selectedSquad.athletes.map((athlete) => (
-            <CompactAthleteCard
-              key={athlete.id}
-              athlete={athlete}
-              isSelected={selectedAthletes.includes(athlete.id)}
-              onToggle={(id) => onSelectionChange(id, !selectedAthletes.includes(id))}
-            />
-          ))}
+          <GroupedAthleteList
+            athletes={selectedSquad.athletes}
+            selectedAthletes={selectedAthletes}
+            onSelectionChange={onSelectionChange}
+            onBatchSelectionChange={onBatchSelectionChange}
+            groupBy="position"
+            order="asc"
+          />
         </Box>
       </Box>
     );

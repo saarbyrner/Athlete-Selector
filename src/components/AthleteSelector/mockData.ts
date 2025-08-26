@@ -265,4 +265,9 @@ built = ensureSquadSize(built, 'U17', 25, 200);
 // Optionally add a few extras for depth in other squads (keeps previous data as-is)
 built = ensureSquadSize(built, 'U23', Math.max(12, built.filter(a => a.ageGroup === 'U23').length));
 
+// Add some older historical athletes for the historical view
+built = ensureSquadSize(built, 'U25', 8, 300);
+built = ensureSquadSize(built, 'U27', 6, 400);
+built = ensureSquadSize(built, 'U30', 4, 500);
+
 export const mockAthletes: Athlete[] = built;

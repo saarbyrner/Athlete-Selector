@@ -44,6 +44,7 @@ export const DrawerAthleteSelector: React.FC<DrawerAthleteSelectorProps> = ({
       }}
       ModalProps={{
         keepMounted: true, // Better open performance on mobile
+        hideBackdrop: true,
       }}
     >
       <AthleteSelectorContent

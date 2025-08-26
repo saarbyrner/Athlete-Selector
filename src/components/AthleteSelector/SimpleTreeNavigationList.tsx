@@ -8,6 +8,7 @@ import {
   Typography,
   IconButton,
   Paper,
+  Button,
 } from '@mui/material';
 import {
   ChevronRight as ChevronRightIcon,
@@ -26,7 +27,7 @@ interface SimpleTreeNavigationListProps {
   athletes: Athlete[];
   selectedAthletes: string[];
   onSelectionChange: (athleteId: string, selected: boolean) => void;
-  sortBy: 'squad' | 'status' | 'position';
+  onBatchSelectionChange?: (athleteIds: string[], selected: boolean) => void;
   order?: SortOrder;
 }
 
@@ -34,7 +35,7 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
   athletes,
   selectedAthletes,
   onSelectionChange,
-  sortBy,
+  onBatchSelectionChange,
   order = 'asc',
 }) => {
   const [selectedSquad, setSelectedSquad] = useState<Squad | null>(null);
@@ -71,6 +72,22 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
 
   const handleBack = () => {
     setSelectedSquad(null);
+  };
+
+  const handleSelectAll = (groupAthletes: Athlete[]) => {
+    const allSelected = groupAthletes.every(athlete => 
+      selectedAthletes.includes(athlete.id)
+    );
+    const athleteIds = groupAthletes.map(athlete => athlete.id);
+    const shouldSelect = !allSelected;
+
+    if (onBatchSelectionChange) {
+      onBatchSelectionChange(athleteIds, shouldSelect);
+    } else {
+      athleteIds.forEach(athleteId => {
+        onSelectionChange(athleteId, shouldSelect);
+      });
+    }
   };
 
   // If a squad is selected, show the SAME grouped athlete list as accordion version
@@ -117,7 +134,8 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
             athletes={selectedSquad.athletes}
             selectedAthletes={selectedAthletes}
             onSelectionChange={onSelectionChange}
-            groupBy={sortBy}
+            onBatchSelectionChange={onBatchSelectionChange}
+            groupBy="position"
             order={order}
           />
         </Box>
@@ -151,18 +169,61 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
                 }}
               >
                 <ListItemText
-                  primary={squad.name}
-                  primaryTypographyProps={{
-                    fontFamily: '"Open Sans", sans-serif',
-                    fontSize: '1rem',
-                    fontWeight: 400,
-                    color: 'text.primary',
-                  }}
+                  primary={
+                    <Typography
+                      sx={{
+                        fontFamily: '"Open Sans", sans-serif',
+                        fontSize: '1rem',
+                        fontWeight: 400,
+                        color: 'text.primary',
+                      }}
+                    >
+                      {squad.name}
+                      {(() => {
+                        const selectedCount = squad.athletes.filter(a => selectedAthletes.includes(a.id)).length;
+                        return selectedCount > 0 ? (
+                          <Typography component="span" variant="body2" sx={{ color: 'text.secondary', ml: 0.5 }}>
+                            ({selectedCount})
+                          </Typography>
+                        ) : null;
+                      })()}
+                    </Typography>
+                  }
                 />
-                <ChevronRightIcon 
-                  fontSize="small" 
-                  sx={{ color: 'text.secondary' }} 
-                />
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  {(() => {
+                    const selectedCount = squad.athletes.filter(a => selectedAthletes.includes(a.id)).length;
+                    const isAllSelected = selectedCount === squad.athletes.length && squad.athletes.length > 0;
+                    return (
+                      <Button
+                        size="small"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleSelectAll(squad.athletes);
+                        }}
+                        sx={{
+                          fontFamily: '"Open Sans", sans-serif',
+                          fontSize: '0.8125rem',
+                          fontWeight: 400,
+                          color: 'text.primary',
+                          textTransform: 'none',
+                          minWidth: 'auto',
+                          p: 0,
+                          '&:hover': {
+                            backgroundColor: 'transparent',
+                            textDecoration: 'underline',
+                          },
+                        }}
+                      >
+                        {isAllSelected ? 'Deselect all' : 'Select all'}
+                      </Button>
+                    );
+                  })()}
+                  <ChevronRightIcon 
+                    fontSize="small" 
+                    sx={{ color: 'text.secondary' }} 
+                  />
+                </Box>
               </ListItemButton>
             </ListItem>
           );

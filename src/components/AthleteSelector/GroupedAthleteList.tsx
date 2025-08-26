@@ -16,6 +16,7 @@ interface GroupedAthleteListProps {
   athletes: Athlete[];
   selectedAthletes: string[];
   onSelectionChange: (athleteId: string, selected: boolean) => void;
+  onBatchSelectionChange?: (athleteIds: string[], selected: boolean) => void;
   groupBy: GroupBy;
   order: SortOrder;
   showOnlySelected?: boolean;
@@ -32,11 +33,12 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
   athletes,
   selectedAthletes,
   onSelectionChange,
+  onBatchSelectionChange,
   groupBy,
   order,
   showOnlySelected = false,
 }) => {
-  const [expandedGroups, setExpandedGroups] = useState<string[]>(['Forward']); // Default expanded
+  const [expandedGroups, setExpandedGroups] = useState<string[]>(['Goalkeeper', 'Defender', 'Midfielder', 'Forward']); // Default expanded
 
   const handleToggle = (athleteId: string) => {
     const isSelected = selectedAthletes.includes(athleteId);
@@ -48,9 +50,18 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
       selectedAthletes.includes(athlete.id)
     );
     
-    groupAthletes.forEach(athlete => {
-      onSelectionChange(athlete.id, !allSelected);
-    });
+    const athleteIds = groupAthletes.map(athlete => athlete.id);
+    const shouldSelect = !allSelected;
+    
+    if (onBatchSelectionChange) {
+      // Use batch selection if available
+      onBatchSelectionChange(athleteIds, shouldSelect);
+    } else {
+      // Fallback to individual selection
+      athleteIds.forEach(athleteId => {
+        onSelectionChange(athleteId, shouldSelect);
+      });
+    }
   };
 
   const handleAccordionChange = (groupId: string) => (
@@ -71,11 +82,38 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
       : athletes;
   }, [athletes, selectedAthletes, showOnlySelected]);
 
+  // Helper function to map positions to high-level position groups
+  const getPositionGroup = (position: string): string => {
+    const normalizedPosition = position.toLowerCase().trim();
+    switch (normalizedPosition) {
+      case 'goalkeeper':
+        return 'Goalkeeper';
+      case 'defender':
+        return 'Defender';
+      case 'midfielder':
+      case 'winger':
+        return 'Midfielder';
+      case 'striker':
+      case 'centre forward':
+      case 'center forward': // Handle both spellings
+        return 'Forward';
+      default:
+        return position; // Fallback for any unknown positions
+    }
+  };
+
   // Group athletes based on groupBy
   const athleteGroups = useMemo(() => {
     const groups: Record<string, Athlete[]> = {};
     displayAthletes.forEach((athlete) => {
-      const key = groupBy === 'position' ? athlete.position : groupBy === 'status' ? athlete.status : athlete.ageGroup;
+      let key: string;
+      if (groupBy === 'position') {
+        key = getPositionGroup(athlete.position);
+      } else if (groupBy === 'status') {
+        key = athlete.status;
+      } else {
+        key = athlete.ageGroup;
+      }
       if (!groups[key]) groups[key] = [];
       groups[key].push(athlete);
     });
@@ -102,13 +140,21 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
       };
     });
 
-    // Keep group headers in a natural order: for squads by age (U23,U21..), otherwise A→Z
+    // Keep group headers in a natural order: for squads by age (U23,U21..), for positions by custom order, otherwise A→Z
     const byAge = (name: string) => {
       const m = name.match(/U(\d+)/);
       return m ? parseInt(m[1], 10) : 0;
     };
+    
+    const positionOrder = ['Goalkeeper', 'Defender', 'Midfielder', 'Forward'];
+    const getPositionOrder = (name: string) => {
+      const index = positionOrder.indexOf(name);
+      return index >= 0 ? index : 999; // Unknown positions go to the end
+    };
+    
     sortedGroups.sort((a, b) => {
       if (groupBy === 'squad') return byAge(b.name) - byAge(a.name);
+      if (groupBy === 'position') return getPositionOrder(a.name) - getPositionOrder(b.name);
       return a.name.localeCompare(b.name);
     });
 
@@ -119,9 +165,12 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
     <Box sx={{ width: '100%' }}>
       {athleteGroups.map((group, index) => {
         const isExpanded = expandedGroups.includes(group.id);
-        // const groupSelectedCount = group.athletes.filter(athlete =>
-        //   selectedAthletes.includes(athlete.id)
-        // ).length;
+        const groupSelectedCount = group.athletes.filter(athlete =>
+          selectedAthletes.includes(athlete.id)
+        ).length;
+        const isGroupAllSelected = group.athletes.every(athlete =>
+          selectedAthletes.includes(athlete.id)
+        );
 
         return (
           <Box key={group.id}>
@@ -175,6 +224,15 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
                     }}
                   >
                     {group.name}
+                    {groupSelectedCount > 0 && (
+                      <Typography
+                        component="span"
+                        variant="body2"
+                        sx={{ color: 'text.secondary', ml: 0.5 }}
+                      >
+                        ({groupSelectedCount})
+                      </Typography>
+                    )}
                   </Typography>
                   
                   <Button
@@ -197,7 +255,7 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
                       },
                     }}
                   >
-                    Select all
+                    {isGroupAllSelected ? 'Deselect all' : 'Select all'}
                   </Button>
                 </Box>
               </AccordionSummary>

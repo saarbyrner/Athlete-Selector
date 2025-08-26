@@ -40,7 +40,9 @@ export const DropdownAthleteSelectorTree: React.FC<DropdownAthleteSelectorTreePr
         sx: {
           width: isMobile ? '90vw' : 500,
           maxWidth: '95vw',
-          maxHeight: isMobile ? '80vh' : maxHeight,
+          // Static height to eliminate jumpiness
+          height: isMobile ? '75vh' : maxHeight,
+          minHeight: isMobile ? '75vh' : maxHeight,
           overflow: 'hidden',
         },
       }}

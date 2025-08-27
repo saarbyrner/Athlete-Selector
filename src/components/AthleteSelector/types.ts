@@ -5,6 +5,11 @@ export interface Athlete {
   ageGroup: string;
   avatar?: string;
   status: 'available' | 'unavailable' | 'injured';
+  // Optional profile fields for hover card
+  dateOfBirth?: string;
+  squadNumber?: string | number;
+  leagueId?: string;
+  labels?: string[];
   isSelected?: boolean;
 }
 

@@ -1,7 +1,7 @@
-import fe, { useState as q, useMemo as se, useRef as qr } from "react";
-import { useTheme as J, useMediaQuery as K, Box as b, Button as te, Collapse as Yr, Paper as Ce, MenuList as Hr, MenuItem as Nr, Typography as z, Divider as Xe, Checkbox as Ze, Avatar as Qe, Chip as pe, Accordion as Vr, AccordionSummary as Jr, AccordionDetails as Kr, Tooltip as Xr, IconButton as ne, Stack as er, TextField as rr, InputAdornment as nr, Drawer as tr, Badge as Zr, Popover as or, Card as Qr, CardContent as en, List as rn, ListItem as nn, ListItemButton as tn, ListItemText as on } from "@mui/material";
-import { ArrowDropUp as an, ArrowDropDown as ar, ChevronRight as ir, Group as sn, ExpandMore as ln, SortByAlpha as cn, ArrowBack as ke, Close as sr, Search as lr, People as un } from "@mui/icons-material";
-var we = { exports: {} }, ae = {};
+import N, { useState as J, useMemo as pe } from "react";
+import { useTheme as K, useMediaQuery as ie, Card as Ar, CardContent as Ir, Checkbox as er, Avatar as me, Box as x, Typography as T, Chip as re, Popper as Dr, Paper as Oe, Divider as Re, Accordion as Mr, AccordionSummary as Gr, Button as he, AccordionDetails as Wr, Tooltip as rr, IconButton as ae, Menu as zr, MenuItem as ke, ClickAwayListener as Lr, Collapse as Ur, MenuList as $r, List as Nr, ListItem as Yr, ListItemButton as Br, ListItemText as qr, Stack as Vr, TextField as Hr, InputAdornment as Jr, Drawer as Kr, Popover as Xr } from "@mui/material";
+import { Group as Zr, ExpandMore as Qr, SortByAlpha as en, Category as rn, ArrowDropUp as nn, ArrowDropDown as tn, ChevronRight as nr, ArrowBack as tr, Close as on, Search as an } from "@mui/icons-material";
+var Ee = { exports: {} }, te = {};
 /**
  * @license React
  * react-jsx-runtime.production.min.js
@@ -11,21 +11,21 @@ var we = { exports: {} }, ae = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var Ve;
-function dn() {
-  if (Ve) return ae;
-  Ve = 1;
-  var o = fe, t = Symbol.for("react.element"), s = Symbol.for("react.fragment"), a = Object.prototype.hasOwnProperty, f = o.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, x = { key: !0, ref: !0, __self: !0, __source: !0 };
-  function u(C, g, _) {
-    var p, h = {}, c = null, m = null;
-    _ !== void 0 && (c = "" + _), g.key !== void 0 && (c = "" + g.key), g.ref !== void 0 && (m = g.ref);
-    for (p in g) a.call(g, p) && !x.hasOwnProperty(p) && (h[p] = g[p]);
-    if (C && C.defaultProps) for (p in g = C.defaultProps, g) h[p] === void 0 && (h[p] = g[p]);
-    return { $$typeof: t, type: C, key: c, ref: m, props: h, _owner: f.current };
+var Xe;
+function sn() {
+  if (Xe) return te;
+  Xe = 1;
+  var t = N, o = Symbol.for("react.element"), l = Symbol.for("react.fragment"), i = Object.prototype.hasOwnProperty, p = t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, h = { key: !0, ref: !0, __self: !0, __source: !0 };
+  function d(f, v, _) {
+    var j, M = {}, s = null, C = null;
+    _ !== void 0 && (s = "" + _), v.key !== void 0 && (s = "" + v.key), v.ref !== void 0 && (C = v.ref);
+    for (j in v) i.call(v, j) && !h.hasOwnProperty(j) && (M[j] = v[j]);
+    if (f && f.defaultProps) for (j in v = f.defaultProps, v) M[j] === void 0 && (M[j] = v[j]);
+    return { $$typeof: o, type: f, key: s, ref: C, props: M, _owner: p.current };
   }
-  return ae.Fragment = s, ae.jsx = u, ae.jsxs = u, ae;
+  return te.Fragment = l, te.jsx = d, te.jsxs = d, te;
 }
-var ie = {};
+var oe = {};
 /**
  * @license React
  * react-jsx-runtime.development.js
@@ -35,91 +35,91 @@ var ie = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var Je;
-function fn() {
-  return Je || (Je = 1, process.env.NODE_ENV !== "production" && function() {
-    var o = fe, t = Symbol.for("react.element"), s = Symbol.for("react.portal"), a = Symbol.for("react.fragment"), f = Symbol.for("react.strict_mode"), x = Symbol.for("react.profiler"), u = Symbol.for("react.provider"), C = Symbol.for("react.context"), g = Symbol.for("react.forward_ref"), _ = Symbol.for("react.suspense"), p = Symbol.for("react.suspense_list"), h = Symbol.for("react.memo"), c = Symbol.for("react.lazy"), m = Symbol.for("react.offscreen"), k = Symbol.iterator, l = "@@iterator";
-    function T(e) {
+var Ze;
+function ln() {
+  return Ze || (Ze = 1, process.env.NODE_ENV !== "production" && function() {
+    var t = N, o = Symbol.for("react.element"), l = Symbol.for("react.portal"), i = Symbol.for("react.fragment"), p = Symbol.for("react.strict_mode"), h = Symbol.for("react.profiler"), d = Symbol.for("react.provider"), f = Symbol.for("react.context"), v = Symbol.for("react.forward_ref"), _ = Symbol.for("react.suspense"), j = Symbol.for("react.suspense_list"), M = Symbol.for("react.memo"), s = Symbol.for("react.lazy"), C = Symbol.for("react.offscreen"), k = Symbol.iterator, c = "@@iterator";
+    function S(e) {
       if (e === null || typeof e != "object")
         return null;
-      var n = k && e[k] || e[l];
+      var n = k && e[k] || e[c];
       return typeof n == "function" ? n : null;
     }
-    var P = o.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    function v(e) {
+    var P = t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    function b(e) {
       {
-        for (var n = arguments.length, i = new Array(n > 1 ? n - 1 : 0), d = 1; d < n; d++)
-          i[d - 1] = arguments[d];
-        D("error", e, i);
+        for (var n = arguments.length, a = new Array(n > 1 ? n - 1 : 0), u = 1; u < n; u++)
+          a[u - 1] = arguments[u];
+        G("error", e, a);
       }
     }
-    function D(e, n, i) {
+    function G(e, n, a) {
       {
-        var d = P.ReactDebugCurrentFrame, w = d.getStackAddendum();
-        w !== "" && (n += "%s", i = i.concat([w]));
-        var R = i.map(function(S) {
-          return String(S);
+        var u = P.ReactDebugCurrentFrame, E = u.getStackAddendum();
+        E !== "" && (n += "%s", a = a.concat([E]));
+        var R = a.map(function(y) {
+          return String(y);
         });
         R.unshift("Warning: " + n), Function.prototype.apply.call(console[e], console, R);
       }
     }
-    var j = !1, E = !1, H = !1, X = !1, N = !1, V;
-    V = Symbol.for("react.module.reference");
-    function Z(e) {
-      return !!(typeof e == "string" || typeof e == "function" || e === a || e === x || N || e === f || e === _ || e === p || X || e === m || j || E || H || typeof e == "object" && e !== null && (e.$$typeof === c || e.$$typeof === h || e.$$typeof === u || e.$$typeof === C || e.$$typeof === g || // This needs to include all possible module reference object
+    var m = !1, F = !1, A = !1, Y = !1, X = !1, Z;
+    Z = Symbol.for("react.module.reference");
+    function q(e) {
+      return !!(typeof e == "string" || typeof e == "function" || e === i || e === h || X || e === p || e === _ || e === j || Y || e === C || m || F || A || typeof e == "object" && e !== null && (e.$$typeof === s || e.$$typeof === M || e.$$typeof === d || e.$$typeof === f || e.$$typeof === v || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
-      e.$$typeof === V || e.getModuleId !== void 0));
+      e.$$typeof === Z || e.getModuleId !== void 0));
     }
-    function F(e, n, i) {
-      var d = e.displayName;
-      if (d)
-        return d;
-      var w = n.displayName || n.name || "";
-      return w !== "" ? i + "(" + w + ")" : i;
+    function se(e, n, a) {
+      var u = e.displayName;
+      if (u)
+        return u;
+      var E = n.displayName || n.name || "";
+      return E !== "" ? a + "(" + E + ")" : a;
     }
-    function G(e) {
+    function le(e) {
       return e.displayName || "Context";
     }
-    function W(e) {
+    function B(e) {
       if (e == null)
         return null;
-      if (typeof e.tag == "number" && v("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof e == "function")
+      if (typeof e.tag == "number" && b("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof e == "function")
         return e.displayName || e.name || null;
       if (typeof e == "string")
         return e;
       switch (e) {
-        case a:
+        case i:
           return "Fragment";
-        case s:
+        case l:
           return "Portal";
-        case x:
+        case h:
           return "Profiler";
-        case f:
+        case p:
           return "StrictMode";
         case _:
           return "Suspense";
-        case p:
+        case j:
           return "SuspenseList";
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
-          case C:
+          case f:
             var n = e;
-            return G(n) + ".Consumer";
-          case u:
-            var i = e;
-            return G(i._context) + ".Provider";
-          case g:
-            return F(e, e.render, "ForwardRef");
-          case h:
-            var d = e.displayName || null;
-            return d !== null ? d : W(e.type) || "Memo";
-          case c: {
-            var w = e, R = w._payload, S = w._init;
+            return le(n) + ".Consumer";
+          case d:
+            var a = e;
+            return le(a._context) + ".Provider";
+          case v:
+            return se(e, e.render, "ForwardRef");
+          case M:
+            var u = e.displayName || null;
+            return u !== null ? u : B(e.type) || "Memo";
+          case s: {
+            var E = e, R = E._payload, y = E._init;
             try {
-              return W(S(R));
+              return B(y(R));
             } catch {
               return null;
             }
@@ -127,14 +127,14 @@ function fn() {
         }
       return null;
     }
-    var O = Object.assign, M = 0, L, Y, Oe, Re, _e, Te, Pe;
+    var w = Object.assign, O = 0, W, U, V, Pe, Fe, Ae, Ie;
     function De() {
     }
     De.__reactDisabledLog = !0;
-    function gr() {
+    function ir() {
       {
-        if (M === 0) {
-          L = console.log, Y = console.info, Oe = console.warn, Re = console.error, _e = console.group, Te = console.groupCollapsed, Pe = console.groupEnd;
+        if (O === 0) {
+          W = console.log, U = console.info, V = console.warn, Pe = console.error, Fe = console.group, Ae = console.groupCollapsed, Ie = console.groupEnd;
           var e = {
             configurable: !0,
             enumerable: !0,
@@ -151,332 +151,332 @@ function fn() {
             groupEnd: e
           });
         }
-        M++;
+        O++;
       }
     }
-    function vr() {
+    function sr() {
       {
-        if (M--, M === 0) {
+        if (O--, O === 0) {
           var e = {
             configurable: !0,
             enumerable: !0,
             writable: !0
           };
           Object.defineProperties(console, {
-            log: O({}, e, {
-              value: L
+            log: w({}, e, {
+              value: W
             }),
-            info: O({}, e, {
-              value: Y
+            info: w({}, e, {
+              value: U
             }),
-            warn: O({}, e, {
-              value: Oe
+            warn: w({}, e, {
+              value: V
             }),
-            error: O({}, e, {
-              value: Re
-            }),
-            group: O({}, e, {
-              value: _e
-            }),
-            groupCollapsed: O({}, e, {
-              value: Te
-            }),
-            groupEnd: O({}, e, {
+            error: w({}, e, {
               value: Pe
+            }),
+            group: w({}, e, {
+              value: Fe
+            }),
+            groupCollapsed: w({}, e, {
+              value: Ae
+            }),
+            groupEnd: w({}, e, {
+              value: Ie
             })
           });
         }
-        M < 0 && v("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
+        O < 0 && b("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
       }
     }
-    var he = P.ReactCurrentDispatcher, xe;
-    function le(e, n, i) {
+    var ve = P.ReactCurrentDispatcher, ge;
+    function ce(e, n, a) {
       {
-        if (xe === void 0)
+        if (ge === void 0)
           try {
             throw Error();
-          } catch (w) {
-            var d = w.stack.trim().match(/\n( *(at )?)/);
-            xe = d && d[1] || "";
+          } catch (E) {
+            var u = E.stack.trim().match(/\n( *(at )?)/);
+            ge = u && u[1] || "";
           }
         return `
-` + xe + e;
+` + ge + e;
       }
     }
-    var me = !1, ce;
+    var be = !1, de;
     {
-      var br = typeof WeakMap == "function" ? WeakMap : Map;
-      ce = new br();
+      var lr = typeof WeakMap == "function" ? WeakMap : Map;
+      de = new lr();
     }
-    function Ae(e, n) {
-      if (!e || me)
+    function Me(e, n) {
+      if (!e || be)
         return "";
       {
-        var i = ce.get(e);
-        if (i !== void 0)
-          return i;
+        var a = de.get(e);
+        if (a !== void 0)
+          return a;
       }
-      var d;
-      me = !0;
-      var w = Error.prepareStackTrace;
+      var u;
+      be = !0;
+      var E = Error.prepareStackTrace;
       Error.prepareStackTrace = void 0;
       var R;
-      R = he.current, he.current = null, gr();
+      R = ve.current, ve.current = null, ir();
       try {
         if (n) {
-          var S = function() {
+          var y = function() {
             throw Error();
           };
-          if (Object.defineProperty(S.prototype, "props", {
+          if (Object.defineProperty(y.prototype, "props", {
             set: function() {
               throw Error();
             }
           }), typeof Reflect == "object" && Reflect.construct) {
             try {
-              Reflect.construct(S, []);
-            } catch ($) {
-              d = $;
+              Reflect.construct(y, []);
+            } catch (L) {
+              u = L;
             }
-            Reflect.construct(e, [], S);
+            Reflect.construct(e, [], y);
           } else {
             try {
-              S.call();
-            } catch ($) {
-              d = $;
+              y.call();
+            } catch (L) {
+              u = L;
             }
-            e.call(S.prototype);
+            e.call(y.prototype);
           }
         } else {
           try {
             throw Error();
-          } catch ($) {
-            d = $;
+          } catch (L) {
+            u = L;
           }
           e();
         }
-      } catch ($) {
-        if ($ && d && typeof $.stack == "string") {
-          for (var y = $.stack.split(`
-`), U = d.stack.split(`
-`), A = y.length - 1, I = U.length - 1; A >= 1 && I >= 0 && y[A] !== U[I]; )
-            I--;
-          for (; A >= 1 && I >= 0; A--, I--)
-            if (y[A] !== U[I]) {
-              if (A !== 1 || I !== 1)
+      } catch (L) {
+        if (L && u && typeof L.stack == "string") {
+          for (var g = L.stack.split(`
+`), z = u.stack.split(`
+`), I = g.length - 1, D = z.length - 1; I >= 1 && D >= 0 && g[I] !== z[D]; )
+            D--;
+          for (; I >= 1 && D >= 0; I--, D--)
+            if (g[I] !== z[D]) {
+              if (I !== 1 || D !== 1)
                 do
-                  if (A--, I--, I < 0 || y[A] !== U[I]) {
-                    var B = `
-` + y[A].replace(" at new ", " at ");
-                    return e.displayName && B.includes("<anonymous>") && (B = B.replace("<anonymous>", e.displayName)), typeof e == "function" && ce.set(e, B), B;
+                  if (I--, D--, D < 0 || g[I] !== z[D]) {
+                    var $ = `
+` + g[I].replace(" at new ", " at ");
+                    return e.displayName && $.includes("<anonymous>") && ($ = $.replace("<anonymous>", e.displayName)), typeof e == "function" && de.set(e, $), $;
                   }
-                while (A >= 1 && I >= 0);
+                while (I >= 1 && D >= 0);
               break;
             }
         }
       } finally {
-        me = !1, he.current = R, vr(), Error.prepareStackTrace = w;
+        be = !1, ve.current = R, sr(), Error.prepareStackTrace = E;
       }
-      var re = e ? e.displayName || e.name : "", Q = re ? le(re) : "";
-      return typeof e == "function" && ce.set(e, Q), Q;
+      var ee = e ? e.displayName || e.name : "", H = ee ? ce(ee) : "";
+      return typeof e == "function" && de.set(e, H), H;
     }
-    function yr(e, n, i) {
-      return Ae(e, !1);
+    function cr(e, n, a) {
+      return Me(e, !1);
     }
-    function jr(e) {
+    function dr(e) {
       var n = e.prototype;
       return !!(n && n.isReactComponent);
     }
-    function ue(e, n, i) {
+    function ue(e, n, a) {
       if (e == null)
         return "";
       if (typeof e == "function")
-        return Ae(e, jr(e));
+        return Me(e, dr(e));
       if (typeof e == "string")
-        return le(e);
+        return ce(e);
       switch (e) {
         case _:
-          return le("Suspense");
-        case p:
-          return le("SuspenseList");
+          return ce("Suspense");
+        case j:
+          return ce("SuspenseList");
       }
       if (typeof e == "object")
         switch (e.$$typeof) {
-          case g:
-            return yr(e.render);
-          case h:
-            return ue(e.type, n, i);
-          case c: {
-            var d = e, w = d._payload, R = d._init;
+          case v:
+            return cr(e.render);
+          case M:
+            return ue(e.type, n, a);
+          case s: {
+            var u = e, E = u._payload, R = u._init;
             try {
-              return ue(R(w), n, i);
+              return ue(R(E), n, a);
             } catch {
             }
           }
         }
       return "";
     }
-    var oe = Object.prototype.hasOwnProperty, Fe = {}, Ie = P.ReactDebugCurrentFrame;
-    function de(e) {
+    var ne = Object.prototype.hasOwnProperty, Ge = {}, We = P.ReactDebugCurrentFrame;
+    function fe(e) {
       if (e) {
-        var n = e._owner, i = ue(e.type, e._source, n ? n.type : null);
-        Ie.setExtraStackFrame(i);
+        var n = e._owner, a = ue(e.type, e._source, n ? n.type : null);
+        We.setExtraStackFrame(a);
       } else
-        Ie.setExtraStackFrame(null);
+        We.setExtraStackFrame(null);
     }
-    function Sr(e, n, i, d, w) {
+    function ur(e, n, a, u, E) {
       {
-        var R = Function.call.bind(oe);
-        for (var S in e)
-          if (R(e, S)) {
-            var y = void 0;
+        var R = Function.call.bind(ne);
+        for (var y in e)
+          if (R(e, y)) {
+            var g = void 0;
             try {
-              if (typeof e[S] != "function") {
-                var U = Error((d || "React class") + ": " + i + " type `" + S + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof e[S] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
-                throw U.name = "Invariant Violation", U;
+              if (typeof e[y] != "function") {
+                var z = Error((u || "React class") + ": " + a + " type `" + y + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof e[y] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                throw z.name = "Invariant Violation", z;
               }
-              y = e[S](n, S, d, i, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
-            } catch (A) {
-              y = A;
+              g = e[y](n, y, u, a, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+            } catch (I) {
+              g = I;
             }
-            y && !(y instanceof Error) && (de(w), v("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", d || "React class", i, S, typeof y), de(null)), y instanceof Error && !(y.message in Fe) && (Fe[y.message] = !0, de(w), v("Failed %s type: %s", i, y.message), de(null));
+            g && !(g instanceof Error) && (fe(E), b("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", u || "React class", a, y, typeof g), fe(null)), g instanceof Error && !(g.message in Ge) && (Ge[g.message] = !0, fe(E), b("Failed %s type: %s", a, g.message), fe(null));
           }
       }
     }
-    var wr = Array.isArray;
-    function ge(e) {
-      return wr(e);
+    var fr = Array.isArray;
+    function ye(e) {
+      return fr(e);
     }
-    function Cr(e) {
+    function pr(e) {
       {
-        var n = typeof Symbol == "function" && Symbol.toStringTag, i = n && e[Symbol.toStringTag] || e.constructor.name || "Object";
-        return i;
+        var n = typeof Symbol == "function" && Symbol.toStringTag, a = n && e[Symbol.toStringTag] || e.constructor.name || "Object";
+        return a;
       }
     }
-    function kr(e) {
+    function mr(e) {
       try {
-        return We(e), !1;
+        return ze(e), !1;
       } catch {
         return !0;
       }
     }
-    function We(e) {
+    function ze(e) {
       return "" + e;
     }
-    function Me(e) {
-      if (kr(e))
-        return v("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", Cr(e)), We(e);
+    function Le(e) {
+      if (mr(e))
+        return b("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", pr(e)), ze(e);
     }
-    var Ge = P.ReactCurrentOwner, Er = {
+    var Ue = P.ReactCurrentOwner, xr = {
       key: !0,
       ref: !0,
       __self: !0,
       __source: !0
-    }, ze, Le;
-    function Or(e) {
-      if (oe.call(e, "ref")) {
+    }, $e, Ne;
+    function hr(e) {
+      if (ne.call(e, "ref")) {
         var n = Object.getOwnPropertyDescriptor(e, "ref").get;
         if (n && n.isReactWarning)
           return !1;
       }
       return e.ref !== void 0;
     }
-    function Rr(e) {
-      if (oe.call(e, "key")) {
+    function vr(e) {
+      if (ne.call(e, "key")) {
         var n = Object.getOwnPropertyDescriptor(e, "key").get;
         if (n && n.isReactWarning)
           return !1;
       }
       return e.key !== void 0;
     }
-    function _r(e, n) {
-      typeof e.ref == "string" && Ge.current;
+    function gr(e, n) {
+      typeof e.ref == "string" && Ue.current;
     }
-    function Tr(e, n) {
+    function br(e, n) {
       {
-        var i = function() {
-          ze || (ze = !0, v("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", n));
+        var a = function() {
+          $e || ($e = !0, b("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", n));
         };
-        i.isReactWarning = !0, Object.defineProperty(e, "key", {
-          get: i,
+        a.isReactWarning = !0, Object.defineProperty(e, "key", {
+          get: a,
           configurable: !0
         });
       }
     }
-    function Pr(e, n) {
+    function yr(e, n) {
       {
-        var i = function() {
-          Le || (Le = !0, v("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", n));
+        var a = function() {
+          Ne || (Ne = !0, b("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", n));
         };
-        i.isReactWarning = !0, Object.defineProperty(e, "ref", {
-          get: i,
+        a.isReactWarning = !0, Object.defineProperty(e, "ref", {
+          get: a,
           configurable: !0
         });
       }
     }
-    var Dr = function(e, n, i, d, w, R, S) {
-      var y = {
+    var jr = function(e, n, a, u, E, R, y) {
+      var g = {
         // This tag allows us to uniquely identify this as a React Element
-        $$typeof: t,
+        $$typeof: o,
         // Built-in properties that belong on the element
         type: e,
         key: n,
-        ref: i,
-        props: S,
+        ref: a,
+        props: y,
         // Record the component responsible for creating this element.
         _owner: R
       };
-      return y._store = {}, Object.defineProperty(y._store, "validated", {
+      return g._store = {}, Object.defineProperty(g._store, "validated", {
         configurable: !1,
         enumerable: !1,
         writable: !0,
         value: !1
-      }), Object.defineProperty(y, "_self", {
+      }), Object.defineProperty(g, "_self", {
         configurable: !1,
         enumerable: !1,
         writable: !1,
-        value: d
-      }), Object.defineProperty(y, "_source", {
+        value: u
+      }), Object.defineProperty(g, "_source", {
         configurable: !1,
         enumerable: !1,
         writable: !1,
-        value: w
-      }), Object.freeze && (Object.freeze(y.props), Object.freeze(y)), y;
+        value: E
+      }), Object.freeze && (Object.freeze(g.props), Object.freeze(g)), g;
     };
-    function Ar(e, n, i, d, w) {
+    function Sr(e, n, a, u, E) {
       {
-        var R, S = {}, y = null, U = null;
-        i !== void 0 && (Me(i), y = "" + i), Rr(n) && (Me(n.key), y = "" + n.key), Or(n) && (U = n.ref, _r(n, w));
+        var R, y = {}, g = null, z = null;
+        a !== void 0 && (Le(a), g = "" + a), vr(n) && (Le(n.key), g = "" + n.key), hr(n) && (z = n.ref, gr(n, E));
         for (R in n)
-          oe.call(n, R) && !Er.hasOwnProperty(R) && (S[R] = n[R]);
+          ne.call(n, R) && !xr.hasOwnProperty(R) && (y[R] = n[R]);
         if (e && e.defaultProps) {
-          var A = e.defaultProps;
-          for (R in A)
-            S[R] === void 0 && (S[R] = A[R]);
+          var I = e.defaultProps;
+          for (R in I)
+            y[R] === void 0 && (y[R] = I[R]);
         }
-        if (y || U) {
-          var I = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
-          y && Tr(S, I), U && Pr(S, I);
+        if (g || z) {
+          var D = typeof e == "function" ? e.displayName || e.name || "Unknown" : e;
+          g && br(y, D), z && yr(y, D);
         }
-        return Dr(e, y, U, w, d, Ge.current, S);
+        return jr(e, g, z, E, u, Ue.current, y);
       }
     }
-    var ve = P.ReactCurrentOwner, Ue = P.ReactDebugCurrentFrame;
-    function ee(e) {
+    var je = P.ReactCurrentOwner, Ye = P.ReactDebugCurrentFrame;
+    function Q(e) {
       if (e) {
-        var n = e._owner, i = ue(e.type, e._source, n ? n.type : null);
-        Ue.setExtraStackFrame(i);
+        var n = e._owner, a = ue(e.type, e._source, n ? n.type : null);
+        Ye.setExtraStackFrame(a);
       } else
-        Ue.setExtraStackFrame(null);
+        Ye.setExtraStackFrame(null);
     }
-    var be;
-    be = !1;
-    function ye(e) {
-      return typeof e == "object" && e !== null && e.$$typeof === t;
+    var Se;
+    Se = !1;
+    function we(e) {
+      return typeof e == "object" && e !== null && e.$$typeof === o;
     }
-    function $e() {
+    function Be() {
       {
-        if (ve.current) {
-          var e = W(ve.current.type);
+        if (je.current) {
+          var e = B(je.current.type);
           if (e)
             return `
 
@@ -485,361 +485,206 @@ Check the render method of \`` + e + "`.";
         return "";
       }
     }
-    function Fr(e) {
+    function wr(e) {
       return "";
     }
-    var Be = {};
-    function Ir(e) {
+    var qe = {};
+    function Cr(e) {
       {
-        var n = $e();
+        var n = Be();
         if (!n) {
-          var i = typeof e == "string" ? e : e.displayName || e.name;
-          i && (n = `
+          var a = typeof e == "string" ? e : e.displayName || e.name;
+          a && (n = `
 
-Check the top-level render call using <` + i + ">.");
+Check the top-level render call using <` + a + ">.");
         }
         return n;
       }
     }
-    function qe(e, n) {
+    function Ve(e, n) {
       {
         if (!e._store || e._store.validated || e.key != null)
           return;
         e._store.validated = !0;
-        var i = Ir(n);
-        if (Be[i])
+        var a = Cr(n);
+        if (qe[a])
           return;
-        Be[i] = !0;
-        var d = "";
-        e && e._owner && e._owner !== ve.current && (d = " It was passed a child from " + W(e._owner.type) + "."), ee(e), v('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', i, d), ee(null);
+        qe[a] = !0;
+        var u = "";
+        e && e._owner && e._owner !== je.current && (u = " It was passed a child from " + B(e._owner.type) + "."), Q(e), b('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', a, u), Q(null);
       }
     }
-    function Ye(e, n) {
+    function He(e, n) {
       {
         if (typeof e != "object")
           return;
-        if (ge(e))
-          for (var i = 0; i < e.length; i++) {
-            var d = e[i];
-            ye(d) && qe(d, n);
+        if (ye(e))
+          for (var a = 0; a < e.length; a++) {
+            var u = e[a];
+            we(u) && Ve(u, n);
           }
-        else if (ye(e))
+        else if (we(e))
           e._store && (e._store.validated = !0);
         else if (e) {
-          var w = T(e);
-          if (typeof w == "function" && w !== e.entries)
-            for (var R = w.call(e), S; !(S = R.next()).done; )
-              ye(S.value) && qe(S.value, n);
+          var E = S(e);
+          if (typeof E == "function" && E !== e.entries)
+            for (var R = E.call(e), y; !(y = R.next()).done; )
+              we(y.value) && Ve(y.value, n);
         }
       }
     }
-    function Wr(e) {
+    function kr(e) {
       {
         var n = e.type;
         if (n == null || typeof n == "string")
           return;
-        var i;
+        var a;
         if (typeof n == "function")
-          i = n.propTypes;
-        else if (typeof n == "object" && (n.$$typeof === g || // Note: Memo only checks outer props here.
+          a = n.propTypes;
+        else if (typeof n == "object" && (n.$$typeof === v || // Note: Memo only checks outer props here.
         // Inner props are checked in the reconciler.
-        n.$$typeof === h))
-          i = n.propTypes;
+        n.$$typeof === M))
+          a = n.propTypes;
         else
           return;
-        if (i) {
-          var d = W(n);
-          Sr(i, e.props, "prop", d, e);
-        } else if (n.PropTypes !== void 0 && !be) {
-          be = !0;
-          var w = W(n);
-          v("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", w || "Unknown");
+        if (a) {
+          var u = B(n);
+          ur(a, e.props, "prop", u, e);
+        } else if (n.PropTypes !== void 0 && !Se) {
+          Se = !0;
+          var E = B(n);
+          b("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", E || "Unknown");
         }
-        typeof n.getDefaultProps == "function" && !n.getDefaultProps.isReactClassApproved && v("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
+        typeof n.getDefaultProps == "function" && !n.getDefaultProps.isReactClassApproved && b("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
       }
     }
-    function Mr(e) {
+    function Er(e) {
       {
-        for (var n = Object.keys(e.props), i = 0; i < n.length; i++) {
-          var d = n[i];
-          if (d !== "children" && d !== "key") {
-            ee(e), v("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", d), ee(null);
+        for (var n = Object.keys(e.props), a = 0; a < n.length; a++) {
+          var u = n[a];
+          if (u !== "children" && u !== "key") {
+            Q(e), b("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", u), Q(null);
             break;
           }
         }
-        e.ref !== null && (ee(e), v("Invalid attribute `ref` supplied to `React.Fragment`."), ee(null));
+        e.ref !== null && (Q(e), b("Invalid attribute `ref` supplied to `React.Fragment`."), Q(null));
       }
     }
-    var He = {};
-    function Ne(e, n, i, d, w, R) {
+    var Je = {};
+    function Ke(e, n, a, u, E, R) {
       {
-        var S = Z(e);
-        if (!S) {
-          var y = "";
-          (e === void 0 || typeof e == "object" && e !== null && Object.keys(e).length === 0) && (y += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
-          var U = Fr();
-          U ? y += U : y += $e();
-          var A;
-          e === null ? A = "null" : ge(e) ? A = "array" : e !== void 0 && e.$$typeof === t ? (A = "<" + (W(e.type) || "Unknown") + " />", y = " Did you accidentally export a JSX literal instead of a component?") : A = typeof e, v("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", A, y);
+        var y = q(e);
+        if (!y) {
+          var g = "";
+          (e === void 0 || typeof e == "object" && e !== null && Object.keys(e).length === 0) && (g += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
+          var z = wr();
+          z ? g += z : g += Be();
+          var I;
+          e === null ? I = "null" : ye(e) ? I = "array" : e !== void 0 && e.$$typeof === o ? (I = "<" + (B(e.type) || "Unknown") + " />", g = " Did you accidentally export a JSX literal instead of a component?") : I = typeof e, b("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", I, g);
         }
-        var I = Ar(e, n, i, w, R);
-        if (I == null)
-          return I;
-        if (S) {
-          var B = n.children;
-          if (B !== void 0)
-            if (d)
-              if (ge(B)) {
-                for (var re = 0; re < B.length; re++)
-                  Ye(B[re], e);
-                Object.freeze && Object.freeze(B);
+        var D = Sr(e, n, a, E, R);
+        if (D == null)
+          return D;
+        if (y) {
+          var $ = n.children;
+          if ($ !== void 0)
+            if (u)
+              if (ye($)) {
+                for (var ee = 0; ee < $.length; ee++)
+                  He($[ee], e);
+                Object.freeze && Object.freeze($);
               } else
-                v("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
+                b("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
             else
-              Ye(B, e);
+              He($, e);
         }
-        if (oe.call(n, "key")) {
-          var Q = W(e), $ = Object.keys(n).filter(function(Br) {
-            return Br !== "key";
-          }), je = $.length > 0 ? "{key: someKey, " + $.join(": ..., ") + ": ...}" : "{key: someKey}";
-          if (!He[Q + je]) {
-            var $r = $.length > 0 ? "{" + $.join(": ..., ") + ": ...}" : "{}";
-            v(`A props object containing a "key" prop is being spread into JSX:
+        if (ne.call(n, "key")) {
+          var H = B(e), L = Object.keys(n).filter(function(Fr) {
+            return Fr !== "key";
+          }), Ce = L.length > 0 ? "{key: someKey, " + L.join(": ..., ") + ": ...}" : "{key: someKey}";
+          if (!Je[H + Ce]) {
+            var Pr = L.length > 0 ? "{" + L.join(": ..., ") + ": ...}" : "{}";
+            b(`A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
-  <%s key={someKey} {...props} />`, je, Q, $r, Q), He[Q + je] = !0;
+  <%s key={someKey} {...props} />`, Ce, H, Pr, H), Je[H + Ce] = !0;
           }
         }
-        return e === a ? Mr(I) : Wr(I), I;
+        return e === i ? Er(D) : kr(D), D;
       }
     }
-    function Gr(e, n, i) {
-      return Ne(e, n, i, !0);
+    function Or(e, n, a) {
+      return Ke(e, n, a, !0);
     }
-    function zr(e, n, i) {
-      return Ne(e, n, i, !1);
+    function Rr(e, n, a) {
+      return Ke(e, n, a, !1);
     }
-    var Lr = zr, Ur = Gr;
-    ie.Fragment = a, ie.jsx = Lr, ie.jsxs = Ur;
-  }()), ie;
+    var Tr = Rr, _r = Or;
+    oe.Fragment = i, oe.jsx = Tr, oe.jsxs = _r;
+  }()), oe;
 }
-process.env.NODE_ENV === "production" ? we.exports = dn() : we.exports = fn();
-var r = we.exports;
-const Se = [
-  { id: "selected", label: "Selected", count: 1, isSpecial: !0 },
-  { id: "squads", label: "Squads" },
-  { id: "free-agents", label: "Free Agents" },
-  { id: "historical", label: "Historical Athletes" }
-], cr = ({
-  selectedSquad: o,
-  onSquadChange: t,
-  selectedCount: s = 0,
-  compact: a = !1
-}) => {
-  const f = J(), x = K(f.breakpoints.down("sm")), [u, C] = q(!1), g = () => {
-    C(!u);
-  }, _ = (c) => {
-    t(c), x || C(!1);
-  }, p = () => {
-    const c = Se.find((m) => m.id === o);
-    return (c == null ? void 0 : c.label) || "Squads";
-  }, h = (c) => c.id === "selected" && s > 0 ? `${c.label} (${s})` : c.label;
-  return /* @__PURE__ */ r.jsxs(b, { sx: { position: "relative", width: "100%" }, children: [
-    /* @__PURE__ */ r.jsx(
-      te,
-      {
-        onClick: g,
-        variant: "text",
-        endIcon: u ? /* @__PURE__ */ r.jsx(an, {}) : /* @__PURE__ */ r.jsx(ar, {}),
-        sx: {
-          width: "100%",
-          justifyContent: "space-between",
-          textTransform: "none",
-          fontFamily: '"Open Sans", sans-serif',
-          fontSize: a ? "0.875rem" : "1rem",
-          fontWeight: 400,
-          color: "text.primary",
-          px: a ? 1.5 : 2,
-          py: a ? 1 : 1.5,
-          minHeight: a ? 36 : 44,
-          border: "1px solid",
-          borderColor: "divider",
-          borderRadius: 1,
-          backgroundColor: "background.paper",
-          "&:hover": {
-            backgroundColor: "action.hover",
-            borderColor: "primary.main"
-          }
-        },
-        children: p()
-      }
-    ),
-    /* @__PURE__ */ r.jsx(Yr, { in: u, timeout: "auto", unmountOnExit: !0, children: /* @__PURE__ */ r.jsx(
-      Ce,
-      {
-        elevation: 8,
-        sx: {
-          position: "absolute",
-          top: "100%",
-          left: 0,
-          minWidth: "100%",
-          width: "max-content",
-          zIndex: f.zIndex.modal,
-          maxHeight: x ? "70vh" : "400px",
-          overflowY: "auto",
-          mt: 0.5,
-          border: "1px solid",
-          borderColor: "divider",
-          borderRadius: 1
-        },
-        children: /* @__PURE__ */ r.jsx(
-          Hr,
-          {
-            sx: {
-              py: 1,
-              minWidth: "200px",
-              "& .MuiMenuItem-root": {
-                fontFamily: '"Open Sans", sans-serif',
-                fontSize: "1rem",
-                fontWeight: 400,
-                px: 2,
-                py: 1.5,
-                minHeight: "auto",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis"
-              }
-            },
-            children: Se.map((c, m) => /* @__PURE__ */ r.jsxs(fe.Fragment, { children: [
-              /* @__PURE__ */ r.jsxs(
-                Nr,
-                {
-                  selected: o === c.id,
-                  onClick: () => _(c.id),
-                  sx: {
-                    backgroundColor: o === c.id ? "action.selected" : "transparent",
-                    "&:hover": {
-                      backgroundColor: o === c.id ? "action.selected" : "action.hover"
-                    },
-                    "&.Mui-selected": {
-                      backgroundColor: "action.selected",
-                      "&:hover": {
-                        backgroundColor: "action.selected"
-                      }
-                    },
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    // Special styling for Selected option
-                    ...c.isSpecial && {
-                      fontWeight: 600,
-                      color: "primary.main",
-                      "&.Mui-selected": {
-                        backgroundColor: "primary.light",
-                        color: "primary.contrastText",
-                        "&:hover": {
-                          backgroundColor: "primary.light"
-                        }
-                      }
-                    }
-                  },
-                  children: [
-                    /* @__PURE__ */ r.jsx(
-                      z,
-                      {
-                        variant: "body1",
-                        sx: {
-                          fontFamily: '"Open Sans", sans-serif',
-                          fontSize: "1rem",
-                          fontWeight: c.isSpecial ? 600 : 400,
-                          color: c.isSpecial ? "primary.main" : "text.primary",
-                          flexGrow: 1,
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          whiteSpace: "nowrap"
-                        },
-                        children: h(c)
-                      }
-                    ),
-                    c.hasSubmenu && /* @__PURE__ */ r.jsx(
-                      ir,
-                      {
-                        fontSize: "small",
-                        sx: {
-                          color: "text.secondary",
-                          ml: 1
-                        }
-                      }
-                    )
-                  ]
-                }
-              ),
-              c.isSpecial && m < Se.length - 1 && /* @__PURE__ */ r.jsx(Xe, { sx: { my: 0.5 } })
-            ] }, c.id))
-          }
-        )
-      }
-    ) })
-  ] });
-}, gn = (o) => {
-  const t = o.reduce((s, a) => (s[a.ageGroup] || (s[a.ageGroup] = {
-    id: a.ageGroup,
-    name: a.ageGroup,
+process.env.NODE_ENV === "production" ? Ee.exports = sn() : Ee.exports = ln();
+var r = Ee.exports;
+const bn = (t) => {
+  const o = t.reduce((l, i) => (l[i.ageGroup] || (l[i.ageGroup] = {
+    id: i.ageGroup,
+    name: i.ageGroup,
     athletes: [],
     isExpanded: !1
-  }), s[a.ageGroup].athletes.push(a), s), {});
-  return Object.values(t).sort((s, a) => {
-    const f = parseInt(s.name.replace("U", ""));
-    return parseInt(a.name.replace("U", "")) - f;
+  }), l[i.ageGroup].athletes.push(i), l), {});
+  return Object.values(o).sort((l, i) => {
+    const p = parseInt(l.name.replace("U", ""));
+    return parseInt(i.name.replace("U", "")) - p;
   });
-}, vn = (o) => {
-  const t = o.reduce((s, a) => (s[a.position] || (s[a.position] = {
-    id: a.position,
-    name: a.position,
+}, yn = (t) => {
+  const o = t.reduce((l, i) => (l[i.position] || (l[i.position] = {
+    id: i.position,
+    name: i.position,
     athletes: []
-  }), s[a.position].athletes.push(a), s), {});
-  return Object.values(t).sort((s, a) => s.name.localeCompare(a.name));
-}, ur = (o, t) => o.filter((s) => {
-  if (t.selectedSquad)
-    switch (t.selectedSquad) {
+  }), l[i.position].athletes.push(i), l), {});
+  return Object.values(o).sort((l, i) => l.name.localeCompare(i.name));
+}, cn = (t, o) => t.filter((l) => {
+  if (o.selectedSquad)
+    switch (o.selectedSquad) {
       case "current":
-        if (!["U21", "U19", "U17"].includes(s.ageGroup))
+        if (!["U21", "U19", "U17"].includes(l.ageGroup))
           return !1;
         break;
       case "free-agents":
         return !1;
       case "historical":
-        if (["U21", "U19", "U17"].includes(s.ageGroup))
+        if (["U21", "U19", "U17"].includes(l.ageGroup))
           return !1;
         break;
     }
-  if (t.searchTerm) {
-    const a = t.searchTerm.toLowerCase();
-    if (!s.name.toLowerCase().includes(a) && !s.position.toLowerCase().includes(a) && !s.ageGroup.toLowerCase().includes(a))
+  if (o.searchTerm) {
+    const i = o.searchTerm.toLowerCase();
+    if (!l.name.toLowerCase().includes(i) && !l.position.toLowerCase().includes(i) && !l.ageGroup.toLowerCase().includes(i))
       return !1;
   }
-  return !(t.selectedAgeGroups.length > 0 && !t.selectedAgeGroups.includes(s.ageGroup) || t.selectedPositions.length > 0 && !t.selectedPositions.includes(s.position));
-}), dr = (o, t, s) => [...o].sort((a, f) => {
-  let x = 0;
-  switch (t) {
+  return !(o.selectedAgeGroups.length > 0 && !o.selectedAgeGroups.includes(l.ageGroup) || o.selectedPositions.length > 0 && !o.selectedPositions.includes(l.position));
+}), dn = (t, o, l) => [...t].sort((i, p) => {
+  let h = 0;
+  switch (o) {
     case "name":
-      x = a.name.localeCompare(f.name);
+      h = i.name.localeCompare(p.name);
       break;
     case "position":
-      x = a.position.localeCompare(f.position);
+      h = i.position.localeCompare(p.position);
       break;
-    case "ageGroup":
-      const u = parseInt(a.ageGroup.replace("U", ""));
-      x = parseInt(f.ageGroup.replace("U", "")) - u;
+    case "ageGroup": {
+      const d = parseInt(i.ageGroup.replace("U", ""));
+      h = parseInt(p.ageGroup.replace("U", "")) - d;
       break;
+    }
     default:
-      x = 0;
+      h = 0;
   }
-  return s === "desc" ? -x : x;
-}), fr = (o) => {
-  switch (o) {
+  return l === "desc" ? -h : h;
+}), Te = (t) => {
+  switch (t) {
     case "available":
       return "success";
     case "unavailable":
@@ -849,8 +694,8 @@ const Se = [
     default:
       return "default";
   }
-}, pr = (o) => {
-  switch (o) {
+}, _e = (t) => {
+  switch (t) {
     case "available":
       return "Available";
     case "unavailable":
@@ -860,17 +705,328 @@ const Se = [
     default:
       return "Unknown";
   }
-}, Ke = ({
-  athlete: o,
-  isSelected: t,
-  onToggle: s,
-  showGroupIcon: a = !1
+}, jn = ({
+  athlete: t,
+  isSelected: o,
+  onSelectionChange: l,
+  compact: i = !1
 }) => {
-  const f = J(), x = () => {
-    s(o.id);
-  }, u = o.name.includes("Aggregate") || a;
+  const p = K(), h = ie(p.breakpoints.down("sm")), d = i || h, f = (v) => {
+    l(t.id, v.target.checked);
+  };
+  return /* @__PURE__ */ r.jsx(
+    Ar,
+    {
+      variant: "outlined",
+      sx: {
+        mb: 1,
+        backgroundColor: o ? "action.selected" : "transparent",
+        "&:hover": {
+          backgroundColor: "action.hover"
+        },
+        transition: p.transitions.create("background-color", {
+          duration: p.transitions.duration.short
+        }),
+        border: "1px solid",
+        borderColor: "divider"
+      },
+      children: /* @__PURE__ */ r.jsxs(
+        Ir,
+        {
+          sx: {
+            display: "flex",
+            alignItems: "center",
+            gap: 2,
+            py: d ? 1.5 : 2,
+            px: d ? 2 : 3,
+            "&:last-child": { pb: d ? 1.5 : 2 }
+          },
+          children: [
+            /* @__PURE__ */ r.jsx(
+              er,
+              {
+                checked: o,
+                onChange: f,
+                size: d ? "small" : "medium",
+                sx: {
+                  color: "primary.main",
+                  "&.Mui-checked": {
+                    color: "primary.main"
+                  }
+                }
+              }
+            ),
+            /* @__PURE__ */ r.jsx(
+              me,
+              {
+                src: t.avatar,
+                alt: t.name,
+                sx: {
+                  width: d ? 32 : 40,
+                  height: d ? 32 : 40,
+                  border: "1px solid",
+                  borderColor: "divider"
+                },
+                children: t.name.split(" ").map((v) => v[0]).join("").toUpperCase()
+              }
+            ),
+            /* @__PURE__ */ r.jsxs(x, { sx: { flexGrow: 1, minWidth: 0 }, children: [
+              /* @__PURE__ */ r.jsx(
+                T,
+                {
+                  variant: d ? "body2" : "body1",
+                  fontWeight: "medium",
+                  sx: {
+                    color: "text.primary",
+                    mb: 0.5,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap"
+                  },
+                  children: t.name
+                }
+              ),
+              /* @__PURE__ */ r.jsx(
+                T,
+                {
+                  variant: d ? "caption" : "body2",
+                  color: "text.secondary",
+                  sx: {
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap"
+                  },
+                  children: t.position
+                }
+              )
+            ] }),
+            /* @__PURE__ */ r.jsx(
+              re,
+              {
+                label: _e(t.status),
+                color: Te(t.status),
+                size: d ? "small" : "medium",
+                variant: "filled",
+                sx: {
+                  minWidth: d ? 60 : 80,
+                  fontWeight: "medium",
+                  fontFamily: '"Open Sans", sans-serif'
+                }
+              }
+            )
+          ]
+        }
+      )
+    }
+  );
+}, un = ({
+  athlete: t,
+  squads: o = [],
+  dateOfBirth: l,
+  squadNumber: i,
+  leagueId: p,
+  labels: h,
+  tags: d,
+  enabled: f = !0,
+  placement: v = "right",
+  hoverOpenDelayMs: _ = 120,
+  hoverCloseDelayMs: j = 140,
+  children: M
+}) => {
+  const s = K(), C = N.useRef(null), [k, c] = N.useState(!1), S = N.useRef(null), P = N.useRef(null), b = () => {
+    S.current && clearTimeout(S.current), P.current && clearTimeout(P.current);
+  }, G = () => {
+    f && (b(), S.current = setTimeout(() => c(!0), _));
+  }, m = () => {
+    f && (b(), P.current = setTimeout(() => c(!1), j));
+  };
+  N.useEffect(() => () => b(), []);
+  const F = N.useMemo(() => {
+    const A = [t.ageGroup, ...o].filter(Boolean);
+    return Array.from(new Set(A));
+  }, [t.ageGroup, o]);
+  return /* @__PURE__ */ r.jsxs(x, { sx: { display: "inline-flex", alignItems: "center" }, children: [
+    /* @__PURE__ */ r.jsx(
+      x,
+      {
+        ref: C,
+        onMouseEnter: G,
+        onMouseLeave: m,
+        sx: {
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 1,
+          cursor: f ? "pointer" : "default"
+        },
+        children: M ?? /* @__PURE__ */ r.jsxs(r.Fragment, { children: [
+          /* @__PURE__ */ r.jsx(
+            me,
+            {
+              src: t.avatar,
+              alt: t.name,
+              sx: {
+                width: 28,
+                height: 28,
+                border: "1px solid",
+                borderColor: "divider"
+              },
+              children: t.name.split(" ").map((A) => A[0]).join("").toUpperCase()
+            }
+          ),
+          /* @__PURE__ */ r.jsx(
+            T,
+            {
+              variant: "body2",
+              sx: {
+                fontFamily: '"Open Sans", sans-serif',
+                fontSize: "0.95rem",
+                color: "text.primary",
+                lineHeight: 1.3
+              },
+              children: t.name
+            }
+          )
+        ] })
+      }
+    ),
+    /* @__PURE__ */ r.jsx(
+      Dr,
+      {
+        open: f && k,
+        anchorEl: C.current,
+        placement: v,
+        modifiers: [{ name: "offset", options: { offset: [0, 8] } }],
+        onMouseEnter: G,
+        onMouseLeave: m,
+        disablePortal: !1,
+        sx: { zIndex: (A) => A.zIndex.tooltip },
+        keepMounted: !0,
+        children: /* @__PURE__ */ r.jsxs(
+          Oe,
+          {
+            elevation: 4,
+            sx: {
+              width: 320,
+              p: 2,
+              border: "1px solid",
+              borderColor: "divider",
+              backgroundColor: "background.paper",
+              boxShadow: s.shadows[6]
+            },
+            children: [
+              /* @__PURE__ */ r.jsxs(x, { sx: { display: "flex", alignItems: "center", gap: 1.5, mb: 1 }, children: [
+                /* @__PURE__ */ r.jsx(
+                  me,
+                  {
+                    src: t.avatar,
+                    alt: t.name,
+                    sx: { width: 40, height: 40, border: "1px solid", borderColor: "divider" },
+                    children: t.name.split(" ").map((A) => A[0]).join("").toUpperCase()
+                  }
+                ),
+                /* @__PURE__ */ r.jsxs(x, { sx: { minWidth: 0 }, children: [
+                  /* @__PURE__ */ r.jsx(
+                    T,
+                    {
+                      variant: "body1",
+                      sx: {
+                        fontFamily: '"Open Sans", sans-serif',
+                        fontSize: "1rem",
+                        fontWeight: 600,
+                        color: "text.primary",
+                        lineHeight: 1.3,
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap"
+                      },
+                      children: t.name
+                    }
+                  ),
+                  /* @__PURE__ */ r.jsx(
+                    T,
+                    {
+                      variant: "body2",
+                      sx: {
+                        fontFamily: '"Open Sans", sans-serif',
+                        fontSize: "0.875rem",
+                        color: "text.secondary",
+                        lineHeight: 1.3
+                      },
+                      children: t.position
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ r.jsx(
+                  re,
+                  {
+                    label: _e(t.status),
+                    color: Te(t.status),
+                    size: "small",
+                    sx: { ml: "auto" }
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ r.jsx(Re, { sx: { mb: 1 } }),
+              /* @__PURE__ */ r.jsxs(x, { sx: { mb: 1 }, children: [
+                /* @__PURE__ */ r.jsx(
+                  T,
+                  {
+                    variant: "caption",
+                    sx: {
+                      fontFamily: '"Open Sans", sans-serif',
+                      color: "text.secondary",
+                      display: "block",
+                      mb: 0.5
+                    },
+                    children: "Squads"
+                  }
+                ),
+                /* @__PURE__ */ r.jsx(x, { sx: { display: "flex", flexWrap: "wrap", gap: 0.5 }, children: F.map((A) => /* @__PURE__ */ r.jsx(re, { label: A, size: "small", variant: "outlined" }, A)) })
+              ] }),
+              /* @__PURE__ */ r.jsxs(x, { sx: { display: "grid", gridTemplateColumns: "auto 1fr", rowGap: 0.5, columnGap: 1 }, children: [
+                /* @__PURE__ */ r.jsx(T, { variant: "caption", color: "text.secondary", children: "DOB" }),
+                /* @__PURE__ */ r.jsx(T, { variant: "body2", children: l || "—" }),
+                /* @__PURE__ */ r.jsx(T, { variant: "caption", color: "text.secondary", children: "Squad Number" }),
+                /* @__PURE__ */ r.jsx(T, { variant: "body2", children: i ?? "—" }),
+                /* @__PURE__ */ r.jsx(T, { variant: "caption", color: "text.secondary", children: "League ID" }),
+                /* @__PURE__ */ r.jsx(T, { variant: "body2", children: p || "—" })
+              ] }),
+              (() => {
+                const A = h && h.length ? h : d || [];
+                return /* @__PURE__ */ r.jsxs(x, { sx: { mt: 1 }, children: [
+                  /* @__PURE__ */ r.jsx(
+                    T,
+                    {
+                      variant: "caption",
+                      sx: {
+                        fontFamily: '"Open Sans", sans-serif',
+                        color: "text.secondary",
+                        display: "block",
+                        mb: 0.5
+                      },
+                      children: "Labels"
+                    }
+                  ),
+                  /* @__PURE__ */ r.jsx(x, { sx: { display: "flex", flexWrap: "wrap", gap: 0.5, minHeight: 24 }, children: A.map((Y) => /* @__PURE__ */ r.jsx(re, { label: Y, size: "small" }, Y)) })
+                ] });
+              })()
+            ]
+          }
+        )
+      }
+    )
+  ] });
+}, xe = ({
+  athlete: t,
+  isSelected: o,
+  onToggle: l,
+  showGroupIcon: i = !1
+}) => {
+  const p = K(), h = () => {
+    l(t.id);
+  }, d = t.name.includes("Aggregate") || i;
   return /* @__PURE__ */ r.jsxs(
-    b,
+    x,
     {
       sx: {
         display: "flex",
@@ -878,20 +1034,20 @@ const Se = [
         py: 1,
         px: 2,
         minHeight: 48,
-        backgroundColor: t ? "action.selected" : "transparent",
+        backgroundColor: o ? "action.selected" : "transparent",
         "&:hover": {
-          backgroundColor: t ? "action.selected" : "action.hover"
+          backgroundColor: o ? "action.selected" : "action.hover"
         },
-        transition: f.transitions.create("background-color", {
-          duration: f.transitions.duration.short
+        transition: p.transitions.create("background-color", {
+          duration: p.transitions.duration.short
         })
       },
       children: [
         /* @__PURE__ */ r.jsx(
-          Ze,
+          er,
           {
-            checked: t,
-            onChange: x,
+            checked: o,
+            onChange: h,
             size: "small",
             sx: {
               color: "primary.main",
@@ -903,66 +1059,81 @@ const Se = [
             }
           }
         ),
-        /* @__PURE__ */ r.jsx(b, { sx: { mr: 1, position: "relative" }, children: /* @__PURE__ */ r.jsx(
-          Qe,
+        /* @__PURE__ */ r.jsx(
+          un,
           {
-            src: u ? void 0 : o.avatar,
-            alt: o.name,
-            sx: {
-              width: 34,
-              height: 34,
-              bgcolor: u ? "grey.300" : void 0
-            },
-            children: u && /* @__PURE__ */ r.jsx(
-              sn,
-              {
-                sx: {
-                  fontSize: 18,
-                  color: "text.secondary"
+            athlete: t,
+            squads: [t.ageGroup],
+            dateOfBirth: t.dateOfBirth,
+            squadNumber: t.squadNumber,
+            leagueId: t.leagueId,
+            labels: t.labels,
+            enabled: !d,
+            children: /* @__PURE__ */ r.jsxs(x, { sx: { display: "flex", alignItems: "center" }, children: [
+              /* @__PURE__ */ r.jsx(x, { sx: { mr: 1, position: "relative" }, children: /* @__PURE__ */ r.jsx(
+                me,
+                {
+                  src: d ? void 0 : t.avatar,
+                  alt: t.name,
+                  sx: {
+                    width: 34,
+                    height: 34,
+                    bgcolor: d ? "grey.300" : void 0
+                  },
+                  children: d && /* @__PURE__ */ r.jsx(
+                    Zr,
+                    {
+                      sx: {
+                        fontSize: 18,
+                        color: "text.secondary"
+                      }
+                    }
+                  )
                 }
-              }
-            )
+              ) }),
+              /* @__PURE__ */ r.jsxs(x, { sx: { flexGrow: 1, minWidth: 0 }, children: [
+                /* @__PURE__ */ r.jsx(
+                  T,
+                  {
+                    variant: "body1",
+                    sx: {
+                      fontFamily: '"Open Sans", sans-serif',
+                      fontSize: "1rem",
+                      fontWeight: 400,
+                      color: "text.primary",
+                      lineHeight: 1.3,
+                      mb: 0
+                    },
+                    children: t.name
+                  }
+                ),
+                /* @__PURE__ */ r.jsx(
+                  T,
+                  {
+                    variant: "body2",
+                    sx: {
+                      fontFamily: '"Open Sans", sans-serif',
+                      fontSize: "0.875rem",
+                      fontWeight: 400,
+                      color: "text.secondary",
+                      lineHeight: 1.3
+                    },
+                    children: t.position
+                  }
+                )
+              ] })
+            ] })
           }
-        ) }),
-        /* @__PURE__ */ r.jsxs(b, { sx: { flexGrow: 1, minWidth: 0 }, children: [
-          /* @__PURE__ */ r.jsx(
-            z,
-            {
-              variant: "body1",
-              sx: {
-                fontFamily: '"Open Sans", sans-serif',
-                fontSize: "1rem",
-                fontWeight: 400,
-                color: "text.primary",
-                lineHeight: 1.3,
-                mb: 0
-              },
-              children: o.name
-            }
-          ),
-          /* @__PURE__ */ r.jsx(
-            z,
-            {
-              variant: "body2",
-              sx: {
-                fontFamily: '"Open Sans", sans-serif',
-                fontSize: "0.875rem",
-                fontWeight: 400,
-                color: "text.secondary",
-                lineHeight: 1.3
-              },
-              children: o.position
-            }
-          )
-        ] }),
-        !u && /* @__PURE__ */ r.jsx(
-          pe,
+        ),
+        !d && /* @__PURE__ */ r.jsx(
+          re,
           {
-            label: pr(o.status),
-            color: fr(o.status),
+            label: _e(t.status),
+            color: Te(t.status),
             size: "small",
             variant: "filled",
             sx: {
+              ml: "auto",
               minWidth: 70,
               height: 24,
               fontFamily: '"Open Sans", sans-serif',
@@ -978,31 +1149,31 @@ const Se = [
       ]
     }
   );
-}, Ee = ({
-  athletes: o,
-  selectedAthletes: t,
-  onSelectionChange: s,
-  onBatchSelectionChange: a,
-  groupBy: f,
-  order: x,
-  showOnlySelected: u = !1
+}, or = ({
+  athletes: t,
+  selectedAthletes: o,
+  onSelectionChange: l,
+  onBatchSelectionChange: i,
+  groupBy: p,
+  order: h,
+  showOnlySelected: d = !1
 }) => {
-  const [C, g] = q(["Goalkeeper", "Defender", "Midfielder", "Forward"]), _ = (l) => {
-    const T = t.includes(l);
-    s(l, !T);
-  }, p = (l) => {
-    const T = l.every(
-      (D) => t.includes(D.id)
-    ), P = l.map((D) => D.id), v = !T;
-    a ? a(P, v) : P.forEach((D) => {
-      s(D, v);
+  const [f, v] = J(["Goalkeeper", "Defender", "Midfielder", "Forward"]), _ = (c) => {
+    const S = o.includes(c);
+    l(c, !S);
+  }, j = (c) => {
+    const S = c.every(
+      (G) => o.includes(G.id)
+    ), P = c.map((G) => G.id), b = !S;
+    i ? i(P, b) : P.forEach((G) => {
+      l(G, b);
     });
-  }, h = (l) => (T, P) => {
-    g(
-      (v) => P ? [...v, l] : v.filter((D) => D !== l)
+  }, M = (c) => (S, P) => {
+    v(
+      (b) => P ? [...b, c] : b.filter((G) => G !== c)
     );
-  }, c = se(() => u ? o.filter((l) => t.includes(l.id)) : o, [o, t, u]), m = (l) => {
-    switch (l.toLowerCase().trim()) {
+  }, s = pe(() => d ? t.filter((c) => o.includes(c.id)) : t, [t, o, d]), C = (c) => {
+    switch (c.toLowerCase().trim()) {
       case "goalkeeper":
         return "Goalkeeper";
       case "defender":
@@ -1015,53 +1186,53 @@ const Se = [
       case "center forward":
         return "Forward";
       default:
-        return l;
+        return c;
     }
-  }, k = se(() => {
-    const l = {};
-    c.forEach((j) => {
-      let E;
-      f === "position" ? E = m(j.position) : f === "status" ? E = j.status : E = j.ageGroup, l[E] || (l[E] = []), l[E].push(j);
+  }, k = pe(() => {
+    const c = {};
+    s.forEach((m) => {
+      let F;
+      p === "position" ? F = C(m.position) : p === "status" ? F = m.status : F = m.ageGroup, c[F] || (c[F] = []), c[F].push(m);
     });
-    const T = Object.entries(l).map(([j, E]) => {
-      var N;
-      const H = [...E].sort((V, Z) => V.name.localeCompare(Z.name));
-      x === "desc" && H.reverse();
-      const X = f === "position" ? {
-        id: `${j}-aggregate`,
-        name: j,
+    const S = Object.entries(c).map(([m, F]) => {
+      var X;
+      const A = [...F].sort((Z, q) => Z.name.localeCompare(q.name));
+      h === "desc" && A.reverse();
+      const Y = p === "position" ? {
+        id: `${m}-aggregate`,
+        name: m,
         position: "Aggregate",
-        ageGroup: ((N = H[0]) == null ? void 0 : N.ageGroup) || "U23",
+        ageGroup: ((X = A[0]) == null ? void 0 : X.ageGroup) || "U23",
         status: "available",
         avatar: ""
       } : void 0;
       return {
-        id: j,
-        name: j,
-        athletes: H,
-        aggregateAthlete: X
+        id: m,
+        name: m,
+        athletes: A,
+        aggregateAthlete: Y
       };
-    }), P = (j) => {
-      const E = j.match(/U(\d+)/);
-      return E ? parseInt(E[1], 10) : 0;
-    }, v = ["Goalkeeper", "Defender", "Midfielder", "Forward"], D = (j) => {
-      const E = v.indexOf(j);
-      return E >= 0 ? E : 999;
+    }), P = (m) => {
+      const F = m.match(/U(\d+)/);
+      return F ? parseInt(F[1], 10) : 0;
+    }, b = ["Goalkeeper", "Defender", "Midfielder", "Forward"], G = (m) => {
+      const F = b.indexOf(m);
+      return F >= 0 ? F : 999;
     };
-    return T.sort((j, E) => f === "squad" ? P(E.name) - P(j.name) : f === "position" ? D(j.name) - D(E.name) : j.name.localeCompare(E.name)), T;
-  }, [c, f, x]);
-  return /* @__PURE__ */ r.jsx(b, { sx: { width: "100%" }, children: k.map((l, T) => {
-    const P = C.includes(l.id), v = l.athletes.filter(
-      (j) => t.includes(j.id)
-    ).length, D = l.athletes.every(
-      (j) => t.includes(j.id)
+    return S.sort((m, F) => p === "squad" ? P(F.name) - P(m.name) : p === "position" ? G(m.name) - G(F.name) : m.name.localeCompare(F.name)), S;
+  }, [s, p, h]);
+  return /* @__PURE__ */ r.jsx(x, { sx: { width: "100%" }, children: k.map((c, S) => {
+    const P = f.includes(c.id), b = c.athletes.filter(
+      (m) => o.includes(m.id)
+    ).length, G = c.athletes.every(
+      (m) => o.includes(m.id)
     );
-    return /* @__PURE__ */ r.jsxs(b, { children: [
+    return /* @__PURE__ */ r.jsxs(x, { children: [
       /* @__PURE__ */ r.jsxs(
-        Vr,
+        Mr,
         {
           expanded: P,
-          onChange: h(l.id),
+          onChange: M(c.id),
           elevation: 0,
           sx: {
             "&:before": {
@@ -1081,9 +1252,9 @@ const Se = [
           },
           children: [
             /* @__PURE__ */ r.jsx(
-              Jr,
+              Gr,
               {
-                expandIcon: /* @__PURE__ */ r.jsx(ln, {}),
+                expandIcon: /* @__PURE__ */ r.jsx(Qr, {}),
                 sx: {
                   flexDirection: "row-reverse",
                   "& .MuiAccordionSummary-expandIconWrapper": {
@@ -1093,7 +1264,7 @@ const Se = [
                   }
                 },
                 children: /* @__PURE__ */ r.jsxs(
-                  b,
+                  x,
                   {
                     sx: {
                       display: "flex",
@@ -1103,7 +1274,7 @@ const Se = [
                     },
                     children: [
                       /* @__PURE__ */ r.jsxs(
-                        z,
+                        T,
                         {
                           variant: "body1",
                           sx: {
@@ -1113,16 +1284,16 @@ const Se = [
                             color: "text.primary"
                           },
                           children: [
-                            l.name,
-                            v > 0 && /* @__PURE__ */ r.jsxs(
-                              z,
+                            c.name,
+                            b > 0 && /* @__PURE__ */ r.jsxs(
+                              T,
                               {
                                 component: "span",
                                 variant: "body2",
                                 sx: { color: "text.secondary", ml: 0.5 },
                                 children: [
                                   "(",
-                                  v,
+                                  b,
                                   ")"
                                 ]
                               }
@@ -1131,11 +1302,11 @@ const Se = [
                         }
                       ),
                       /* @__PURE__ */ r.jsx(
-                        te,
+                        he,
                         {
                           size: "small",
-                          onClick: (j) => {
-                            j.stopPropagation(), p(l.athletes);
+                          onClick: (m) => {
+                            m.stopPropagation(), j(c.athletes);
                           },
                           sx: {
                             fontFamily: '"Open Sans", sans-serif',
@@ -1150,7 +1321,7 @@ const Se = [
                               textDecoration: "underline"
                             }
                           },
-                          children: D ? "Deselect all" : "Select all"
+                          children: G ? "Deselect all" : "Select all"
                         }
                       )
                     ]
@@ -1158,18 +1329,18 @@ const Se = [
                 )
               }
             ),
-            /* @__PURE__ */ r.jsx(Kr, { children: /* @__PURE__ */ r.jsxs(b, { children: [
-              l.aggregateAthlete && /* @__PURE__ */ r.jsx(
-                Ke,
+            /* @__PURE__ */ r.jsx(Wr, { children: /* @__PURE__ */ r.jsxs(x, { children: [
+              c.aggregateAthlete && /* @__PURE__ */ r.jsx(
+                xe,
                 {
-                  athlete: l.aggregateAthlete,
-                  isSelected: t.includes(l.aggregateAthlete.id),
+                  athlete: c.aggregateAthlete,
+                  isSelected: o.includes(c.aggregateAthlete.id),
                   onToggle: _,
                   showGroupIcon: !0
                 }
               ),
-              f === "position" && /* @__PURE__ */ r.jsx(b, { sx: { px: 2, py: 0 }, children: /* @__PURE__ */ r.jsx(
-                z,
+              p === "position" && /* @__PURE__ */ r.jsx(x, { sx: { px: 2, py: 0 }, children: /* @__PURE__ */ r.jsx(
+                T,
                 {
                   variant: "body2",
                   sx: {
@@ -1178,509 +1349,274 @@ const Se = [
                     fontWeight: 600,
                     color: "text.primary"
                   },
-                  children: l.name
+                  children: c.name
                 }
               ) }),
-              l.athletes.map((j) => /* @__PURE__ */ r.jsx(
-                Ke,
+              c.athletes.map((m) => /* @__PURE__ */ r.jsx(
+                xe,
                 {
-                  athlete: j,
-                  isSelected: t.includes(j.id),
+                  athlete: m,
+                  isSelected: o.includes(m.id),
                   onToggle: _
                 },
-                j.id
+                m.id
               ))
             ] }) })
           ]
         }
       ),
-      T < k.length - 1 && /* @__PURE__ */ r.jsx(Xe, { sx: { mx: 2 } })
-    ] }, l.id);
+      S < k.length - 1 && /* @__PURE__ */ r.jsx(Re, { sx: { mx: 2 } })
+    ] }, c.id);
   }) });
-}, hr = ({ order: o, onChange: t }) => {
-  const s = o === "asc" ? "desc" : "asc", a = o === "asc" ? "Order A → Z" : "Order Z → A";
-  return /* @__PURE__ */ r.jsx(Xr, { title: a, arrow: !0, children: /* @__PURE__ */ r.jsx(
-    ne,
+}, fn = ({ order: t, onChange: o }) => {
+  const l = t === "asc" ? "desc" : "asc", i = t === "asc" ? "Order A → Z" : "Order Z → A";
+  return /* @__PURE__ */ r.jsx(rr, { title: i, arrow: !0, children: /* @__PURE__ */ r.jsx(
+    ae,
     {
       size: "small",
-      onClick: () => t(s),
+      onClick: () => o(l),
       sx: {
         color: "text.secondary",
         "&:hover": { backgroundColor: "action.hover" },
-        transform: o === "asc" ? "none" : "scaleX(-1)",
+        transform: t === "asc" ? "none" : "scaleX(-1)",
         // mirror for Z→A hint
         transition: "transform 120ms ease-in-out"
       },
-      "aria-label": a,
-      children: /* @__PURE__ */ r.jsx(cn, { fontSize: "small" })
+      "aria-label": i,
+      children: /* @__PURE__ */ r.jsx(en, { fontSize: "small" })
     }
   ) });
-}, xr = ({
-  athletes: o,
-  selectedAthletes: t = [],
-  onSelectionChange: s,
-  onClose: a,
-  onBack: f,
-  title: x = "Athletes",
-  showBackButton: u = !1,
-  maxHeight: C = 600,
-  compact: g = !1,
-  loading: _ = !1,
-  error: p
-}) => {
-  const h = J(), c = K(h.breakpoints.down("sm")), m = g || c, [k, l] = q({
-    searchTerm: "",
-    selectedAgeGroups: [],
-    selectedPositions: [],
-    selectedSquad: "current",
-    sortBy: "name",
-    sortOrder: "asc"
-  }), [T, P] = q("position"), [v, D] = q("asc"), [j, E] = q(!1), [H, X] = q("squads"), N = se(() => {
-    const O = ur(o, k);
-    return dr(O, k.sortBy, k.sortOrder);
-  }, [o, k]), V = (O) => {
-    l((M) => ({ ...M, searchTerm: O.target.value }));
-  }, Z = (O) => {
-    let M = "all", L = T;
-    switch (X(O), O) {
-      case "selected":
-        M = "all", L = "position", E(!0);
-        break;
-      case "squads":
-        M = "current", L = "squad", E(!1);
-        break;
-      case "free-agents":
-        M = "free-agents", L = "position", E(!1);
-        break;
-      case "historical":
-        M = "historical", L = "position", E(!1);
-        break;
-      default:
-        M = "all", L = "position", E(!1);
-        break;
-    }
-    P(L), l((Y) => ({ ...Y, selectedSquad: M }));
-  }, F = (O, M) => {
-    const L = M ? [...t, O] : t.filter((Y) => Y !== O);
-    s(L);
-  }, G = (O, M) => {
-    let L;
-    M ? L = [...t, ...O.filter((Y) => !t.includes(Y))] : L = t.filter((Y) => !O.includes(Y)), s(L);
-  }, W = (O) => {
-    D(O);
+}, pn = ({ groupBy: t, onChange: o }) => {
+  const [l, i] = N.useState(null), p = !!l, h = t === "position" ? "Group by: Position" : "Group by: Availability", d = (_) => {
+    i(_.currentTarget);
+  }, f = () => i(null), v = (_) => {
+    o(_), f();
   };
-  return _ ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(z, { children: "Loading athletes..." }) }) : p ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(z, { color: "error", children: p }) }) : /* @__PURE__ */ r.jsxs(
-    b,
-    {
-      sx: {
-        height: "100%",
-        maxHeight: C,
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden"
-      },
-      children: [
-        /* @__PURE__ */ r.jsxs(
-          b,
-          {
-            sx: {
-              py: 1,
-              px: m ? 2 : 3,
-              borderBottom: "1px solid",
-              borderColor: "divider",
-              flexShrink: 0
-            },
-            children: [
-              /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", alignItems: "center", mb: 0 }, children: [
-                u && /* @__PURE__ */ r.jsx(
-                  ne,
-                  {
-                    onClick: f,
-                    sx: { mr: 1 },
-                    size: m ? "small" : "medium",
-                    children: /* @__PURE__ */ r.jsx(ke, {})
-                  }
-                ),
-                /* @__PURE__ */ r.jsx(
-                  z,
-                  {
-                    variant: m ? "h6" : "h5",
-                    fontWeight: "semibold",
-                    sx: { flexGrow: 1 },
-                    children: x
-                  }
-                ),
-                a && /* @__PURE__ */ r.jsx(
-                  ne,
-                  {
-                    onClick: a,
-                    size: m ? "small" : "medium",
-                    children: /* @__PURE__ */ r.jsx(sr, {})
-                  }
-                )
-              ] }),
-              /* @__PURE__ */ r.jsxs(er, { spacing: 0.5, children: [
-                /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", gap: 1, alignItems: "center" }, children: [
-                  /* @__PURE__ */ r.jsx(b, { sx: { minWidth: 140, flexShrink: 0 }, children: /* @__PURE__ */ r.jsx(
-                    cr,
-                    {
-                      selectedSquad: H,
-                      onSquadChange: Z,
-                      selectedCount: t.length,
-                      compact: !0
-                    }
-                  ) }),
-                  /* @__PURE__ */ r.jsx(
-                    rr,
-                    {
-                      placeholder: "Search",
-                      value: k.searchTerm,
-                      onChange: V,
-                      size: "small",
-                      sx: {
-                        flexGrow: 1,
-                        "& .MuiInputBase-root": {
-                          fontFamily: '"Open Sans", sans-serif'
-                        }
-                      },
-                      InputProps: {
-                        endAdornment: /* @__PURE__ */ r.jsx(nr, { position: "end", children: /* @__PURE__ */ r.jsx(lr, { fontSize: "small" }) })
-                      }
-                    }
-                  ),
-                  /* @__PURE__ */ r.jsx(hr, { order: v, onChange: W })
-                ] }),
-                t.length > 0 && /* @__PURE__ */ r.jsx(b, { children: /* @__PURE__ */ r.jsx(
-                  pe,
-                  {
-                    label: `${t.length} selected`,
-                    color: "primary",
-                    size: "small",
-                    onDelete: () => s([])
-                  }
-                ) })
-              ] })
-            ]
-          }
-        ),
-        /* @__PURE__ */ r.jsx(b, { sx: { flexGrow: 1, overflow: "auto" }, children: /* @__PURE__ */ r.jsx(
-          Ee,
-          {
-            athletes: N,
-            selectedAthletes: t,
-            onSelectionChange: F,
-            onBatchSelectionChange: G,
-            groupBy: T,
-            order: v,
-            showOnlySelected: j
-          }
-        ) }),
-        /* @__PURE__ */ r.jsx(
-          b,
-          {
-            sx: {
-              py: 1,
-              px: m ? 2 : 3,
-              borderTop: "1px solid",
-              borderColor: "divider",
-              flexShrink: 0
-            },
-            children: /* @__PURE__ */ r.jsx(b, { sx: { display: "flex", justifyContent: "flex-end" }, children: /* @__PURE__ */ r.jsx(
-              te,
-              {
-                variant: "contained",
-                color: "primary",
-                onClick: a,
-                disabled: t.length === 0,
-                sx: {
-                  fontFamily: '"Open Sans", sans-serif',
-                  textTransform: "none"
-                },
-                children: "Done"
-              }
-            ) })
-          }
-        )
-      ]
-    }
-  );
-}, bn = ({
-  open: o,
-  anchor: t = "right",
-  width: s = 460,
-  onClose: a,
-  ...f
-}) => {
-  const x = J(), u = K(x.breakpoints.down("md")), C = u ? "100vw" : s, g = u ? "bottom" : t;
-  return /* @__PURE__ */ r.jsx(
-    tr,
-    {
-      open: o,
-      onClose: a,
-      anchor: g,
-      sx: {
-        "& .MuiDrawer-paper": {
-          width: C,
-          maxWidth: "100vw",
-          height: u ? "90vh" : "100vh",
-          maxHeight: "100vh",
-          boxShadow: x.shadows[16],
-          borderRadius: u ? "16px 16px 0 0" : 0
-        }
-      },
-      ModalProps: {
-        keepMounted: !0
-        // Better open performance on mobile
-      },
-      children: /* @__PURE__ */ r.jsx(
-        xr,
-        {
-          ...f,
-          onClose: a,
-          compact: u,
-          maxHeight: "100%"
-        }
-      )
-    }
-  );
-}, yn = ({
-  selectedAthletes: o = [],
-  buttonText: t = "Select Athletes",
-  buttonVariant: s = "outlined",
-  buttonColor: a = "primary",
-  showBadge: f = !0,
-  maxWidth: x = 400,
-  maxHeight: u = 500,
-  onSelectionChange: C,
-  ...g
-}) => {
-  const _ = J(), p = K(_.breakpoints.down("sm")), [h, c] = q(null), m = qr(null), k = !!h, l = (D) => {
-    c(D.currentTarget);
-  }, T = () => {
-    c(null);
-  }, P = (D) => {
-    C(D);
-  }, v = /* @__PURE__ */ r.jsx(
-    te,
-    {
-      ref: m,
-      variant: s,
-      color: a,
-      onClick: l,
-      endIcon: /* @__PURE__ */ r.jsx(ar, {}),
-      startIcon: /* @__PURE__ */ r.jsx(un, {}),
-      sx: {
-        textTransform: "none",
-        minWidth: p ? "100%" : "auto"
-      },
-      children: o.length > 0 ? `${o.length} ${o.length === 1 ? "athlete" : "athletes"} selected` : t
-    }
-  );
-  return /* @__PURE__ */ r.jsxs(b, { sx: { display: "inline-block", width: p ? "100%" : "auto" }, children: [
-    f && o.length > 0 ? /* @__PURE__ */ r.jsx(
-      Zr,
+  return /* @__PURE__ */ r.jsxs(r.Fragment, { children: [
+    /* @__PURE__ */ r.jsx(rr, { title: h, arrow: !0, children: /* @__PURE__ */ r.jsx(
+      ae,
       {
-        badgeContent: o.length,
-        color: "primary",
-        max: 99,
-        children: v
+        size: "small",
+        onClick: d,
+        sx: { color: "text.secondary", "&:hover": { backgroundColor: "action.hover" } },
+        "aria-label": h,
+        "aria-controls": p ? "group-menu" : void 0,
+        "aria-haspopup": "true",
+        "aria-expanded": p ? "true" : void 0,
+        children: /* @__PURE__ */ r.jsx(rn, { fontSize: "small" })
       }
-    ) : v,
-    /* @__PURE__ */ r.jsx(
-      or,
+    ) }),
+    /* @__PURE__ */ r.jsxs(
+      zr,
       {
-        open: k,
-        anchorEl: h,
-        onClose: T,
-        anchorOrigin: {
-          vertical: "bottom",
-          horizontal: p ? "center" : "left"
-        },
-        transformOrigin: {
-          vertical: "top",
-          horizontal: p ? "center" : "left"
-        },
-        sx: {
-          "& .MuiPopover-paper": {
-            mt: 1,
-            maxWidth: p ? "95vw" : x,
-            maxHeight: p ? "80vh" : u,
-            minWidth: p ? "90vw" : 350,
-            borderRadius: 2,
-            boxShadow: _.shadows[8]
-          }
-        },
-        slotProps: {
-          paper: {
-            elevation: 8
-          }
-        },
-        children: /* @__PURE__ */ r.jsx(Ce, { children: /* @__PURE__ */ r.jsx(
-          xr,
-          {
-            ...g,
-            selectedAthletes: o,
-            onSelectionChange: P,
-            onClose: T,
-            compact: p,
-            maxHeight: p ? "75vh" : u
-          }
-        ) })
+        id: "group-menu",
+        anchorEl: l,
+        open: p,
+        onClose: f,
+        anchorOrigin: { vertical: "bottom", horizontal: "right" },
+        transformOrigin: { vertical: "top", horizontal: "right" },
+        children: [
+          /* @__PURE__ */ r.jsx(ke, { selected: t === "position", onClick: () => v("position"), children: "Position" }),
+          /* @__PURE__ */ r.jsx(ke, { selected: t === "status", onClick: () => v("status"), children: "Availability" })
+        ]
       }
     )
   ] });
-}, jn = ({
-  athlete: o,
-  isSelected: t,
-  onSelectionChange: s,
-  compact: a = !1
+}, Qe = [
+  { id: "squads", label: "Squads" },
+  { id: "free-agents", label: "Free Agents" },
+  { id: "historical", label: "Historical Athletes" },
+  { id: "selected", label: "Selected", isSpecial: !0 }
+], mn = ({
+  selectedSquad: t,
+  onSquadChange: o,
+  selectedCount: l = 0,
+  compact: i = !1
 }) => {
-  const f = J(), x = K(f.breakpoints.down("sm")), u = a || x, C = (g) => {
-    s(o.id, g.target.checked);
-  };
-  return /* @__PURE__ */ r.jsx(
-    Qr,
-    {
-      variant: "outlined",
-      sx: {
-        mb: 1,
-        backgroundColor: t ? "action.selected" : "transparent",
-        "&:hover": {
-          backgroundColor: "action.hover"
+  const p = K(), h = ie(p.breakpoints.down("sm")), [d, f] = J(!1), v = () => {
+    f(!d);
+  }, _ = (s) => {
+    o(s), f(!1);
+  }, j = () => {
+    const s = Qe.find((C) => C.id === t);
+    return (s == null ? void 0 : s.label) || "Squads";
+  }, M = (s) => s.id === "selected" ? `${s.label} (${l})` : s.label;
+  return /* @__PURE__ */ r.jsx(Lr, { onClickAway: () => d && f(!1), children: /* @__PURE__ */ r.jsxs(x, { sx: { position: "relative", width: "100%" }, children: [
+    /* @__PURE__ */ r.jsx(
+      he,
+      {
+        onClick: v,
+        variant: "text",
+        endIcon: d ? /* @__PURE__ */ r.jsx(nn, {}) : /* @__PURE__ */ r.jsx(tn, {}),
+        sx: {
+          width: "100%",
+          justifyContent: "space-between",
+          textTransform: "none",
+          fontFamily: '"Open Sans", sans-serif',
+          fontSize: i ? "0.875rem" : "1rem",
+          fontWeight: 400,
+          color: "text.primary",
+          px: i ? 1.5 : 2,
+          py: i ? 1 : 1.5,
+          minHeight: i ? 36 : 44,
+          border: "1px solid",
+          borderColor: "divider",
+          borderRadius: 1,
+          backgroundColor: "background.paper",
+          "&:hover": {
+            backgroundColor: "action.hover",
+            borderColor: "primary.main"
+          }
         },
-        transition: f.transitions.create("background-color", {
-          duration: f.transitions.duration.short
-        }),
-        border: "1px solid",
-        borderColor: "divider"
-      },
-      children: /* @__PURE__ */ r.jsxs(
-        en,
-        {
-          sx: {
-            display: "flex",
-            alignItems: "center",
-            gap: 2,
-            py: u ? 1.5 : 2,
-            px: u ? 2 : 3,
-            "&:last-child": { pb: u ? 1.5 : 2 }
-          },
-          children: [
-            /* @__PURE__ */ r.jsx(
-              Ze,
-              {
-                checked: t,
-                onChange: C,
-                size: u ? "small" : "medium",
-                sx: {
-                  color: "primary.main",
-                  "&.Mui-checked": {
-                    color: "primary.main"
-                  }
-                }
+        children: j()
+      }
+    ),
+    /* @__PURE__ */ r.jsx(Ur, { in: d, timeout: "auto", unmountOnExit: !0, children: /* @__PURE__ */ r.jsx(
+      Oe,
+      {
+        elevation: 8,
+        sx: {
+          position: "absolute",
+          top: "100%",
+          left: 0,
+          minWidth: "100%",
+          width: "max-content",
+          zIndex: p.zIndex.modal,
+          maxHeight: h ? "70vh" : "400px",
+          overflowY: "auto",
+          mt: 0.5,
+          border: "1px solid",
+          borderColor: "divider",
+          borderRadius: 1
+        },
+        children: /* @__PURE__ */ r.jsx(
+          $r,
+          {
+            sx: {
+              py: 1,
+              minWidth: "200px",
+              "& .MuiMenuItem-root": {
+                fontFamily: '"Open Sans", sans-serif',
+                fontSize: "1rem",
+                fontWeight: 400,
+                px: 2,
+                py: 1.5,
+                minHeight: "auto",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis"
               }
-            ),
-            /* @__PURE__ */ r.jsx(
-              Qe,
-              {
-                src: o.avatar,
-                alt: o.name,
-                sx: {
-                  width: u ? 32 : 40,
-                  height: u ? 32 : 40,
-                  border: "1px solid",
-                  borderColor: "divider"
-                },
-                children: o.name.split(" ").map((g) => g[0]).join("").toUpperCase()
-              }
-            ),
-            /* @__PURE__ */ r.jsxs(b, { sx: { flexGrow: 1, minWidth: 0 }, children: [
-              /* @__PURE__ */ r.jsx(
-                z,
+            },
+            children: Qe.filter((s) => s.id !== "selected").map((s) => /* @__PURE__ */ r.jsxs(N.Fragment, { children: [
+              s.isSpecial && /* @__PURE__ */ r.jsx(Re, { sx: { my: 0.5 } }),
+              /* @__PURE__ */ r.jsxs(
+                ke,
                 {
-                  variant: u ? "body2" : "body1",
-                  fontWeight: "medium",
+                  selected: t === s.id,
+                  onClick: () => _(s.id),
                   sx: {
-                    color: "text.primary",
-                    mb: 0.5,
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap"
+                    backgroundColor: t === s.id ? "action.selected" : "transparent",
+                    "&:hover": {
+                      backgroundColor: t === s.id ? "action.selected" : "action.hover"
+                    },
+                    "&.Mui-selected": {
+                      backgroundColor: "action.selected",
+                      "&:hover": {
+                        backgroundColor: "action.selected"
+                      }
+                    },
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    // Special styling for Selected option
+                    ...s.isSpecial && {
+                      fontWeight: 400,
+                      color: "primary.main",
+                      "&.Mui-selected": {
+                        backgroundColor: "primary.light",
+                        color: "primary.contrastText",
+                        "&:hover": {
+                          backgroundColor: "primary.light"
+                        }
+                      }
+                    }
                   },
-                  children: o.name
-                }
-              ),
-              /* @__PURE__ */ r.jsx(
-                z,
-                {
-                  variant: u ? "caption" : "body2",
-                  color: "text.secondary",
-                  sx: {
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap"
-                  },
-                  children: o.position
+                  children: [
+                    /* @__PURE__ */ r.jsx(
+                      T,
+                      {
+                        variant: "body1",
+                        sx: {
+                          fontFamily: '"Open Sans", sans-serif',
+                          fontSize: "1rem",
+                          fontWeight: 400,
+                          color: s.isSpecial ? "primary.main" : "text.primary",
+                          flexGrow: 1,
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap"
+                        },
+                        children: M(s)
+                      }
+                    ),
+                    s.hasSubmenu && /* @__PURE__ */ r.jsx(
+                      nr,
+                      {
+                        fontSize: "small",
+                        sx: {
+                          color: "text.secondary",
+                          ml: 1
+                        }
+                      }
+                    )
+                  ]
                 }
               )
-            ] }),
-            /* @__PURE__ */ r.jsx(
-              pe,
-              {
-                label: pr(o.status),
-                color: fr(o.status),
-                size: u ? "small" : "medium",
-                variant: "filled",
-                sx: {
-                  minWidth: u ? 60 : 80,
-                  fontWeight: "medium",
-                  fontFamily: '"Open Sans", sans-serif'
-                }
-              }
-            )
-          ]
-        }
-      )
-    }
-  );
-}, pn = ({
-  athletes: o,
-  selectedAthletes: t,
-  onSelectionChange: s,
-  onBatchSelectionChange: a,
-  order: f = "asc"
+            ] }, s.id))
+          }
+        )
+      }
+    ) })
+  ] }) });
+}, xn = ({
+  athletes: t,
+  selectedAthletes: o,
+  onSelectionChange: l,
+  onBatchSelectionChange: i,
+  order: p = "asc",
+  groupBy: h = "position"
 }) => {
-  const [x, u] = q(null), C = fe.useMemo(() => {
-    const h = {};
-    return o.forEach((c) => {
-      const m = c.ageGroup;
-      h[m] || (h[m] = []), h[m].push(c);
-    }), Object.entries(h).map(([c, m]) => ({
-      id: c,
-      name: c,
-      athletes: m
-    })).sort((c, m) => {
-      const k = (l) => {
-        const T = l.match(/U(\d+)/);
-        return T ? parseInt(T[1]) : 0;
+  const [d, f] = J(null), v = N.useMemo(() => {
+    const s = {};
+    return t.forEach((C) => {
+      const k = C.ageGroup;
+      s[k] || (s[k] = []), s[k].push(C);
+    }), Object.entries(s).map(([C, k]) => ({
+      id: C,
+      name: C,
+      athletes: k
+    })).sort((C, k) => {
+      const c = (S) => {
+        const P = S.match(/U(\d+)/);
+        return P ? parseInt(P[1]) : 0;
       };
-      return k(m.name) - k(c.name);
+      return c(k.name) - c(C.name);
     });
-  }, [o]), g = (h) => {
-    u(h);
-  }, _ = () => {
-    u(null);
-  }, p = (h) => {
-    const c = h.every(
-      (l) => t.includes(l.id)
-    ), m = h.map((l) => l.id), k = !c;
-    a ? a(m, k) : m.forEach((l) => {
-      s(l, k);
+  }, [t]), _ = (s) => {
+    f(s);
+  }, j = () => {
+    f(null);
+  }, M = (s) => {
+    const C = s.every(
+      (S) => o.includes(S.id)
+    ), k = s.map((S) => S.id), c = !C;
+    i ? i(k, c) : k.forEach((S) => {
+      l(S, c);
     });
   };
-  return x ? /* @__PURE__ */ r.jsxs(b, { sx: { width: "100%" }, children: [
+  return d ? /* @__PURE__ */ r.jsxs(x, { sx: { width: "100%" }, children: [
     /* @__PURE__ */ r.jsxs(
-      b,
+      x,
       {
         sx: {
           display: "flex",
@@ -1693,16 +1629,16 @@ const Se = [
         },
         children: [
           /* @__PURE__ */ r.jsx(
-            ne,
+            ae,
             {
-              onClick: _,
+              onClick: j,
               size: "small",
               sx: { mr: 1 },
-              children: /* @__PURE__ */ r.jsx(ke, { fontSize: "small" })
+              children: /* @__PURE__ */ r.jsx(tr, { fontSize: "small" })
             }
           ),
           /* @__PURE__ */ r.jsx(
-            z,
+            T,
             {
               variant: "h6",
               sx: {
@@ -1712,49 +1648,49 @@ const Se = [
                 color: "text.primary",
                 flexGrow: 1
               },
-              children: x.name
+              children: d.name
             }
           )
         ]
       }
     ),
-    /* @__PURE__ */ r.jsx(b, { sx: { overflow: "auto" }, children: /* @__PURE__ */ r.jsx(
-      Ee,
+    /* @__PURE__ */ r.jsx(x, { sx: { overflow: "auto" }, children: /* @__PURE__ */ r.jsx(
+      or,
       {
-        athletes: x.athletes,
-        selectedAthletes: t,
-        onSelectionChange: s,
-        onBatchSelectionChange: a,
-        groupBy: "position",
-        order: f
+        athletes: d.athletes,
+        selectedAthletes: o,
+        onSelectionChange: l,
+        onBatchSelectionChange: i,
+        groupBy: h,
+        order: p
       }
     ) })
-  ] }) : /* @__PURE__ */ r.jsx(Ce, { elevation: 0, sx: { width: "100%" }, children: /* @__PURE__ */ r.jsx(rn, { sx: { py: 0 }, children: C.map((h) => {
-    const c = h.name === "U23";
+  ] }) : /* @__PURE__ */ r.jsx(Oe, { elevation: 0, sx: { width: "100%" }, children: /* @__PURE__ */ r.jsx(Nr, { sx: { py: 0 }, children: v.map((s) => {
+    const C = s.name === "U23";
     return /* @__PURE__ */ r.jsx(
-      nn,
+      Yr,
       {
         disablePadding: !0,
         sx: {
-          backgroundColor: c ? "action.selected" : "transparent"
+          backgroundColor: C ? "action.selected" : "transparent"
         },
-        children: /* @__PURE__ */ r.jsx(
-          tn,
+        children: /* @__PURE__ */ r.jsxs(
+          Br,
           {
-            onClick: () => g(h),
+            onClick: () => _(s),
             sx: {
               px: 2,
               py: 1,
               "&:hover": {
-                backgroundColor: c ? "action.selected" : "action.hover"
+                backgroundColor: C ? "action.selected" : "action.hover"
               }
             },
-            children: /* @__PURE__ */ r.jsx(
-              on,
-              {
-                primary: /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", alignItems: "center", gap: 1 }, children: [
-                  /* @__PURE__ */ r.jsxs(
-                    z,
+            children: [
+              /* @__PURE__ */ r.jsx(
+                qr,
+                {
+                  primary: /* @__PURE__ */ r.jsxs(
+                    T,
                     {
                       sx: {
                         fontFamily: '"Open Sans", sans-serif',
@@ -1763,239 +1699,286 @@ const Se = [
                         color: "text.primary"
                       },
                       children: [
-                        h.name,
+                        s.name,
                         (() => {
-                          const m = h.athletes.filter((k) => t.includes(k.id)).length;
-                          return m > 0 ? /* @__PURE__ */ r.jsxs(z, { component: "span", variant: "body2", sx: { color: "text.secondary", ml: 0.5 }, children: [
+                          const k = s.athletes.filter((c) => o.includes(c.id)).length;
+                          return k > 0 ? /* @__PURE__ */ r.jsxs(T, { component: "span", variant: "body2", sx: { color: "text.secondary", ml: 0.5 }, children: [
                             "(",
-                            m,
+                            k,
                             ")"
                           ] }) : null;
                         })()
                       ]
                     }
-                  ),
-                  (() => {
-                    const k = h.athletes.filter((l) => t.includes(l.id)).length === h.athletes.length && h.athletes.length > 0;
-                    return /* @__PURE__ */ r.jsx(
-                      te,
-                      {
-                        size: "small",
-                        onClick: (l) => {
-                          l.stopPropagation(), p(h.athletes);
-                        },
-                        sx: {
-                          fontFamily: '"Open Sans", sans-serif',
-                          fontSize: "0.8125rem",
-                          fontWeight: 400,
-                          color: "text.primary",
-                          textTransform: "none",
-                          minWidth: "auto",
-                          p: 0,
-                          "&:hover": {
-                            backgroundColor: "transparent",
-                            textDecoration: "underline"
-                          }
-                        },
-                        children: k ? "Deselect all" : "Select all"
-                      }
-                    );
-                  })(),
-                  /* @__PURE__ */ r.jsx(
-                    ir,
-                    {
-                      fontSize: "small",
-                      sx: { color: "text.secondary" }
-                    }
                   )
-                ] })
-              }
-            )
+                }
+              ),
+              /* @__PURE__ */ r.jsxs(x, { sx: { display: "flex", alignItems: "center", gap: 1 }, children: [
+                (() => {
+                  const c = s.athletes.filter((S) => o.includes(S.id)).length === s.athletes.length && s.athletes.length > 0;
+                  return /* @__PURE__ */ r.jsx(
+                    he,
+                    {
+                      size: "small",
+                      onClick: (S) => {
+                        S.stopPropagation(), M(s.athletes);
+                      },
+                      sx: {
+                        fontFamily: '"Open Sans", sans-serif',
+                        fontSize: "0.8125rem",
+                        fontWeight: 400,
+                        color: "text.primary",
+                        textTransform: "none",
+                        minWidth: "auto",
+                        p: 0,
+                        "&:hover": {
+                          backgroundColor: "transparent",
+                          textDecoration: "underline"
+                        }
+                      },
+                      children: c ? "Deselect all" : "Select all"
+                    }
+                  );
+                })(),
+                /* @__PURE__ */ r.jsx(
+                  nr,
+                  {
+                    fontSize: "small",
+                    sx: { color: "text.secondary" }
+                  }
+                )
+              ] })
+            ]
           }
         )
       },
-      h.id
+      s.id
     );
   }) }) });
-}, mr = ({
-  athletes: o,
-  selectedAthletes: t = [],
-  onSelectionChange: s,
-  onClose: a,
-  onBack: f,
-  title: x = "Athletes",
-  showBackButton: u = !1,
-  maxHeight: C = 600,
-  compact: g = !1,
+}, ar = ({
+  athletes: t,
+  selectedAthletes: o = [],
+  onSelectionChange: l,
+  onClose: i,
+  onBack: p,
+  title: h = "Athletes",
+  showBackButton: d = !1,
+  maxHeight: f = 600,
+  compact: v = !1,
   loading: _ = !1,
-  error: p
+  error: j
 }) => {
-  const h = J(), c = K(h.breakpoints.down("sm")), m = g || c, [k, l] = q({
+  const M = K(), s = ie(M.breakpoints.down("sm")), C = v || s, [k, c] = J({
     searchTerm: "",
     selectedAgeGroups: [],
     selectedPositions: [],
     selectedSquad: "current",
     sortBy: "name",
     sortOrder: "asc"
-  }), [T, P] = q("asc"), [v, D] = q("squads"), j = se(() => {
-    const F = ur(o, k);
-    return dr(F, k.sortBy, k.sortOrder);
-  }, [o, k]), E = se(() => v === "selected" ? j.filter((F) => t.includes(F.id)) : j, [j, t, v]), H = (F) => {
-    l((G) => ({ ...G, searchTerm: F.target.value }));
-  }, X = (F) => {
-    let G = "all";
-    switch (D(F), F) {
+  }), [S, P] = J("asc"), [b, G] = J("position"), [m, F] = J("squads"), A = pe(() => {
+    const w = cn(t, k);
+    return dn(w, k.sortBy, k.sortOrder);
+  }, [t, k]), Y = pe(() => m === "selected" ? A.filter((w) => o.includes(w.id)) : A, [A, o, m]), X = (w) => {
+    c((O) => ({ ...O, searchTerm: w.target.value }));
+  }, Z = (w) => {
+    let O = "all";
+    switch (F(w), w) {
       case "selected":
-        G = "all";
+        O = "all";
         break;
       case "squads":
-        G = "current";
+        O = "current";
         break;
       case "free-agents":
-        G = "free-agents";
+        O = "free-agents";
         break;
       case "historical":
-        G = "historical";
+        O = "historical";
         break;
       default:
-        G = "all";
+        O = "all";
         break;
     }
-    l((W) => ({ ...W, selectedSquad: G }));
-  }, N = (F, G) => {
-    const W = G ? [...t, F] : t.filter((O) => O !== F);
-    s(W);
-  }, V = (F, G) => {
+    c((W) => ({ ...W, selectedSquad: O }));
+  }, q = (w, O) => {
+    const W = O ? [...o, w] : o.filter((U) => U !== w);
+    l(W);
+  }, se = (w, O) => {
     let W;
-    G ? W = [...t, ...F.filter((O) => !t.includes(O))] : W = t.filter((O) => !F.includes(O)), s(W);
-  }, Z = (F) => P(F);
-  return _ ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(z, { children: "Loading athletes..." }) }) : p ? /* @__PURE__ */ r.jsx(b, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(z, { color: "error", children: p }) }) : /* @__PURE__ */ r.jsxs(
-    b,
+    O ? W = [...o, ...w.filter((U) => !o.includes(U))] : W = o.filter((U) => !w.includes(U)), l(W);
+  }, le = (w) => P(w), B = (w) => G(w);
+  return _ ? /* @__PURE__ */ r.jsx(x, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(T, { children: "Loading athletes..." }) }) : j ? /* @__PURE__ */ r.jsx(x, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(T, { color: "error", children: j }) }) : /* @__PURE__ */ r.jsxs(
+    x,
     {
       sx: {
         display: "flex",
         flexDirection: "column",
-        height: "100%",
-        maxHeight: `${C}px`,
+        // If maxHeight is '100%', treat as full-height flexible container
+        height: typeof f == "string" && f === "100%" ? "100%" : void 0,
+        flex: typeof f == "string" && f === "100%" ? "1 1 auto" : void 0,
+        minHeight: typeof f == "string" && f === "100%" ? 0 : void 0,
+        maxHeight: typeof f == "string" && f === "100%" ? void 0 : typeof f == "number" ? `${f}px` : f,
         bgcolor: "background.paper",
         borderRadius: 1,
         overflow: "hidden"
       },
       children: [
         /* @__PURE__ */ r.jsxs(
-          b,
+          x,
           {
             sx: {
               py: 1,
-              px: m ? 2 : 3,
+              px: C ? 2 : 3,
               borderBottom: "1px solid",
               borderColor: "divider",
               flexShrink: 0
             },
             children: [
-              /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", alignItems: "center", mb: 0 }, children: [
-                u && f && /* @__PURE__ */ r.jsx(
-                  ne,
+              /* @__PURE__ */ r.jsxs(x, { sx: { display: "flex", alignItems: "center", mb: 0 }, children: [
+                d && p && /* @__PURE__ */ r.jsx(
+                  ae,
                   {
-                    onClick: f,
-                    size: m ? "small" : "medium",
+                    onClick: p,
+                    size: C ? "small" : "medium",
                     sx: { mr: 1 },
-                    children: /* @__PURE__ */ r.jsx(ke, {})
+                    children: /* @__PURE__ */ r.jsx(tr, {})
                   }
                 ),
                 /* @__PURE__ */ r.jsx(
-                  z,
+                  T,
                   {
-                    variant: m ? "h6" : "h5",
+                    variant: C ? "h6" : "h5",
                     fontWeight: "semibold",
                     sx: { flexGrow: 1 },
-                    children: x
+                    children: h
                   }
                 ),
-                a && /* @__PURE__ */ r.jsx(ne, { onClick: a, size: m ? "small" : "medium", children: /* @__PURE__ */ r.jsx(sr, {}) })
+                i && /* @__PURE__ */ r.jsx(ae, { onClick: i, size: C ? "small" : "medium", children: /* @__PURE__ */ r.jsx(on, {}) })
               ] }),
-              /* @__PURE__ */ r.jsxs(er, { spacing: 0.5, children: [
-                /* @__PURE__ */ r.jsxs(b, { sx: { display: "flex", gap: 1, alignItems: "center", mb: 0 }, children: [
-                  /* @__PURE__ */ r.jsx(b, { sx: { minWidth: 140, flexShrink: 0 }, children: /* @__PURE__ */ r.jsx(
-                    cr,
+              /* @__PURE__ */ r.jsxs(Vr, { spacing: 0.5, children: [
+                /* @__PURE__ */ r.jsxs(x, { sx: { display: "flex", gap: 1, alignItems: "center", mb: 0 }, children: [
+                  /* @__PURE__ */ r.jsx(x, { sx: { minWidth: 140, flexShrink: 0 }, children: /* @__PURE__ */ r.jsx(
+                    mn,
                     {
-                      selectedSquad: v,
-                      onSquadChange: X,
-                      selectedCount: t.length,
+                      selectedSquad: m,
+                      onSquadChange: Z,
+                      selectedCount: o.length,
                       compact: !0
                     }
                   ) }),
                   /* @__PURE__ */ r.jsx(
-                    rr,
+                    Hr,
                     {
                       placeholder: "Search",
                       value: k.searchTerm,
-                      onChange: H,
+                      onChange: X,
                       size: "small",
                       sx: {
                         flexGrow: 1,
+                        maxWidth: C ? 160 : 240,
                         "& .MuiInputBase-root": {
                           fontFamily: '"Open Sans", sans-serif'
                         }
                       },
                       InputProps: {
-                        endAdornment: /* @__PURE__ */ r.jsx(nr, { position: "end", children: /* @__PURE__ */ r.jsx(lr, { fontSize: "small" }) })
+                        endAdornment: /* @__PURE__ */ r.jsx(Jr, { position: "end", children: /* @__PURE__ */ r.jsx(an, { fontSize: "small" }) })
                       }
                     }
                   ),
-                  /* @__PURE__ */ r.jsx(hr, { order: T, onChange: Z })
+                  /* @__PURE__ */ r.jsx(pn, { groupBy: b, onChange: B }),
+                  /* @__PURE__ */ r.jsx(fn, { order: S, onChange: le })
                 ] }),
-                t.length > 0 && /* @__PURE__ */ r.jsx(b, { children: /* @__PURE__ */ r.jsx(
-                  pe,
+                /* @__PURE__ */ r.jsx(x, { children: /* @__PURE__ */ r.jsx(
+                  re,
                   {
-                    label: `${t.length} selected`,
-                    color: "primary",
+                    label: `Selected (${o.length})`,
+                    color: o.length > 0 ? "primary" : "default",
                     size: "small",
-                    onDelete: () => s([])
+                    clickable: o.length > 0,
+                    onClick: o.length > 0 ? () => F("selected") : void 0,
+                    onDelete: o.length > 0 ? () => l([]) : void 0,
+                    sx: {
+                      fontFamily: '"Open Sans", sans-serif',
+                      "&.MuiChip-clickable": {
+                        cursor: o.length > 0 ? "pointer" : "default"
+                      }
+                    }
                   }
                 ) })
               ] })
             ]
           }
         ),
-        /* @__PURE__ */ r.jsx(b, { sx: { flexGrow: 1, overflow: "auto" }, children: v === "historical" ? /* @__PURE__ */ r.jsx(
-          Ee,
+        /* @__PURE__ */ r.jsx(x, { sx: { flexGrow: 1, overflow: "auto" }, children: m === "selected" ? (() => {
+          const w = [...Y].filter((O) => o.includes(O.id)).sort((O, W) => O.name.localeCompare(W.name));
+          return S === "desc" && w.reverse(), w.length === 0 ? /* @__PURE__ */ r.jsx(x, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(T, { variant: "body2", color: "text.secondary", children: "No selected athletes yet" }) }) : /* @__PURE__ */ r.jsx(r.Fragment, { children: w.map((O) => {
+            const W = o.includes(O.id);
+            return /* @__PURE__ */ r.jsx(
+              xe,
+              {
+                athlete: O,
+                isSelected: W,
+                onToggle: (U) => q(U, !W)
+              },
+              O.id
+            );
+          }) });
+        })() : m === "historical" ? /* @__PURE__ */ r.jsx(
+          or,
           {
-            athletes: E,
-            selectedAthletes: t,
-            onSelectionChange: N,
-            onBatchSelectionChange: V,
-            groupBy: "position",
-            order: T,
+            athletes: Y,
+            selectedAthletes: o,
+            onSelectionChange: q,
+            onBatchSelectionChange: se,
+            groupBy: b,
+            order: S,
             showOnlySelected: !1
           }
-        ) : /* @__PURE__ */ r.jsx(
-          pn,
+        ) : m === "free-agents" ? k.searchTerm.trim() === "" ? /* @__PURE__ */ r.jsx(x, { sx: { p: 3, textAlign: "center" }, children: /* @__PURE__ */ r.jsx(T, { variant: "body2", color: "text.secondary", children: "Use search to find free agents" }) }) : /* @__PURE__ */ r.jsx(r.Fragment, { children: (() => {
+          const w = k.searchTerm.trim(), O = w.split(" ").filter(Boolean).map((V) => V.charAt(0).toUpperCase() + V.slice(1)).join(" "), W = {
+            id: `free-agent-${w.toLowerCase()}`,
+            name: O || "Free Agent",
+            position: "Forward",
+            ageGroup: "FA",
+            status: "available",
+            avatar: void 0
+          }, U = o.includes(W.id);
+          return /* @__PURE__ */ r.jsx(
+            xe,
+            {
+              athlete: W,
+              isSelected: U,
+              onToggle: (V) => q(V, !U)
+            }
+          );
+        })() }) : /* @__PURE__ */ r.jsx(
+          xn,
           {
-            athletes: E,
-            selectedAthletes: t,
-            onSelectionChange: N,
-            onBatchSelectionChange: V,
-            order: T
+            athletes: Y,
+            selectedAthletes: o,
+            onSelectionChange: q,
+            onBatchSelectionChange: se,
+            groupBy: b,
+            order: S
           }
         ) }),
         /* @__PURE__ */ r.jsx(
-          b,
+          x,
           {
             sx: {
               py: 1,
-              px: m ? 2 : 3,
+              px: C ? 2 : 3,
               borderTop: "1px solid",
               borderColor: "divider",
               flexShrink: 0
             },
-            children: /* @__PURE__ */ r.jsx(b, { sx: { display: "flex", justifyContent: "flex-end" }, children: /* @__PURE__ */ r.jsx(
-              te,
+            children: /* @__PURE__ */ r.jsx(x, { sx: { display: "flex", justifyContent: "flex-end" }, children: /* @__PURE__ */ r.jsx(
+              he,
               {
                 variant: "contained",
                 color: "primary",
-                onClick: a,
-                disabled: t.length === 0,
+                onClick: i,
+                disabled: o.length === 0,
                 sx: {
                   fontFamily: '"Open Sans", sans-serif',
                   textTransform: "none"
@@ -2009,71 +1992,73 @@ const Se = [
     }
   );
 }, Sn = ({
-  open: o,
-  onClose: t,
-  anchor: s = "right",
-  athletes: a,
-  selectedAthletes: f,
-  onSelectionChange: x,
-  title: u = "Select Athletes",
-  maxHeight: C,
-  ...g
+  open: t,
+  onClose: o,
+  anchor: l = "right",
+  athletes: i,
+  selectedAthletes: p,
+  onSelectionChange: h,
+  title: d = "Select Athletes",
+  maxHeight: f,
+  ...v
 }) => {
-  const _ = J(), p = K(_.breakpoints.down("sm"));
+  const _ = K(), j = ie(_.breakpoints.down("sm"));
   return /* @__PURE__ */ r.jsx(
-    tr,
+    Kr,
     {
-      anchor: s,
-      open: o,
-      onClose: t,
+      anchor: l,
+      open: t,
+      onClose: o,
       variant: "temporary",
       sx: {
         "& .MuiDrawer-paper": {
-          width: p ? "100vw" : 500,
+          display: "flex",
+          flexDirection: "column",
+          width: j ? "100vw" : 500,
           maxWidth: "100vw",
           height: "100vh",
           maxHeight: "100vh",
           boxShadow: _.shadows[16],
-          borderRadius: p ? "16px 16px 0 0" : 0
+          borderRadius: j ? "16px 16px 0 0" : 0
         }
       },
       ModalProps: {
-        keepMounted: !0
-        // Better open performance on mobile
+        keepMounted: !0,
+        hideBackdrop: !0
       },
-      children: /* @__PURE__ */ r.jsx(
-        mr,
+      children: /* @__PURE__ */ r.jsx("div", { style: { flex: 1, minHeight: 0 }, children: /* @__PURE__ */ r.jsx(
+        ar,
         {
-          athletes: a,
-          selectedAthletes: f,
-          onSelectionChange: x,
-          onClose: t,
-          title: u,
-          compact: p,
+          athletes: i,
+          selectedAthletes: p,
+          onSelectionChange: h,
+          onClose: o,
+          title: d,
+          compact: j,
           maxHeight: "100%",
-          ...g
+          ...v
         }
-      )
+      ) })
     }
   );
 }, wn = ({
-  open: o,
-  onClose: t,
-  anchorEl: s,
-  athletes: a,
-  selectedAthletes: f,
-  onSelectionChange: x,
-  title: u = "Select Athletes",
-  maxHeight: C = 600,
-  ...g
+  open: t,
+  onClose: o,
+  anchorEl: l,
+  athletes: i,
+  selectedAthletes: p,
+  onSelectionChange: h,
+  title: d = "Select Athletes",
+  maxHeight: f = 600,
+  ...v
 }) => {
-  const _ = J(), p = K(_.breakpoints.down("sm"));
+  const _ = K(), j = ie(_.breakpoints.down("sm"));
   return /* @__PURE__ */ r.jsx(
-    or,
+    Xr,
     {
-      open: o,
-      anchorEl: s,
-      onClose: t,
+      open: t,
+      anchorEl: l,
+      onClose: o,
       anchorOrigin: {
         vertical: "bottom",
         horizontal: "left"
@@ -2084,23 +2069,24 @@ const Se = [
       },
       PaperProps: {
         sx: {
-          width: p ? "90vw" : 500,
+          width: j ? "90vw" : 500,
           maxWidth: "95vw",
-          maxHeight: p ? "80vh" : C,
+          height: j ? "75vh" : f,
+          minHeight: j ? "75vh" : f,
           overflow: "hidden"
         }
       },
       children: /* @__PURE__ */ r.jsx(
-        mr,
+        ar,
         {
-          athletes: a,
-          selectedAthletes: f,
-          onSelectionChange: x,
-          onClose: t,
-          title: u,
-          compact: p,
-          maxHeight: C,
-          ...g
+          athletes: i,
+          selectedAthletes: p,
+          onSelectionChange: h,
+          onClose: o,
+          title: d,
+          compact: j,
+          maxHeight: f,
+          ...v
         }
       )
     }
@@ -2108,21 +2094,19 @@ const Se = [
 };
 export {
   jn as AthleteCard,
-  xr as AthleteSelectorContent,
-  mr as AthleteSelectorTreeContent,
-  Ke as CompactAthleteCard,
-  bn as DrawerAthleteSelector,
-  Sn as DrawerAthleteSelectorTree,
-  yn as DropdownAthleteSelector,
-  wn as DropdownAthleteSelectorTree,
-  cr as ExpandableSquadSelector,
-  Ee as GroupedAthleteList,
-  pn as SimpleTreeNavigationList,
-  hr as SortMenu,
-  ur as filterAthletes,
-  fr as getStatusColor,
-  pr as getStatusLabel,
-  gn as groupAthletesByAgeGroup,
-  vn as groupAthletesByPosition,
-  dr as sortAthletes
+  Sn as AthleteSelectorDrawer,
+  wn as AthleteSelectorDropdown,
+  ar as AthleteSelectorTreeContent,
+  xe as CompactAthleteCard,
+  pn as GroupMenu,
+  or as GroupedAthleteList,
+  un as PlayerProfileHoverCard,
+  xn as SimpleTreeNavigationList,
+  fn as SortMenu,
+  cn as filterAthletes,
+  Te as getStatusColor,
+  _e as getStatusLabel,
+  bn as groupAthletesByAgeGroup,
+  yn as groupAthletesByPosition,
+  dn as sortAthletes
 };

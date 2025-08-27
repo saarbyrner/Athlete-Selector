@@ -11,9 +11,8 @@ import {
 } from '@mui/material';
 import {
   AthleteSelectorTreeContent,
-  DrawerAthleteSelectorTree,
-  DropdownAthleteSelectorTree,
-  SimpleTreeNavigationList,
+  AthleteSelectorDrawer,
+  AthleteSelectorDropdown,
 } from '../components/AthleteSelector';
 import { mockAthletes } from '../components/AthleteSelector/mockData';
 // import { Athlete } from '../components/AthleteSelector/types';
@@ -179,12 +178,12 @@ const StatefulWrapper: React.FC<StatefulWrapperProps> = ({ children }) => {
 };
 
 const meta: Meta = {
-  title: 'AthleteSelector/Tree Navigation Version',
+  title: 'AthleteSelector/Athlete Selector',
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Tree navigation version of the Athlete Selector. Simple one-level tree for squad selection, then identical functionality to accordion version.',
+        component: 'Athlete Selector with simple tree-based squad selection, identical functionality to accordion version.',
       },
     },
   },
@@ -202,51 +201,9 @@ export default meta;
 type Story = StoryObj;
 
 // Basic Tree Navigation Stories
-export const SimpleTreeNavigationDemo: Story = {
-  render: () => (
-    <StatefulWrapper>
-      {({ selectedAthletes, onSelectionChange }) => (
-        <Box sx={{ maxWidth: 500, mx: 'auto', p: 3 }}>
-          <Typography variant="h6" gutterBottom>
-            Simple Tree Navigation
-          </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-            Click any squad to drill down and see athletes grouped by position (same as accordion version).
-          </Typography>
-          
-          <Box sx={{ 
-            border: 1, 
-            borderColor: 'divider', 
-            borderRadius: 2,
-            overflow: 'hidden',
-            maxHeight: 600,
-          }}>
-            <SimpleTreeNavigationList
-              athletes={mockAthletes}
-              selectedAthletes={selectedAthletes}
-              onSelectionChange={(athleteId, selected) => {
-                const newSelection = selected
-                  ? [...selectedAthletes, athleteId]
-                  : selectedAthletes.filter(id => id !== athleteId);
-                onSelectionChange(newSelection);
-              }}
-              sortBy="position"
-            />
-          </Box>
-        </Box>
-      )}
-    </StatefulWrapper>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story: 'Simple tree navigation matching your Figma design. One level of tree navigation for squad selection, then identical grouped athlete list as accordion version.',
-      },
-    },
-  },
-};
-
-export const FullTreeSelectorDemo: Story = {
+// Hidden from Storybook by not exporting the story; code retained for reference
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const FullTreeSelectorDemo: Story = {
   render: () => (
     <StatefulWrapper>
       {({ selectedAthletes, onSelectionChange }) => (
@@ -262,7 +219,7 @@ export const FullTreeSelectorDemo: Story = {
             athletes={mockAthletes}
             selectedAthletes={selectedAthletes}
             onSelectionChange={onSelectionChange}
-            title="Athletes - Tree Navigation"
+            title="Athletes - Athlete Selector"
             maxHeight={600}
             onClose={action('onClose')}
           />
@@ -279,7 +236,7 @@ export const FullTreeSelectorDemo: Story = {
   },
 };
 
-export const DrawerTreeNavigation: Story = {
+export const AthleteSelectorDrawerDemo: Story = {
   render: () => (
     <StatefulWrapper>
       {({ selectedAthletes, onSelectionChange }) => {
@@ -292,21 +249,20 @@ export const DrawerTreeNavigation: Story = {
               onClick={() => setDrawerOpen(true)}
               sx={{ mb: 2 }}
             >
-              Open Tree Navigation Drawer
+              Open Athlete Selector Drawer
             </Button>
             
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
               Selected Athletes: {selectedAthletes.length}
             </Typography>
             
-            <DrawerAthleteSelectorTree
+            <AthleteSelectorDrawer
               open={drawerOpen}
               onClose={() => setDrawerOpen(false)}
               athletes={mockAthletes}
               selectedAthletes={selectedAthletes}
               onSelectionChange={onSelectionChange}
               title="Select Athletes"
-              maxHeight={600}
             />
           </Box>
         );
@@ -316,13 +272,13 @@ export const DrawerTreeNavigation: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tree navigation version in a drawer. Perfect for mobile and desktop, with simple squad tree navigation.',
+        story: 'Athlete Selector in a drawer. Perfect for mobile and desktop, with simple squad tree navigation.',
       },
     },
   },
 };
 
-export const DropdownTreeNavigation: Story = {
+export const AthleteSelectorDropdownDemo: Story = {
   render: () => (
     <StatefulWrapper>
       {({ selectedAthletes, onSelectionChange }) => {
@@ -335,14 +291,14 @@ export const DropdownTreeNavigation: Story = {
               onClick={(e) => setAnchorEl(e.currentTarget)}
               sx={{ mb: 2 }}
             >
-              Open Tree Navigation Dropdown
+              Open Athlete Selector Dropdown
             </Button>
             
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
               Selected Athletes: {selectedAthletes.length}
             </Typography>
             
-            <DropdownAthleteSelectorTree
+            <AthleteSelectorDropdown
               open={Boolean(anchorEl)}
               anchorEl={anchorEl}
               onClose={() => setAnchorEl(null)}
@@ -360,13 +316,13 @@ export const DropdownTreeNavigation: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tree navigation version in a dropdown/popover. Compact presentation with simple tree navigation.',
+        story: 'Athlete Selector in a dropdown/popover. Compact presentation with simple tree navigation.',
       },
     },
   },
 };
 
-export const ResponsiveTreeBehavior: Story = {
+export const ResponsiveSelectorBehavior: Story = {
   render: () => (
     <StatefulWrapper>
       {({ selectedAthletes, onSelectionChange }) => {
@@ -376,7 +332,7 @@ export const ResponsiveTreeBehavior: Story = {
         return (
           <Box sx={{ p: 3 }}>
             <Typography variant="h6" gutterBottom>
-              Responsive Tree Navigation
+              Responsive Athlete Selector
             </Typography>
             
             <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
@@ -396,26 +352,26 @@ export const ResponsiveTreeBehavior: Story = {
             </Box>
             
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-              Tree navigation adapts to different screen sizes and contexts
+              Athlete Selector adapts to different screen sizes and contexts
             </Typography>
             
-            <DrawerAthleteSelectorTree
+            <AthleteSelectorDrawer
               open={drawerOpen}
               onClose={() => setDrawerOpen(false)}
               athletes={mockAthletes}
               selectedAthletes={selectedAthletes}
               onSelectionChange={onSelectionChange}
-              title="Mobile Tree Navigation"
+              title="Mobile Athlete Selector"
             />
             
-            <DropdownAthleteSelectorTree
+            <AthleteSelectorDropdown
               open={Boolean(dropdownAnchor)}
               anchorEl={dropdownAnchor}
               onClose={() => setDropdownAnchor(null)}
               athletes={mockAthletes}
               selectedAthletes={selectedAthletes}
               onSelectionChange={onSelectionChange}
-              title="Desktop Tree Navigation"
+              title="Desktop Athlete Selector"
             />
           </Box>
         );
@@ -425,7 +381,7 @@ export const ResponsiveTreeBehavior: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstration of responsive behavior. Tree navigation version adapts to mobile (drawer) and desktop (dropdown) contexts.',
+        story: 'Demonstration of responsive behavior. Athlete Selector adapts to mobile (drawer) and desktop (dropdown) contexts.',
       },
     },
   },

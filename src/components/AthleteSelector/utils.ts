@@ -102,11 +102,12 @@ export const sortAthletes = (athletes: Athlete[], sortBy: string, sortOrder: str
       case 'position':
         comparison = a.position.localeCompare(b.position);
         break;
-      case 'ageGroup':
+      case 'ageGroup': {
         const aNum = parseInt(a.ageGroup.replace('U', ''));
         const bNum = parseInt(b.ageGroup.replace('U', ''));
         comparison = bNum - aNum;
         break;
+      }
       default:
         comparison = 0;
     }

@@ -29,6 +29,7 @@ interface SimpleTreeNavigationListProps {
   onSelectionChange: (athleteId: string, selected: boolean) => void;
   onBatchSelectionChange?: (athleteIds: string[], selected: boolean) => void;
   order?: SortOrder;
+  groupBy?: 'position' | 'status';
 }
 
 export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> = ({
@@ -37,6 +38,7 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
   onSelectionChange,
   onBatchSelectionChange,
   order = 'asc',
+  groupBy = 'position',
 }) => {
   const [selectedSquad, setSelectedSquad] = useState<Squad | null>(null);
 
@@ -135,7 +137,7 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
             selectedAthletes={selectedAthletes}
             onSelectionChange={onSelectionChange}
             onBatchSelectionChange={onBatchSelectionChange}
-            groupBy="position"
+            groupBy={groupBy}
             order={order}
           />
         </Box>

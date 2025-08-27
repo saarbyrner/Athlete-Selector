@@ -3,13 +3,13 @@ import { Popover, useMediaQuery, useTheme } from '@mui/material';
 import { AthleteSelectorTreeContent } from './AthleteSelectorTreeContent';
 import { AthleteSelectorContentProps } from './types';
 
-interface DropdownAthleteSelectorTreeProps extends Omit<AthleteSelectorContentProps, 'onClose'> {
+interface AthleteSelectorDropdownProps extends Omit<AthleteSelectorContentProps, 'onClose'> {
   open: boolean;
   onClose: () => void;
   anchorEl: HTMLElement | null;
 }
 
-export const DropdownAthleteSelectorTree: React.FC<DropdownAthleteSelectorTreeProps> = ({
+export const AthleteSelectorDropdown: React.FC<AthleteSelectorDropdownProps> = ({
   open,
   onClose,
   anchorEl,
@@ -40,7 +40,6 @@ export const DropdownAthleteSelectorTree: React.FC<DropdownAthleteSelectorTreePr
         sx: {
           width: isMobile ? '90vw' : 500,
           maxWidth: '95vw',
-          // Static height to eliminate jumpiness
           height: isMobile ? '75vh' : maxHeight,
           minHeight: isMobile ? '75vh' : maxHeight,
           overflow: 'hidden',
@@ -54,9 +53,11 @@ export const DropdownAthleteSelectorTree: React.FC<DropdownAthleteSelectorTreePr
         onClose={onClose}
         title={title}
         compact={isMobile}
-        maxHeight={maxHeight}
+        maxHeight="100%"
         {...props}
       />
     </Popover>
   );
 };
+
+

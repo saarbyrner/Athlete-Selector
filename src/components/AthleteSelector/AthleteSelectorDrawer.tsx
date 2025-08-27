@@ -3,13 +3,13 @@ import { Drawer, useMediaQuery, useTheme } from '@mui/material';
 import { AthleteSelectorTreeContent } from './AthleteSelectorTreeContent';
 import { AthleteSelectorContentProps } from './types';
 
-interface DrawerAthleteSelectorTreeProps extends Omit<AthleteSelectorContentProps, 'onClose'> {
+interface AthleteSelectorDrawerProps extends Omit<AthleteSelectorContentProps, 'onClose'> {
   open: boolean;
   onClose: () => void;
   anchor?: 'left' | 'right' | 'top' | 'bottom';
 }
 
-export const DrawerAthleteSelectorTree: React.FC<DrawerAthleteSelectorTreeProps> = ({
+export const AthleteSelectorDrawer: React.FC<AthleteSelectorDrawerProps> = ({
   open,
   onClose,
   anchor = 'right',
@@ -17,7 +17,7 @@ export const DrawerAthleteSelectorTree: React.FC<DrawerAthleteSelectorTreeProps>
   selectedAthletes,
   onSelectionChange,
   title = 'Select Athletes',
-  maxHeight,
+  maxHeight: _ignoredMaxHeight,
   ...props
 }) => {
   const theme = useTheme();
@@ -31,6 +31,8 @@ export const DrawerAthleteSelectorTree: React.FC<DrawerAthleteSelectorTreeProps>
       variant="temporary"
       sx={{
         '& .MuiDrawer-paper': {
+          display: 'flex',
+          flexDirection: 'column',
           width: isMobile ? '100vw' : 500,
           maxWidth: '100vw',
           height: '100vh',
@@ -40,20 +42,24 @@ export const DrawerAthleteSelectorTree: React.FC<DrawerAthleteSelectorTreeProps>
         },
       }}
       ModalProps={{
-        keepMounted: true, // Better open performance on mobile
+        keepMounted: true,
         hideBackdrop: true,
       }}
     >
-      <AthleteSelectorTreeContent
-        athletes={athletes}
-        selectedAthletes={selectedAthletes}
-        onSelectionChange={onSelectionChange}
-        onClose={onClose}
-        title={title}
-        compact={isMobile}
-        maxHeight="100%"
-        {...props}
-      />
+      <div style={{ flex: 1, minHeight: 0 }}>
+        <AthleteSelectorTreeContent
+          athletes={athletes}
+          selectedAthletes={selectedAthletes}
+          onSelectionChange={onSelectionChange}
+          onClose={onClose}
+          title={title}
+          compact={isMobile}
+          maxHeight={'100%'}
+          {...props}
+        />
+      </div>
     </Drawer>
   );
 };
+
+

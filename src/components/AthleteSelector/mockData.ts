@@ -10,6 +10,10 @@ const baseAthletes: Athlete[] = [
     ageGroup: 'U23',
     status: 'available',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+    dateOfBirth: '2003-05-17',
+    squadNumber: 9,
+    leagueId: 'L-12345',
+    labels: ['Two-footed', 'Leadership', 'High Work-Rate'],
   },
   {
     id: 'byrne-john',
@@ -84,6 +88,10 @@ const baseAthletes: Athlete[] = [
     ageGroup: 'U21',
     status: 'available',
     avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&h=150&fit=crop&crop=face',
+    dateOfBirth: '2004-01-10',
+    squadNumber: 8,
+    leagueId: 'L-67890',
+    labels: ['Fit', 'Academy'],
   },
   {
     id: 'green-thomas',
@@ -225,6 +233,26 @@ function placeholderAvatar(text: string) {
   return `https://via.placeholder.com/150?text=${encodeURIComponent(text)}`;
 }
 
+// Generate consistent profile data for demo purposes
+function generateDob(ageGroup: string, index: number): string {
+  const yearNow = new Date().getFullYear();
+  const m = ageGroup.match(/U(\d+)/);
+  const approxAge = m ? parseInt(m[1], 10) - 1 : 22;
+  const year = yearNow - approxAge;
+  const month = ((index % 12) + 1).toString().padStart(2, '0');
+  const day = ((index % 27) + 1).toString().padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+const LABEL_SETS = [
+  ['Fit'],
+  ['Development'],
+  ['Two-footed'],
+  ['Leadership'],
+  ['High Work-Rate'],
+  ['Academy'],
+];
+
 function ensureSquadSize(all: Athlete[], ageGroup: string, target: number, seed = 1): Athlete[] {
   const output = [...all];
   let i = 0;
@@ -249,6 +277,10 @@ function ensureSquadSize(all: Athlete[], ageGroup: string, target: number, seed 
       ageGroup,
       status,
       avatar: avatarChoice,
+      dateOfBirth: generateDob(ageGroup, index),
+      squadNumber: (index % 30) + 1,
+      leagueId: `L-${ageGroup}-${index}`,
+      labels: LABEL_SETS[index % LABEL_SETS.length],
     });
     i += 1;
   }

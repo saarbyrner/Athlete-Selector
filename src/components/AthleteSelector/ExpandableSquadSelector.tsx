@@ -10,6 +10,7 @@ import {
   useTheme,
   useMediaQuery,
   Divider,
+  ClickAwayListener,
 } from '@mui/material';
 import {
   ArrowDropUp as ArrowDropUpIcon,
@@ -32,11 +33,15 @@ interface ExpandableSquadSelectorProps {
   compact?: boolean;
 }
 
+// Prototype flag to show Selected (N) as a separate button below dropdown
+// Set to false to quickly revert to current behavior
+const SHOW_SELECTED_BELOW_DROPDOWN = true;
+
 const squadOptions: SquadOption[] = [
-  { id: 'selected', label: 'Selected', count: 1, isSpecial: true },
   { id: 'squads', label: 'Squads' },
   { id: 'free-agents', label: 'Free Agents' },
   { id: 'historical', label: 'Historical Athletes' },
+  { id: 'selected', label: 'Selected', isSpecial: true },
 ];
 
 export const ExpandableSquadSelector: React.FC<ExpandableSquadSelectorProps> = ({
@@ -64,14 +69,15 @@ export const ExpandableSquadSelector: React.FC<ExpandableSquadSelectorProps> = (
   };
 
   const getDisplayLabel = (option: SquadOption) => {
-    if (option.id === 'selected' && selectedCount > 0) {
+    if (option.id === 'selected') {
       return `${option.label} (${selectedCount})`;
     }
     return option.label;
   };
 
   return (
-    <Box sx={{ position: 'relative', width: '100%' }}>
+    <ClickAwayListener onClickAway={() => isExpanded && setIsExpanded(false)}>
+      <Box sx={{ position: 'relative', width: '100%' }}>
       {/* Toggle Button */}
       <Button
         onClick={handleToggle}
@@ -137,8 +143,11 @@ export const ExpandableSquadSelector: React.FC<ExpandableSquadSelectorProps> = (
               },
             }}
           >
-            {squadOptions.map((option, index) => (
+            {(SHOW_SELECTED_BELOW_DROPDOWN ? squadOptions.filter(o => o.id !== 'selected') : squadOptions).map((option) => (
               <React.Fragment key={option.id}>
+                {option.isSpecial && (
+                  <Divider sx={{ my: 0.5 }} />
+                )}
                 <MenuItem
                   selected={selectedSquad === option.id}
                   onClick={() => handleOptionSelect(option.id)}
@@ -162,7 +171,7 @@ export const ExpandableSquadSelector: React.FC<ExpandableSquadSelectorProps> = (
                     alignItems: 'center',
                     // Special styling for Selected option
                     ...(option.isSpecial && {
-                      fontWeight: 600,
+                      fontWeight: 400,
                       color: 'primary.main',
                       '&.Mui-selected': {
                         backgroundColor: 'primary.light',
@@ -179,7 +188,7 @@ export const ExpandableSquadSelector: React.FC<ExpandableSquadSelectorProps> = (
                     sx={{
                       fontFamily: '"Open Sans", sans-serif',
                       fontSize: '1rem',
-                      fontWeight: option.isSpecial ? 600 : 400,
+                      fontWeight: 400,
                       color: option.isSpecial ? 'primary.main' : 'text.primary',
                       flexGrow: 1,
                       overflow: 'hidden',
@@ -201,15 +210,13 @@ export const ExpandableSquadSelector: React.FC<ExpandableSquadSelectorProps> = (
                   )}
                 </MenuItem>
                 
-                {/* Add divider after Selected option for better UX */}
-                {option.isSpecial && index < squadOptions.length - 1 && (
-                  <Divider sx={{ my: 0.5 }} />
-                )}
+                {/* Divider now shown above Selected option */}
               </React.Fragment>
             ))}
           </MenuList>
         </Paper>
       </Collapse>
     </Box>
+    </ClickAwayListener>
   );
 };

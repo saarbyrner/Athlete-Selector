@@ -20,6 +20,7 @@ import { ExpandableSquadSelector } from './ExpandableSquadSelector';
 import { GroupedAthleteList } from './GroupedAthleteList';
 import { SimpleTreeNavigationList } from './SimpleTreeNavigationList';
 import { SortMenu } from './SortMenu';
+import { GroupMenu } from './GroupMenu';
 import { AthleteSelectorContentProps, FilterOptions, SortOrder } from './types';
 import {
   filterAthletes,
@@ -54,6 +55,7 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
   });
 
   const [order, setOrder] = useState<SortOrder>('asc');
+  const [groupBy, setGroupBy] = useState<'position' | 'status'>('position');
   const [menuSelection, setMenuSelection] = useState<string>('squads');
 
   const filteredAthletes = useMemo(() => {
@@ -118,6 +120,7 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
   };
 
   const handleOrderChange = (next: SortOrder) => setOrder(next);
+  const handleGroupChange = (next: 'position' | 'status') => setGroupBy(next);
 
   if (loading) {
     return (
@@ -140,8 +143,16 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        height: '100%',
-        maxHeight: `${maxHeight}px`,
+        // If maxHeight is '100%', treat as full-height flexible container
+        height: typeof maxHeight === 'string' && maxHeight === '100%' ? '100%' : undefined,
+        flex: typeof maxHeight === 'string' && maxHeight === '100%' ? '1 1 auto' : undefined,
+        minHeight: typeof maxHeight === 'string' && maxHeight === '100%' ? 0 : undefined,
+        maxHeight:
+          typeof maxHeight === 'string' && maxHeight === '100%'
+            ? undefined
+            : typeof maxHeight === 'number'
+              ? `${maxHeight}px`
+              : maxHeight,
         bgcolor: 'background.paper',
         borderRadius: 1,
         overflow: 'hidden',
@@ -202,6 +213,7 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
             size="small"
             sx={{ 
               flexGrow: 1,
+              maxWidth: isCompact ? 160 : 240,
               '& .MuiInputBase-root': {
                 fontFamily: '"Open Sans", sans-serif',
               },
@@ -215,31 +227,69 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
             }}
           />
 
-          {/* Sort Menu */}
+          {/* Group and Sort Menus */}
+          <GroupMenu groupBy={groupBy} onChange={handleGroupChange} />
           <SortMenu order={order} onChange={handleOrderChange} />
         </Box>
-          {selectedAthletes.length > 0 && (
-            <Box>
-              <Chip
-                label={`${selectedAthletes.length} selected`}
-                color="primary"
-                size="small"
-                onDelete={() => onSelectionChange([])}
-              />
-            </Box>
-          )}
+          <Box>
+            <Chip
+              label={`Selected (${selectedAthletes.length})`}
+              color={selectedAthletes.length > 0 ? 'primary' : 'default'}
+              size="small"
+              clickable={selectedAthletes.length > 0}
+              onClick={selectedAthletes.length > 0 ? () => setMenuSelection('selected') : undefined}
+              onDelete={selectedAthletes.length > 0 ? () => onSelectionChange([]) : undefined}
+              sx={{
+                fontFamily: '"Open Sans", sans-serif',
+                '&.MuiChip-clickable': {
+                  cursor: selectedAthletes.length > 0 ? 'pointer' : 'default',
+                },
+              }}
+            />
+          </Box>
         </Stack>
       </Box>
 
       {/* Content - Simple Tree Navigation */}
       <Box sx={{ flexGrow: 1, overflow: 'auto' }}>
-        {menuSelection === 'historical' ? (
+        {menuSelection === 'selected' ? (
+          (() => {
+            const selectedList = [...viewAthletes]
+              .filter(a => selectedAthletes.includes(a.id))
+              .sort((a, b) => a.name.localeCompare(b.name));
+            if (order === 'desc') selectedList.reverse();
+            if (selectedList.length === 0) {
+              return (
+                <Box sx={{ p: 3, textAlign: 'center' }}>
+                  <Typography variant="body2" color="text.secondary">
+                    No selected athletes yet
+                  </Typography>
+                </Box>
+              );
+            }
+            return (
+              <>
+                {selectedList.map(athlete => {
+                  const isSelected = selectedAthletes.includes(athlete.id);
+                  return (
+                    <CompactAthleteCard
+                      key={athlete.id}
+                      athlete={athlete}
+                      isSelected={isSelected}
+                      onToggle={(id) => handleAthleteSelection(id, !isSelected)}
+                    />
+                  );
+                })}
+              </>
+            );
+          })()
+        ) : menuSelection === 'historical' ? (
           <GroupedAthleteList
             athletes={viewAthletes}
             selectedAthletes={selectedAthletes}
             onSelectionChange={handleAthleteSelection}
             onBatchSelectionChange={handleBatchSelection}
-            groupBy="position"
+            groupBy={groupBy}
             order={order}
             showOnlySelected={false}
           />
@@ -266,6 +316,10 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
                   ageGroup: 'FA',
                   status: 'available' as const,
                   avatar: undefined,
+                  dateOfBirth: '2000-01-01',
+                  squadNumber: 99,
+                  leagueId: `L-FA-${trimmed.toUpperCase()}`,
+                  labels: ['Free Agent', 'Available'],
                 };
                 const isSelected = selectedAthletes.includes(mock.id);
                 return (
@@ -284,6 +338,7 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
             selectedAthletes={selectedAthletes}
             onSelectionChange={handleAthleteSelection}
             onBatchSelectionChange={handleBatchSelection}
+            groupBy={groupBy}
             order={order}
           />
         )}

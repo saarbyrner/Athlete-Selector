@@ -10,6 +10,7 @@ import {
 import { Group as GroupIcon } from '@mui/icons-material';
 import { Athlete } from './types';
 import { getStatusColor, getStatusLabel } from './utils';
+import { PlayerProfileHoverCard } from './PlayerProfileHoverCard';
 
 interface CompactAthleteCardProps {
   athlete: Athlete;
@@ -64,56 +65,67 @@ export const CompactAthleteCard: React.FC<CompactAthleteCardProps> = ({
         }}
       />
 
-      {/* Avatar or Group Icon */}
-      <Box sx={{ mr: 1, position: 'relative' }}>
-        <Avatar
-          src={isAggregate ? undefined : athlete.avatar}
-          alt={athlete.name}
-          sx={{
-            width: 34,
-            height: 34,
-            bgcolor: isAggregate ? 'grey.300' : undefined,
-          }}
-        >
-          {isAggregate && (
-            <GroupIcon 
-              sx={{ 
-                fontSize: 18, 
-                color: 'text.secondary' 
-              }} 
-            />
-          )}
-        </Avatar>
-      </Box>
+      {/* Avatar, Name and Position wrapped with hover profile card */}
+      <PlayerProfileHoverCard
+        athlete={athlete}
+        squads={[athlete.ageGroup]}
+        dateOfBirth={athlete.dateOfBirth}
+        squadNumber={athlete.squadNumber}
+        leagueId={athlete.leagueId}
+        labels={athlete.labels}
+        enabled={!isAggregate}
+      >
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ mr: 1, position: 'relative' }}>
+            <Avatar
+              src={isAggregate ? undefined : athlete.avatar}
+              alt={athlete.name}
+              sx={{
+                width: 34,
+                height: 34,
+                bgcolor: isAggregate ? 'grey.300' : undefined,
+              }}
+            >
+              {isAggregate && (
+                <GroupIcon 
+                  sx={{ 
+                    fontSize: 18, 
+                    color: 'text.secondary' 
+                  }} 
+                />
+              )}
+            </Avatar>
+          </Box>
 
-      {/* Name and Position */}
-      <Box sx={{ flexGrow: 1, minWidth: 0 }}>
-        <Typography
-          variant="body1"
-          sx={{
-            fontFamily: '"Open Sans", sans-serif',
-            fontSize: '1rem',
-            fontWeight: 400,
-            color: 'text.primary',
-            lineHeight: 1.3,
-            mb: 0,
-          }}
-        >
-          {athlete.name}
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            fontFamily: '"Open Sans", sans-serif',
-            fontSize: '0.875rem',
-            fontWeight: 400,
-            color: 'text.secondary',
-            lineHeight: 1.3,
-          }}
-        >
-          {athlete.position}
-        </Typography>
-      </Box>
+          <Box sx={{ flexGrow: 1, minWidth: 0 }}>
+            <Typography
+              variant="body1"
+              sx={{
+                fontFamily: '"Open Sans", sans-serif',
+                fontSize: '1rem',
+                fontWeight: 400,
+                color: 'text.primary',
+                lineHeight: 1.3,
+                mb: 0,
+              }}
+            >
+              {athlete.name}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontFamily: '"Open Sans", sans-serif',
+                fontSize: '0.875rem',
+                fontWeight: 400,
+                color: 'text.secondary',
+                lineHeight: 1.3,
+              }}
+            >
+              {athlete.position}
+            </Typography>
+          </Box>
+        </Box>
+      </PlayerProfileHoverCard>
 
       {/* Status Chip */}
       {!isAggregate && (
@@ -123,6 +135,7 @@ export const CompactAthleteCard: React.FC<CompactAthleteCardProps> = ({
           size="small"
           variant="filled"
           sx={{
+            ml: 'auto',
             minWidth: 70,
             height: 24,
             fontFamily: '"Open Sans", sans-serif',

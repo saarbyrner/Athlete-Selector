@@ -22,11 +22,13 @@ import { SimpleTreeNavigationList } from './SimpleTreeNavigationList';
 import { SortMenu } from './SortMenu';
 import { GroupMenu } from './GroupMenu';
 import { AthleteSelectorContentProps, FilterOptions, SortOrder } from './types';
+import { clubs } from './mockData';
 import {
   filterAthletes,
   sortAthletes,
 } from './utils';
 import { CompactAthleteCard } from './CompactAthleteCard';
+import { ClubsList } from './ClubsList';
 
 export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> = ({
   athletes,
@@ -77,6 +79,7 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
     // - selected: show only selected and group by position
     // - squads: current squads list, group by squad by default
     // - free-agents: show empty listing for now
+    // - clubs: show clubs view
     // - historical: flat list of historical athletes, group by position
     let filterValue = 'all';
     setMenuSelection(squadId);
@@ -86,6 +89,9 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
         break;
       case 'squads':
         filterValue = 'current';
+        break;
+      case 'clubs':
+        filterValue = 'all';
         break;
       case 'free-agents':
         filterValue = 'free-agents';
@@ -293,6 +299,8 @@ export const AthleteSelectorTreeContent: React.FC<AthleteSelectorContentProps> =
             order={order}
             showOnlySelected={false}
           />
+        ) : menuSelection === 'clubs' ? (
+          <ClubsList clubs={clubs} />
         ) : menuSelection === 'free-agents' ? (
           filters.searchTerm.trim() === '' ? (
             <Box sx={{ p: 3, textAlign: 'center' }}>

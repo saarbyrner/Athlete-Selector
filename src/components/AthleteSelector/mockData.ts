@@ -303,3 +303,27 @@ built = ensureSquadSize(built, 'U27', 6, 400);
 built = ensureSquadSize(built, 'U30', 4, 500);
 
 export const mockAthletes: Athlete[] = built;
+
+// Premier League clubs (example data for Clubs view)
+export const clubs: string[] = [
+  'Arsenal',
+  'Aston Villa',
+  'Bournemouth',
+  'Brentford',
+  'Brighton & Hove Albion',
+  'Chelsea',
+  'Crystal Palace',
+  'Everton',
+  'Fulham',
+  'Ipswich Town',
+  'Leicester City',
+  'Liverpool',
+  'Manchester City',
+  'Manchester United',
+  'Newcastle United',
+  'Nottingham Forest',
+  'Southampton',
+  'Tottenham Hotspur',
+  'West Ham United',
+  'Wolverhampton Wanderers',
+];

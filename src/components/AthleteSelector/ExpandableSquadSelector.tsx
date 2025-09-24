@@ -39,6 +39,7 @@ const SHOW_SELECTED_BELOW_DROPDOWN = true;
 
 const squadOptions: SquadOption[] = [
   { id: 'squads', label: 'Squads' },
+  { id: 'clubs', label: 'Clubs' },
   { id: 'free-agents', label: 'Free Agents' },
   { id: 'historical', label: 'Historical Athletes' },
   { id: 'selected', label: 'Selected', isSpecial: true },

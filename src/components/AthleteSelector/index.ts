@@ -10,6 +10,7 @@ export { AthleteSelectorDrawer } from './AthleteSelectorDrawer';
 export { AthleteSelectorDropdown } from './AthleteSelectorDropdown';
 export { SimpleTreeNavigationList } from './SimpleTreeNavigationList';
 export { PlayerProfileHoverCard } from './PlayerProfileHoverCard';
+export { ClubsList } from './ClubsList';
 
 export * from './types';
 export * from './utils';

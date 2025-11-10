@@ -128,6 +128,8 @@ export const GroupedAthleteList: React.FC<GroupedAthleteListProps> = ({
         name: key,
         position: 'Aggregate',
         ageGroup: within[0]?.ageGroup || 'U23',
+        clubId: within[0]?.clubId || 'aggregate',
+        clubName: within[0]?.clubName || 'Aggregate',
         status: 'available',
         avatar: '',
       } : undefined;

@@ -121,7 +121,7 @@ export const CompactAthleteCard: React.FC<CompactAthleteCardProps> = ({
                 lineHeight: 1.3,
               }}
             >
-              {athlete.position}
+              {isAggregate ? athlete.position : `${athlete.clubName} • ${athlete.position}`}
             </Typography>
           </Box>
         </Box>

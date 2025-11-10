@@ -70,7 +70,8 @@ export const filterAthletes = (athletes: Athlete[], filters: FilterOptions): Ath
       const searchLower = filters.searchTerm.toLowerCase();
       if (!athlete.name.toLowerCase().includes(searchLower) &&
           !athlete.position.toLowerCase().includes(searchLower) &&
-          !athlete.ageGroup.toLowerCase().includes(searchLower)) {
+          !athlete.ageGroup.toLowerCase().includes(searchLower) &&
+          !athlete.clubName.toLowerCase().includes(searchLower)) {
         return false;
       }
     }

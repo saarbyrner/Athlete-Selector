@@ -4,6 +4,8 @@ export interface Athlete {
   position: string;
   ageGroup: string;
   avatar?: string;
+  clubId: string;
+  clubName: string;
   status: 'available' | 'unavailable' | 'injured';
   // Optional profile fields for hover card
   dateOfBirth?: string;

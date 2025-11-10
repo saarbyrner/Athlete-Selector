@@ -214,10 +214,12 @@ export const PlayerProfileHoverCard: React.FC<PlayerProfileHoverCardProps> = ({
 
           {/* Details grid (always render rows) */}
           <Box sx={{ display: 'grid', gridTemplateColumns: 'auto 1fr', rowGap: 0.5, columnGap: 1 }}>
+            <Typography variant="caption" color="text.secondary">Club</Typography>
+            <Typography variant="body2">{athlete.clubName || '—'}</Typography>
             <Typography variant="caption" color="text.secondary">DOB</Typography>
             <Typography variant="body2">{dateOfBirth || '—'}</Typography>
             <Typography variant="caption" color="text.secondary">Squad Number</Typography>
-            <Typography variant="body2">{(squadNumber ?? '—') as any}</Typography>
+            <Typography variant="body2">{squadNumber ?? '—'}</Typography>
             <Typography variant="caption" color="text.secondary">League ID</Typography>
             <Typography variant="body2">{leagueId || '—'}</Typography>
           </Box>

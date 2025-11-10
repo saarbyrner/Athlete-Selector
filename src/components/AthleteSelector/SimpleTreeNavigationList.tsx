@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Box,
   List,
@@ -17,10 +17,19 @@ import {
 import { GroupedAthleteList } from './GroupedAthleteList';
 import { Athlete, SortOrder } from './types';
 
-interface Squad {
+interface SquadNode {
+  id: string;
+  name: string;
+  clubId: string;
+  clubName: string;
+  athletes: Athlete[];
+}
+
+interface ClubNode {
   id: string;
   name: string;
   athletes: Athlete[];
+  squads: SquadNode[];
 }
 
 interface SimpleTreeNavigationListProps {
@@ -40,63 +49,102 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
   order = 'asc',
   groupBy = 'position',
 }) => {
-  const [selectedSquad, setSelectedSquad] = useState<Squad | null>(null);
+  const [activeClubId, setActiveClubId] = useState<string | null>(null);
+  const [activeSquadId, setActiveSquadId] = useState<string | null>(null);
 
-  // Group athletes by squad/age group - ONLY ONE LEVEL
-  const squads: Squad[] = React.useMemo(() => {
-    const squadMap: { [key: string]: Athlete[] } = {};
+  // Build the club → squad → athlete hierarchy so the tree view can drill down one level at a time
+  const clubs: ClubNode[] = useMemo(() => {
+    const clubMap = new Map<string, { name: string; athletes: Athlete[]; squads: Map<string, Athlete[]> }>();
 
-    athletes.forEach(athlete => {
-      const squadKey = athlete.ageGroup;
-      if (!squadMap[squadKey]) {
-        squadMap[squadKey] = [];
+    athletes.forEach((athlete) => {
+      if (!clubMap.has(athlete.clubId)) {
+        clubMap.set(athlete.clubId, {
+          name: athlete.clubName,
+          athletes: [],
+          squads: new Map(),
+        });
       }
-      squadMap[squadKey].push(athlete);
+
+      const entry = clubMap.get(athlete.clubId)!;
+      entry.athletes.push(athlete);
+
+      if (!entry.squads.has(athlete.ageGroup)) {
+        entry.squads.set(athlete.ageGroup, []);
+      }
+      entry.squads.get(athlete.ageGroup)!.push(athlete);
     });
 
-    return Object.entries(squadMap).map(([id, squadAthletes]) => ({
-      id,
-      name: id,
-      athletes: squadAthletes,
-    })).sort((a, b) => {
-      // Sort squads by age group (U23, U21, U19, etc.)
-      const getAgeNumber = (name: string) => {
-        const match = name.match(/U(\d+)/);
-        return match ? parseInt(match[1]) : 0;
-      };
-      return getAgeNumber(b.name) - getAgeNumber(a.name); // Descending order
-    });
+    const getAgeNumber = (value: string) => {
+      const match = value.match(/U(\d+)/);
+      return match ? parseInt(match[1], 10) : 0;
+    };
+
+    return Array.from(clubMap.entries())
+      .map(([id, value]) => ({
+        id,
+        name: value.name,
+        athletes: value.athletes,
+        squads: Array.from(value.squads.entries())
+          .map(([squadId, squadAthletes]) => ({
+            id: squadId,
+            name: squadId,
+            clubId: id,
+            clubName: value.name,
+            athletes: squadAthletes,
+          }))
+          .sort((a, b) => getAgeNumber(b.name) - getAgeNumber(a.name)),
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name));
   }, [athletes]);
 
-  const handleSquadSelect = (squad: Squad) => {
-    setSelectedSquad(squad);
-  };
+  const activeClub = useMemo(() => (
+    activeClubId ? clubs.find(club => club.id === activeClubId) ?? null : null
+  ), [activeClubId, clubs]);
 
-  const handleBack = () => {
-    setSelectedSquad(null);
-  };
+  const activeSquad = useMemo(() => (
+    activeClub && activeSquadId
+      ? activeClub.squads.find(squad => squad.id === activeSquadId) ?? null
+      : null
+  ), [activeClub, activeSquadId]);
 
-  const handleSelectAll = (groupAthletes: Athlete[]) => {
-    const allSelected = groupAthletes.every(athlete => 
-      selectedAthletes.includes(athlete.id)
-    );
-    const athleteIds = groupAthletes.map(athlete => athlete.id);
+  const toggleGroupSelection = (groupAthletes: Athlete[]) => {
+    const ids = groupAthletes.map(athlete => athlete.id);
+    if (ids.length === 0) return;
+
+    const allSelected = groupAthletes.every(athlete => selectedAthletes.includes(athlete.id));
     const shouldSelect = !allSelected;
 
     if (onBatchSelectionChange) {
-      onBatchSelectionChange(athleteIds, shouldSelect);
+      onBatchSelectionChange(ids, shouldSelect);
     } else {
-      athleteIds.forEach(athleteId => {
-        onSelectionChange(athleteId, shouldSelect);
-      });
+      ids.forEach(id => onSelectionChange(id, shouldSelect));
     }
   };
 
-  // If a squad is selected, show the SAME grouped athlete list as accordion version
-  if (selectedSquad) {
+  const handleClubSelect = (club: ClubNode) => {
+    setActiveClubId(club.id);
+    setActiveSquadId(null);
+  };
+
+  const handleBackToClubs = () => {
+    setActiveClubId(null);
+    setActiveSquadId(null);
+  };
+
+  const handleSquadSelect = (squad: SquadNode) => {
+    setActiveSquadId(squad.id);
+  };
+
+  const handleBackToSquads = () => {
+    setActiveSquadId(null);
+  };
+
+  if (activeSquad && activeClub) {
+    const selectedCount = activeSquad.athletes.filter(a => selectedAthletes.includes(a.id)).length;
+    const isAllSelected = activeSquad.athletes.length > 0 && selectedCount === activeSquad.athletes.length;
+
     return (
       <Box sx={{ width: '100%' }}>
-        {/* Header with back button */}
         <Box
           sx={{
             display: 'flex',
@@ -109,31 +157,62 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
           }}
         >
           <IconButton
-            onClick={handleBack}
+            onClick={handleBackToSquads}
             size="small"
             sx={{ mr: 1 }}
           >
             <ArrowBackIcon fontSize="small" />
           </IconButton>
-          
-          <Typography
-            variant="h6"
+
+          <Box sx={{ flexGrow: 1, minWidth: 0 }}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontFamily: '"Open Sans", sans-serif',
+                fontSize: '1rem',
+                fontWeight: 600,
+                color: 'text.primary',
+                lineHeight: 1.2,
+              }}
+            >
+              {activeSquad.name}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontFamily: '"Open Sans", sans-serif',
+                color: 'text.secondary',
+                lineHeight: 1.2,
+              }}
+            >
+              {activeClub.name}
+            </Typography>
+          </Box>
+
+          <Button
+            size="small"
+            onClick={() => toggleGroupSelection(activeSquad.athletes)}
             sx={{
               fontFamily: '"Open Sans", sans-serif',
-              fontSize: '1rem',
-              fontWeight: 600,
+              fontSize: '0.875rem',
+              fontWeight: 400,
               color: 'text.primary',
-              flexGrow: 1,
+              textTransform: 'none',
+              minWidth: 'auto',
+              p: 0,
+              '&:hover': {
+                backgroundColor: 'transparent',
+                textDecoration: 'underline',
+              },
             }}
           >
-            {selectedSquad.name}
-          </Typography>
+            {isAllSelected ? 'Deselect all' : 'Select all'}
+          </Button>
         </Box>
 
-        {/* Use the SAME GroupedAthleteList as accordion version */}
         <Box sx={{ overflow: 'auto' }}>
           <GroupedAthleteList
-            athletes={selectedSquad.athletes}
+            athletes={activeSquad.athletes}
             selectedAthletes={selectedAthletes}
             onSelectionChange={onSelectionChange}
             onBatchSelectionChange={onBatchSelectionChange}
@@ -145,23 +224,170 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
     );
   }
 
-  // Show simple squad list (matching Figma design exactly)
+  if (activeClub) {
+    const selectedCount = activeClub.athletes.filter(a => selectedAthletes.includes(a.id)).length;
+    const isAllSelected = activeClub.athletes.length > 0 && selectedCount === activeClub.athletes.length;
+
+    return (
+      <Box sx={{ width: '100%' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            px: 2,
+            py: 1.5,
+            borderBottom: '1px solid',
+            borderColor: 'divider',
+            backgroundColor: 'background.paper',
+          }}
+        >
+          <IconButton
+            onClick={handleBackToClubs}
+            size="small"
+            sx={{ mr: 1 }}
+          >
+            <ArrowBackIcon fontSize="small" />
+          </IconButton>
+
+          <Typography
+            variant="h6"
+            sx={{
+              fontFamily: '"Open Sans", sans-serif',
+              fontSize: '1rem',
+              fontWeight: 600,
+              color: 'text.primary',
+              flexGrow: 1,
+            }}
+          >
+            {activeClub.name}
+            {selectedCount > 0 && (
+              <Typography component="span" variant="body2" sx={{ color: 'text.secondary', ml: 0.5 }}>
+                ({selectedCount})
+              </Typography>
+            )}
+          </Typography>
+
+          <Button
+            size="small"
+            onClick={() => toggleGroupSelection(activeClub.athletes)}
+            sx={{
+              fontFamily: '"Open Sans", sans-serif',
+              fontSize: '0.875rem',
+              fontWeight: 400,
+              color: 'text.primary',
+              textTransform: 'none',
+              minWidth: 'auto',
+              p: 0,
+              '&:hover': {
+                backgroundColor: 'transparent',
+                textDecoration: 'underline',
+              },
+            }}
+          >
+            {isAllSelected ? 'Deselect all' : 'Select all'}
+          </Button>
+        </Box>
+
+        <Paper elevation={0} sx={{ width: '100%' }}>
+          <List sx={{ py: 0 }}>
+            {activeClub.squads.map((squad) => {
+              const selectedSquadCount = squad.athletes.filter(a => selectedAthletes.includes(a.id)).length;
+              const squadAllSelected = squad.athletes.length > 0 && selectedSquadCount === squad.athletes.length;
+
+              return (
+                <ListItem key={squad.id} disablePadding>
+                  <ListItemButton
+                    onClick={() => handleSquadSelect(squad)}
+                    sx={{
+                      px: 2,
+                      py: 1,
+                      '&:hover': {
+                        backgroundColor: 'action.hover',
+                      },
+                    }}
+                  >
+                    <ListItemText
+                      primary={
+                        <Typography
+                          sx={{
+                            fontFamily: '"Open Sans", sans-serif',
+                            fontSize: '1rem',
+                            fontWeight: 400,
+                            color: 'text.primary',
+                          }}
+                        >
+                          {squad.name}
+                          {selectedSquadCount > 0 && (
+                            <Typography component="span" variant="body2" sx={{ color: 'text.secondary', ml: 0.5 }}>
+                              ({selectedSquadCount})
+                            </Typography>
+                          )}
+                        </Typography>
+                      }
+                    />
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <Button
+                        size="small"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleGroupSelection(squad.athletes);
+                        }}
+                        sx={{
+                          fontFamily: '"Open Sans", sans-serif',
+                          fontSize: '0.8125rem',
+                          fontWeight: 400,
+                          color: 'text.primary',
+                          textTransform: 'none',
+                          minWidth: 'auto',
+                          p: 0,
+                          '&:hover': {
+                            backgroundColor: 'transparent',
+                            textDecoration: 'underline',
+                          },
+                        }}
+                      >
+                        {squadAllSelected ? 'Deselect all' : 'Select all'}
+                      </Button>
+                      <ChevronRightIcon fontSize="small" sx={{ color: 'text.secondary' }} />
+                    </Box>
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
+          </List>
+        </Paper>
+      </Box>
+    );
+  }
+
+  if (clubs.length === 0) {
+    return (
+      <Box sx={{ p: 3, textAlign: 'center' }}>
+        <Typography variant="body2" color="text.secondary">
+          No athletes available
+        </Typography>
+      </Box>
+    );
+  }
+
   return (
     <Paper elevation={0} sx={{ width: '100%' }}>
       <List sx={{ py: 0 }}>
-        {squads.map((squad) => {
-          const isHighlighted = squad.name === 'U23'; // Highlight U23s as shown in Figma
-          
+        {clubs.map((club) => {
+          const selectedCount = club.athletes.filter(a => selectedAthletes.includes(a.id)).length;
+          const isAllSelected = club.athletes.length > 0 && selectedCount === club.athletes.length;
+          const isHighlighted = club.squads.some(squad => squad.name === 'U23');
+
           return (
             <ListItem
-              key={squad.id}
+              key={club.id}
               disablePadding
               sx={{
                 backgroundColor: isHighlighted ? 'action.selected' : 'transparent',
               }}
             >
               <ListItemButton
-                onClick={() => handleSquadSelect(squad)}
+                onClick={() => handleClubSelect(club)}
                 sx={{
                   px: 2,
                   py: 1,
@@ -180,51 +406,53 @@ export const SimpleTreeNavigationList: React.FC<SimpleTreeNavigationListProps> =
                         color: 'text.primary',
                       }}
                     >
-                      {squad.name}
-                      {(() => {
-                        const selectedCount = squad.athletes.filter(a => selectedAthletes.includes(a.id)).length;
-                        return selectedCount > 0 ? (
-                          <Typography component="span" variant="body2" sx={{ color: 'text.secondary', ml: 0.5 }}>
-                            ({selectedCount})
-                          </Typography>
-                        ) : null;
-                      })()}
+                      {club.name}
+                      {selectedCount > 0 && (
+                        <Typography component="span" variant="body2" sx={{ color: 'text.secondary', ml: 0.5 }}>
+                          ({selectedCount})
+                        </Typography>
+                      )}
                     </Typography>
                   }
-                />
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  {(() => {
-                    const selectedCount = squad.athletes.filter(a => selectedAthletes.includes(a.id)).length;
-                    const isAllSelected = selectedCount === squad.athletes.length && squad.athletes.length > 0;
-                    return (
-                      <Button
-                        size="small"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleSelectAll(squad.athletes);
-                        }}
+                  secondary={
+                    club.squads.length > 0 ? (
+                      <Typography
+                        variant="body2"
                         sx={{
                           fontFamily: '"Open Sans", sans-serif',
                           fontSize: '0.8125rem',
-                          fontWeight: 400,
-                          color: 'text.primary',
-                          textTransform: 'none',
-                          minWidth: 'auto',
-                          p: 0,
-                          '&:hover': {
-                            backgroundColor: 'transparent',
-                            textDecoration: 'underline',
-                          },
+                          color: 'text.secondary',
                         }}
                       >
-                        {isAllSelected ? 'Deselect all' : 'Select all'}
-                      </Button>
-                    );
-                  })()}
-                  <ChevronRightIcon 
-                    fontSize="small" 
-                    sx={{ color: 'text.secondary' }} 
-                  />
+                        {club.squads.map(squad => squad.name).join(', ')}
+                      </Typography>
+                    ) : undefined
+                  }
+                />
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <Button
+                    size="small"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleGroupSelection(club.athletes);
+                    }}
+                    sx={{
+                      fontFamily: '"Open Sans", sans-serif',
+                      fontSize: '0.8125rem',
+                      fontWeight: 400,
+                      color: 'text.primary',
+                      textTransform: 'none',
+                      minWidth: 'auto',
+                      p: 0,
+                      '&:hover': {
+                        backgroundColor: 'transparent',
+                        textDecoration: 'underline',
+                      },
+                    }}
+                  >
+                    {isAllSelected ? 'Deselect all' : 'Select all'}
+                  </Button>
+                  <ChevronRightIcon fontSize="small" sx={{ color: 'text.secondary' }} />
                 </Box>
               </ListItemButton>
             </ListItem>

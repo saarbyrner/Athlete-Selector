@@ -1,7 +1,9 @@
 import { Athlete } from './types';
 
+type AthleteSeed = Omit<Athlete, 'clubId' | 'clubName'>;
+
 // Base list preserved so existing IDs (used in stories) still work
-const baseAthletes: Athlete[] = [
+const baseAthletes: AthleteSeed[] = [
   // U23 Athletes (not in current squads filter)
   {
     id: 'adams-john',
@@ -253,7 +255,7 @@ const LABEL_SETS = [
   ['Academy'],
 ];
 
-function ensureSquadSize(all: Athlete[], ageGroup: string, target: number, seed = 1): Athlete[] {
+function ensureSquadSize(all: AthleteSeed[], ageGroup: string, target: number, seed = 1): AthleteSeed[] {
   const output = [...all];
   let i = 0;
   while (output.filter(a => a.ageGroup === ageGroup).length < target) {
@@ -288,7 +290,7 @@ function ensureSquadSize(all: Athlete[], ageGroup: string, target: number, seed 
 }
 
 // Build final list: guarantee ~25 per current squads (U21, U19, U17)
-let built: Athlete[] = [...baseAthletes];
+let built: AthleteSeed[] = [...baseAthletes];
 
 built = ensureSquadSize(built, 'U21', 25);
 built = ensureSquadSize(built, 'U19', 25, 100);
@@ -302,7 +304,31 @@ built = ensureSquadSize(built, 'U25', 8, 300);
 built = ensureSquadSize(built, 'U27', 6, 400);
 built = ensureSquadSize(built, 'U30', 4, 500);
 
-export const mockAthletes: Athlete[] = built;
+const AGE_GROUP_TO_CLUB: Record<string, { id: string; name: string }> = {
+  U30: { id: 'manchester-united', name: 'Manchester United' },
+  U27: { id: 'manchester-united', name: 'Manchester United' },
+  U25: { id: 'manchester-united', name: 'Manchester United' },
+  U23: { id: 'manchester-city', name: 'Manchester City' },
+  U21: { id: 'arsenal', name: 'Arsenal' },
+  U19: { id: 'arsenal', name: 'Arsenal' },
+  U18: { id: 'chelsea', name: 'Chelsea' },
+  U17: { id: 'chelsea', name: 'Chelsea' },
+  U16: { id: 'liverpool', name: 'Liverpool' },
+  U14: { id: 'liverpool', name: 'Liverpool' },
+};
+
+const DEFAULT_CLUB = { id: 'academy-select', name: 'Academy Select' } as const;
+
+const addClubMetadata = (athlete: AthleteSeed): Athlete => {
+  const assignment = AGE_GROUP_TO_CLUB[athlete.ageGroup] ?? DEFAULT_CLUB;
+  return {
+    ...athlete,
+    clubId: assignment.id,
+    clubName: assignment.name,
+  };
+};
+
+export const mockAthletes: Athlete[] = built.map(addClubMetadata);
 
 // Premier League clubs (example data for Clubs view)
 export const clubs: string[] = [
